@@ -241,7 +241,7 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="克隆进度（依赖上一步的 task_id）">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="克隆进度（依赖克隆）">
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/import/check</stringProp>
@@ -263,7 +263,8 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="分支列表（会消耗 github api 次数）">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="分支列表">
+          <stringProp name="TestPlan.comments">会消耗 github api 次数</stringProp>
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/integration/repository/branch/list</stringProp>
@@ -285,7 +286,8 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="issue 列表（会消耗 github api 次数）">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="issue 列表">
+          <stringProp name="TestPlan.comments">会消耗 github api 次数</stringProp>
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/integration/repository/issue/list</stringProp>
@@ -307,7 +309,8 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="add &amp; commit（需要容器）" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="commit" enabled="false">
+          <stringProp name="TestPlan.comments">要求容器激活，包括add</stringProp>
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/add-commit/async</stringProp>
@@ -345,7 +348,7 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="commit result（依赖上一步的 cmd_id）" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="commit结果（依赖commit）" enabled="false">
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/git-check</stringProp>
@@ -366,7 +369,8 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="push（需要容器）" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="push" enabled="false">
+          <stringProp name="TestPlan.comments">要求容器激活</stringProp>
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/integration/repository/issue/list</stringProp>
@@ -395,7 +399,8 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="push result（依赖上一步的 cmd_id）" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="push结果（依赖push）" enabled="false">
+          <stringProp name="TestPlan.comments">和 commit 结果是同一个接口</stringProp>
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/git-check</stringProp>
@@ -417,6 +422,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建 pr" enabled="false">
+          <stringProp name="TestPlan.comments">会消耗 github api 次数，要求project和thread分支存在</stringProp>
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/commit-pr</stringProp>
@@ -494,7 +500,8 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="fetch &amp; reset（需要容器）" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="fetch" enabled="false">
+          <stringProp name="TestPlan.comments">要求容器激活</stringProp>
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/fetch</stringProp>
