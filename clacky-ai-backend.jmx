@@ -241,7 +241,7 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="克隆进度（依赖上一步的 task_id）">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="克隆进度（依赖上一步的 task_id）" enabled="false">
           <stringProp name="HTTPSampler.domain">staging.api.clackyai.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/import/check</stringProp>
