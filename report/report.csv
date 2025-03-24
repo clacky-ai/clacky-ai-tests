@@ -1,0 +1,16 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1742813793623,1022,wokspace 列表,200,OK,线程组 1-1,text,true,,587,1046,1,1,https://staging.api.clackyai.com/workspace/list,1022,0,1
+1742813794646,544,项目列表,200,OK,线程组 1-1,text,true,,18236,1104,1,1,https://staging.api.clackyai.com/project/list,543,0,0
+1742813795191,376,仓库列表,200,OK,线程组 1-1,text,true,,1603,1059,1,1,https://staging.api.clackyai.com/integration/repository/list,376,0,0
+1742813795568,320,创建项目,200,OK,线程组 1-1,text,true,,556,1238,1,1,https://staging.api.clackyai.com/project,320,0,0
+1742813795889,497,获取最近项目,200,OK,线程组 1-1,text,true,,508,1046,1,1,https://staging.api.clackyai.com/project/recent,497,0,0
+1742813796387,317,项目详情,200,OK,线程组 1-1,text,true,,511,1046,1,1,https://staging.api.clackyai.com/project/detail,317,0,0
+1742813796705,325,创建人列表,200,OK,线程组 1-1,text,true,,412,1051,1,1,https://staging.api.clackyai.com/thread/creator-list,325,0,0
+1742813797031,380,thread 列表,200,OK,线程组 1-1,text,true,,4376,1127,1,1,https://staging.api.clackyai.com/thread/list,380,0,0
+1742813797413,319,创建 root thread,200,OK,线程组 1-1,text,true,,877,1220,1,1,https://staging.api.clackyai.com/thread,318,0,0
+1742813797733,1829,克隆,200,OK,线程组 1-1,text,true,,1811,1132,1,1,https://staging.api.clackyai.com/thread/import/async,1829,0,0
+1742813799565,507,克隆进度（依赖上一步的 task_id）,200,OK,线程组 1-1,text,true,,215,1096,1,1,https://staging.api.clackyai.com/thread/import/check?task_id=3c0a8f6e-9d32-446e-93e5-2d662b0ff88d,507,0,0
+1742813800073,516,分支列表（会消耗 github api 次数）,200,OK,线程组 1-1,text,true,,1155,1117,1,1,https://staging.api.clackyai.com/integration/repository/branch/list?repository_id=01957ee6-de8b-7aa7-93af-fd2f0e6c0b16,516,0,0
+1742813800590,623,issue 列表（会消耗 github api 次数）,200,OK,线程组 1-1,text,true,,8828,1116,1,1,https://staging.api.clackyai.com/integration/repository/issue/list?repository_id=01957ee6-de8b-7aa7-93af-fd2f0e6c0b16,622,0,0
+1742813801214,497,是否有开启的 pr,200,OK,线程组 1-1,text,true,,187,1048,1,1,https://staging.api.clackyai.com/thread/opened-pr,497,0,0
+1742813801712,408,创建 issue thread,200,OK,线程组 1-1,text,true,,887,1223,1,1,https://staging.api.clackyai.com/thread/create-another,408,0,0
