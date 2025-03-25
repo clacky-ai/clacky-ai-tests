@@ -13,7 +13,7 @@
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="clacky-ai-manager-test">
-        <intProp name="ThreadGroup.num_threads">30</intProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads, 1)}</stringProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
