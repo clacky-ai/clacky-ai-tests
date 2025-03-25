@@ -551,7 +551,7 @@
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/charles/smb/clacky-ai-tests/report/results.csv</stringProp>
+        <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
