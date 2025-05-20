@@ -18,7 +18,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
@@ -30,12 +30,12 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="PAAS_DOMAIN" elementType="Argument">
               <stringProp name="Argument.name">PAAS_DOMAIN</stringProp>
-              <stringProp name="Argument.value">develop.clackypaas.com</stringProp>
+              <stringProp name="Argument.value">staging.clackypaas.com</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="BACKEND_DOMAIN" elementType="Argument">
               <stringProp name="Argument.name">BACKEND_DOMAIN</stringProp>
-              <stringProp name="Argument.value">develop.api.clackyai.com</stringProp>
+              <stringProp name="Argument.value">staging.api.clackyai.com</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="connectionID" elementType="Argument">
@@ -50,17 +50,17 @@
             </elementProp>
             <elementProp name="repositoryId" elementType="Argument">
               <stringProp name="Argument.name">repositoryId</stringProp>
-              <stringProp name="Argument.value">01963db7-e3d9-7be3-bda7-1d81d12cd9ce</stringProp>
+              <stringProp name="Argument.value">0196ec6c-26ae-7097-82f6-3d400aa7a24d</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="workspaceId" elementType="Argument">
               <stringProp name="Argument.name">workspaceId</stringProp>
-              <stringProp name="Argument.value">0191e5ad-2b22-7f7a-a905-d9ddb7015d4f</stringProp>
+              <stringProp name="Argument.value">0191d9fc-ea96-77e8-8f64-fc4dbca52de4</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="WSS_AGENT_DOMAIN" elementType="Argument">
               <stringProp name="Argument.name">WSS_AGENT_DOMAIN</stringProp>
-              <stringProp name="Argument.value">develop.agent.clackyai.com</stringProp>
+              <stringProp name="Argument.value">staging.agent.clackyai.com</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="myProjectId" elementType="Argument">
@@ -88,39 +88,14 @@
             </elementProp>
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDIyMkFBQSIsImtpZCI6Imluc18yamxoTFNvTVBpdWMxeUlCNFdKOHByb3QxbFUiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL2RldmVsb3AuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc0ODI0ODE2NywiaWF0IjoxNzQ3NjQzMzY3LCJpc3MiOiJodHRwczovL3NvbGlkLW1hcnRpbi0xNS5jbGVyay5hY2NvdW50cy5kZXYiLCJqdGkiOiI5MWEyMDExMjVhOTFkODViOWVlZCIsIm5iZiI6MTc0NzY0MzM2Miwic3ViIjoidXNlcl8ybHh3cE1qNE92eVVsTTZFYW56NWVDMjAwdjkifQ.dUGIB-Q16GxiXNb0AbAB58qPMcdi-Wta8z86WzjZwqbm2autlodphIvG1vBhcCjkU-iawzfQXLLekHt7Nno7-fghfTOR20aElwcGUJDiGbhLsYgNaxdKMpNhOGwgyFglHIMw2NsNg8EFl0ikMAGrVr1KySXXP1g8wUge9NL8d85ujCDAfWhqBNDGxd4hZMPEytw9-AjJB00OHdK6PJ48bwljbD1zg1J2gXgc_rTQ8gV5kLDgB_A7-JwYWYqKZUyySNXaLGOOes-Nb730OgAJzTlvHJ-yy2kAjR5a5ipC6JotNYFu7IFrG3Uy4IHk9LtnzqY1FUl5R05fmeFEs1RAWQ</stringProp>
+              <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDIyMkFBQSIsImtpZCI6Imluc18yamxoeHcyakdYZGFzYnpYRzVXN3pid2tVSmoiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3N0YWdpbmcuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc0ODU4NzIzNiwiaWF0IjoxNzQ3NzIzMjM2LCJpc3MiOiJodHRwczovL2NsZXJrLmNsYWNreWFpLmNvbSIsImp0aSI6ImMxYzQ5NjFjYTU4OTJlZGQ0MTgwIiwibmJmIjoxNzQ3NzIzMjMxLCJzdWIiOiJ1c2VyXzJsclhMZ3czVDFCS2FwOWdrWW9oRXNGbTZZeiJ9.TBaTcI0XuK7cP7orlzNIur4DaGoz160pOTdmgHsKszAtyAGgvP67SVgJSDG_nA57idDZbzTWtLSI2HxOCb1Dp6YKG0wd1uV93lyIiLP6DxRCTeRf-eWnruN20xSz7A3D7m2UgaLNHG8SJG_dfCgB9G2OPylru5hlNzkNSdKpGejbVwEeLiukefFHnb3yp_MjCpue5Nrh5tl-9vH7uKPns_ghEALPdojxMyJq6ICoU-A1LV2EJ333oh6wlHEfpwARElRup45wD5Uwm6fG-4M18oG8fqBiiPvI_XY8smMhEXifXIElRZ0z7_GVowoeWfMF6HVXKC71gpmFHm4b1MSecw </stringProp>
             </elementProp>
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Workspace-Id</stringProp>
-              <stringProp name="Header.value">0191e5ad-2b22-7f7a-a905-d9ddb7015d4f</stringProp>
+              <stringProp name="Header.value">${workspaceId}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
-        <hashTree/>
-        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="false">
-          <collectionProp name="CookieManager.cookies">
-            <elementProp name="Cookie" elementType="Cookie" testname="Cookie">
-              <stringProp name="Cookie.value">__clerk_db_jwt=dvb_2lxwmDn2G0IgkEl9VNwEUvj999q; __clerk_db_jwt_QxaAOpbX=dvb_2lxwmDn2G0IgkEl9VNwEUvj999q; theme=light; _ga=GA1.1.2138462971.1741164137; _gcl_au=1.1.1356644844.1741752029; _gc_usr_id_cs0_d0_sec0_part0=12698bac-ee34-4456-8471-e4ebb248523a; _clck=iqbs78%7C2%7Cfv1%7C0%7C1718; __client_uat_JRg3Ah0P=1744811574; __refresh_QxaAOpbX=BABXAJq7hQcqLXsx2v8h; __client_uat_QxaAOpbX=1744886855; __client_uat=1744886855; _ga_CPJ3B88FHQ=GS1.1.1745408635.156.1.1745409452.0.0.0; __session_QxaAOpbX=eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yamxoTFNvTVBpdWMxeUlCNFdKOHByb3QxbFUiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL2RldmVsb3AuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc0NTQwOTUxMywiZnZhIjpbODcwOSwtMV0sImlhdCI6MTc0NTQwOTQ1MywiaXNzIjoiaHR0cHM6Ly9zb2xpZC1tYXJ0aW4tMTUuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzQ1NDA5NDQzLCJzaWQiOiJzZXNzXzJ2cXlOM3FjRjBlNUIwdVNPSXphSnF6TU5MeiIsInN1YiI6InVzZXJfMmx4d3BNajRPdnlVbE02RWFuejVlQzIwMHY5In0.BMCQ-tFdaZV9yjvGgEVn_QOfoCYnxb_4NIYyQE-MEOE9fZc1JugM8KwNTV59XMbX1GwxCaHsEpUzDEZZtootKx-_Eo1VXtXRmkWNSC1QlSVYdXwldcG3Vx_KAZxi-qwYAOtS8La9CouXlbMJOS00YU2xkO-96Zr1O3nG93Jesk9VXUyPlZeZgjoKLwkDN3I6gMP22sNOtz-acDUBusj75jA-B8cEye7PgZ3RoXHd4DcGs8yrIMW2gpQzRqxH71fKnJbqynZLOq8QYQDIw4d8WRYx3HFO7dsFdPVAjI4B5XkKkE36Tfi4wVDfCpoGEAvWG6AlEVSgQled_Bf6QYOvig; __session=eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yamxoTFNvTVBpdWMxeUlCNFdKOHByb3QxbFUiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL2RldmVsb3AuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc0NTQwOTUxMywiZnZhIjpbODcwOSwtMV0sImlhdCI6MTc0NTQwOTQ1MywiaXNzIjoiaHR0cHM6Ly9zb2xpZC1tYXJ0aW4tMTUuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzQ1NDA5NDQzLCJzaWQiOiJzZXNzXzJ2cXlOM3FjRjBlNUIwdVNPSXphSnF6TU5MeiIsInN1YiI6InVzZXJfMmx4d3BNajRPdnlVbE02RWFuejVlQzIwMHY5In0.BMCQ-tFdaZV9yjvGgEVn_QOfoCYnxb_4NIYyQE-MEOE9fZc1JugM8KwNTV59XMbX1GwxCaHsEpUzDEZZtootKx-_Eo1VXtXRmkWNSC1QlSVYdXwldcG3Vx_KAZxi-qwYAOtS8La9CouXlbMJOS00YU2xkO-96Zr1O3nG93Jesk9VXUyPlZeZgjoKLwkDN3I6gMP22sNOtz-acDUBusj75jA-B8cEye7PgZ3RoXHd4DcGs8yrIMW2gpQzRqxH71fKnJbqynZLOq8QYQDIw4d8WRYx3HFO7dsFdPVAjI4B5XkKkE36Tfi4wVDfCpoGEAvWG6AlEVSgQled_Bf6QYOvig; ph_phc_1a53whGnMaVRpzjZAnAw7yUA1yyd7EGQx5S12GkTT7g_posthog=%7B%22distinct_id%22%3A%22user_2lxwpMj4OvyUlM6Eanz5eC200v9%22%2C%22%24sesid%22%3A%5B1745409455043%2C%2201966276-2c6e-76d3-97b2-cc89f52128f7%22%2C1745408633966%5D%2C%22%24epp%22%3Atrue%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22%24direct%22%2C%22u%22%3A%22https%3A%2F%2Fdevelop.app.clackyai.com%2Fdashboard%22%7D%7D; _gc_s_cs0_d0_sec0_part0=logs=1&amp;id=3fd772e3-30ff-4c58-a70e-d1d7c9f6e5a3&amp;created=1745408635203&amp;expire=1745410352518&amp;rum=1</stringProp>
-              <stringProp name="Cookie.domain"></stringProp>
-              <stringProp name="Cookie.path"></stringProp>
-              <boolProp name="Cookie.secure">false</boolProp>
-              <longProp name="Cookie.expires">0</longProp>
-              <boolProp name="Cookie.path_specified">true</boolProp>
-              <boolProp name="Cookie.domain_specified">true</boolProp>
-            </elementProp>
-            <elementProp name="authorization" elementType="Cookie" testname="authorization">
-              <stringProp name="Cookie.value">Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDIyMkFBQSIsImtpZCI6Imluc18yamxoTFNvTVBpdWMxeUlCNFdKOHByb3QxbFUiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL2RldmVsb3AuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc0NjA2NDg1MCwiaWF0IjoxNzQ1NDYwMDUwLCJpc3MiOiJodHRwczovL3NvbGlkLW1hcnRpbi0xNS5jbGVyay5hY2NvdW50cy5kZXYiLCJqdGkiOiI3MzQ3MjA5ODNlYjgwYjI0NzBkYyIsIm5iZiI6MTc0NTQ2MDA0NSwic3ViIjoidXNlcl8ybHh3cE1qNE92eVVsTTZFYW56NWVDMjAwdjkifQ.A0ySoxu7f9tSirG53ZvoE-ewLDPvv6985CpMKFbzlEj2yh6pyZ2t_tG6-heh9n3BECcwgreyDjRxkEoIqnwzxQ16FY6Svh6XgvHooZ3pzUWZYFNbwpLoBRe06tsEgQor0zWP3fNKA0y1yz6eeyOJFHO4ug7w6Es_rZo9Ze_J3gpjGXdJcl-Lxz_YsyH6GkhezvmAH-Nat5mBcNtXcmZNVWZm-OVecAzehljDvSOQg_DqX-_LioInm5WyZUu7_XAta5PNmmcr6l_MrSXrkDOUUcmwWuPr5G5FuGq_rfvT2h-rqYM0rsRXPI88PdvFIzAqA_bu97v-B97vxBUFx55IuQ</stringProp>
-              <stringProp name="Cookie.domain"></stringProp>
-              <stringProp name="Cookie.path"></stringProp>
-              <boolProp name="Cookie.secure">false</boolProp>
-              <longProp name="Cookie.expires">0</longProp>
-              <boolProp name="Cookie.path_specified">true</boolProp>
-              <boolProp name="Cookie.domain_specified">true</boolProp>
-            </elementProp>
-          </collectionProp>
-          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
-        </CookieManager>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend workspace list" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -703,6 +678,11 @@ if (statusCode.equals(&quot;430&quot;)) {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
+          <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="-&gt; AI wss close" enabled="true">
+            <stringProp name="statusCode">1000</stringProp>
+            <stringProp name="readTimeout">6000</stringProp>
+          </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas upgrade codezone" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -1554,8 +1534,8 @@ try {
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
             <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
-            <stringProp name="connectTimeout">300000</stringProp>
-            <stringProp name="readTimeout">60000</stringProp>
+            <stringProp name="connectTimeout">600000</stringProp>
+            <stringProp name="readTimeout">900000</stringProp>
           </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
           <hashTree/>
           <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; * AI wss isRoot" enabled="true">
@@ -1615,7 +1595,7 @@ try {
               <stringProp name="connectTimeout">20000</stringProp>
               <stringProp name="dataType">Text</stringProp>
               <boolProp name="createNewConnection">false</boolProp>
-              <stringProp name="readTimeout">12000</stringProp>
+              <stringProp name="readTimeout">900000</stringProp>
               <boolProp name="optional">false</boolProp>
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
             <hashTree>
@@ -1677,33 +1657,10 @@ if (statusCode.equals(&quot;430&quot;)) {
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听制定初始化环境计划（50步左右有解药）" enabled="false">
-            <boolProp name="LoopController.continue_forever">true</boolProp>
-            <stringProp name="LoopController.loops">50</stringProp>
-          </LoopController>
-          <hashTree>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听制定初始化环境计划" enabled="true">
-              <boolProp name="TLS">false</boolProp>
-              <stringProp name="server"></stringProp>
-              <stringProp name="port">80</stringProp>
-              <stringProp name="path"></stringProp>
-              <stringProp name="connectTimeout">20000</stringProp>
-              <stringProp name="dataType">Text</stringProp>
-              <boolProp name="createNewConnection">false</boolProp>
-              <stringProp name="readTimeout">6000</stringProp>
-              <boolProp name="optional">false</boolProp>
-            </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
-            <hashTree/>
-          </hashTree>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听指定初始化环境计划" enabled="true">
             <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount2&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount2&quot;)) &lt; 200 &amp;&amp; vars.get(&quot;planId&quot;) == null ),)}</stringProp>
           </WhileController>
           <hashTree>
-            <eu.luminis.jmeter.wssampler.PingPongSampler guiclass="eu.luminis.jmeter.wssampler.PingPongSamplerGui" testclass="eu.luminis.jmeter.wssampler.PingPongSampler" testname="WebSocket Ping/Pong" enabled="true">
-              <stringProp name="type">PingPong</stringProp>
-              <stringProp name="readTimeout">6000</stringProp>
-            </eu.luminis.jmeter.wssampler.PingPongSampler>
-            <hashTree/>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
               <stringProp name="CounterConfig.start">1</stringProp>
               <stringProp name="CounterConfig.end">201</stringProp>
@@ -1713,6 +1670,35 @@ if (statusCode.equals(&quot;430&quot;)) {
               <boolProp name="CounterConfig.per_user">false</boolProp>
             </CounterConfig>
             <hashTree/>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="websocket 重连" enabled="true">
+              <stringProp name="IfController.condition">${__javaScript(&quot;${RETRY}&quot;==&quot;true&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+            </IfController>
+            <hashTree>
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
+                <boolProp name="TLS">true</boolProp>
+                <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
+                <stringProp name="port">443</stringProp>
+                <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
+                <stringProp name="connectTimeout">600000</stringProp>
+                <stringProp name="readTimeout">900000</stringProp>
+              </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; * AI wss isRoot" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">40{&quot;isRoot&quot;:true}</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+            </hashTree>
             <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听制定初始化环境计划" enabled="true">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
@@ -1721,7 +1707,7 @@ if (statusCode.equals(&quot;430&quot;)) {
               <stringProp name="connectTimeout">20000</stringProp>
               <stringProp name="dataType">Text</stringProp>
               <boolProp name="createNewConnection">false</boolProp>
-              <stringProp name="readTimeout">12000</stringProp>
+              <stringProp name="readTimeout">900000</stringProp>
               <boolProp name="optional">false</boolProp>
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
             <hashTree>
@@ -1789,6 +1775,25 @@ try {
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">String code = prev.getResponseCode()
+
+if (code != null &amp;&amp; code.contains(&quot;Sampler error&quot;)) {
+	 log.info(&quot;====================重连&quot;)
+        vars.put(&quot;RETRY&quot;, &quot;true&quot;)
+   
+} else {
+    // 连接成功，不再重试
+    vars.put(&quot;RETRY&quot;, &quot;false&quot;)
+    log.info(&quot;连接成功&quot;)
+}
+</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
             </hashTree>
           </hashTree>
           <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 执行任务" enabled="true">
@@ -1798,21 +1803,24 @@ try {
             <stringProp name="path"></stringProp>
             <stringProp name="connectTimeout">20000</stringProp>
             <stringProp name="payloadType">Text</stringProp>
-            <stringProp name="requestData">420[&quot;uStartTask&quot;]</stringProp>
+            <stringProp name="requestData">421[&quot;uStartTask&quot;]</stringProp>
             <boolProp name="createNewConnection">false</boolProp>
             <boolProp name="loadDataFromFile">false</boolProp>
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听执行任务（30步左右有解药）" enabled="true">
-            <boolProp name="LoopController.continue_forever">true</boolProp>
-            <stringProp name="LoopController.loops">30</stringProp>
-          </LoopController>
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听执行任务" enabled="true">
+            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount3&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount3&quot;)) &lt; 30 &amp;&amp; vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;),)}</stringProp>
+          </WhileController>
           <hashTree>
-            <eu.luminis.jmeter.wssampler.PingPongSampler guiclass="eu.luminis.jmeter.wssampler.PingPongSamplerGui" testclass="eu.luminis.jmeter.wssampler.PingPongSampler" testname="WebSocket Ping/Pong" enabled="true">
-              <stringProp name="type">PingPong</stringProp>
-              <stringProp name="readTimeout">3000</stringProp>
-            </eu.luminis.jmeter.wssampler.PingPongSampler>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end">31</stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">loopCount3</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
             <hashTree/>
             <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听执行任务" enabled="true">
               <boolProp name="TLS">false</boolProp>
@@ -1822,10 +1830,72 @@ try {
               <stringProp name="connectTimeout">20000</stringProp>
               <stringProp name="dataType">Text</stringProp>
               <boolProp name="createNewConnection">false</boolProp>
-              <stringProp name="readTimeout">6000</stringProp>
+              <stringProp name="readTimeout">900000</stringProp>
               <boolProp name="optional">false</boolProp>
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
-            <hashTree/>
+            <hashTree>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析任务执行结果" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.json.JSONArray;
+
+try {
+    // 获取原始响应字符串
+    String responseData = prev.getResponseDataAsString();
+
+    // 检查响应是否为空或无效
+    if (responseData == null || responseData.isEmpty()) {
+        log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
+    } else {
+        log.info(&quot;原始响应: &quot; + responseData);
+
+        // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
+        int bracketIndex = responseData.indexOf(&quot;[&quot;);
+        if (bracketIndex == -1) {
+            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            return;
+        }
+
+        String statusCode = responseData.substring(0, bracketIndex);
+        String jsonArrayStr = responseData.substring(bracketIndex);
+
+        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+
+        // 仅当状态码为42时处理
+        if (&quot;42&quot;.equals(statusCode)) {
+            try {
+                // 解析JSON数组
+                JSONArray jsonArray = new JSONArray(jsonArrayStr);
+
+                // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
+                if (jsonArray.length() &gt; 0 &amp;&amp; &quot;taskStateUpdated&quot;.equals(jsonArray.getString(0))) {
+                    log.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
+
+                    // 第二个元素是任务状态
+                    if (jsonArray.length() &gt; 1) {
+                        String taskStatus = jsonArray.getString(1);
+                        log.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
+
+                        // 设置变量供后续使用
+                        vars.put(&quot;taskStatus&quot;, taskStatus);
+                    }
+                } else {
+                    log.warn(&quot;⏩ 消息类型不是 taskStateUpdated&quot;);
+                }
+            } catch (Exception e) {
+                log.error(&quot;❌ JSON解析失败&quot;, e);
+            }
+        } else {
+            log.warn(&quot;⏩ 状态码不是42&quot;);
+        }
+    }
+} catch (Exception e) {
+    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+}</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+            </hashTree>
           </hashTree>
           <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 查看 commit 文件列表" enabled="true">
             <boolProp name="TLS">false</boolProp>
