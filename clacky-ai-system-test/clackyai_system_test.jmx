@@ -585,11 +585,6 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
             <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount&quot;)) &lt; 20 &amp;&amp; vars.get(&quot;firstEnvironmentFirstId&quot;) == null ),)}</stringProp>
           </WhileController>
           <hashTree>
-            <eu.luminis.jmeter.wssampler.PingPongSampler guiclass="eu.luminis.jmeter.wssampler.PingPongSamplerGui" testclass="eu.luminis.jmeter.wssampler.PingPongSampler" testname="WebSocket Ping/Pong" enabled="false">
-              <stringProp name="type">PingPong</stringProp>
-              <stringProp name="readTimeout">3000</stringProp>
-            </eu.luminis.jmeter.wssampler.PingPongSampler>
-            <hashTree/>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
               <stringProp name="CounterConfig.start">1</stringProp>
               <stringProp name="CounterConfig.end">21</stringProp>
@@ -1658,12 +1653,12 @@ if (statusCode.equals(&quot;430&quot;)) {
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听指定初始化环境计划" enabled="true">
-            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount2&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount2&quot;)) &lt; 200 &amp;&amp; vars.get(&quot;planId&quot;) == null ),)}</stringProp>
+            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount2&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount2&quot;)) &lt; 1000 &amp;&amp; vars.get(&quot;planId&quot;) == null ),)}</stringProp>
           </WhileController>
           <hashTree>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
               <stringProp name="CounterConfig.start">1</stringProp>
-              <stringProp name="CounterConfig.end">201</stringProp>
+              <stringProp name="CounterConfig.end">1001</stringProp>
               <stringProp name="CounterConfig.incr">1</stringProp>
               <stringProp name="CounterConfig.name">loopCount2</stringProp>
               <stringProp name="CounterConfig.format"></stringProp>
@@ -1693,6 +1688,19 @@ if (statusCode.equals(&quot;430&quot;)) {
                 <stringProp name="connectTimeout">20000</stringProp>
                 <stringProp name="payloadType">Text</stringProp>
                 <stringProp name="requestData">40{&quot;isRoot&quot;:true}</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 制定初始化环境计划" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">420[&quot;uMakePlan&quot;,&quot;Initialize the Development Environment&quot;,&quot;Follow instructions provided to initialize the development environment in Clacky&quot;,[&quot;Use Go environment to run the project with &apos;go run main.go&apos;&quot;,&quot;If package manager used in project, install it and use it to install dependencies for development.&quot;,&quot;Modify the .1024 file to configure the project and define the run_command. &quot;,&quot;Configure .gitignore file, excluding specified files and directories. &quot;,&quot;If database, redis used and *.example file exists, create env configuration files to add provided variables. &quot;]]</stringProp>
                 <boolProp name="createNewConnection">false</boolProp>
                 <boolProp name="loadDataFromFile">false</boolProp>
                 <stringProp name="dataFile"></stringProp>
@@ -1781,7 +1789,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="script">String code = prev.getResponseCode()
 
-if (code != null &amp;&amp; code.contains(&quot;Sampler error&quot;)) {
+if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) {
 	 log.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
@@ -1810,18 +1818,60 @@ if (code != null &amp;&amp; code.contains(&quot;Sampler error&quot;)) {
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听执行任务" enabled="true">
-            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount3&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount3&quot;)) &lt; 30 &amp;&amp; vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;),)}</stringProp>
+            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount3&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount3&quot;)) &lt; 100 &amp;&amp; vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;),)}</stringProp>
           </WhileController>
           <hashTree>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
               <stringProp name="CounterConfig.start">1</stringProp>
-              <stringProp name="CounterConfig.end">31</stringProp>
+              <stringProp name="CounterConfig.end">101</stringProp>
               <stringProp name="CounterConfig.incr">1</stringProp>
               <stringProp name="CounterConfig.name">loopCount3</stringProp>
               <stringProp name="CounterConfig.format"></stringProp>
               <boolProp name="CounterConfig.per_user">false</boolProp>
             </CounterConfig>
             <hashTree/>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="websocket 重连" enabled="true">
+              <stringProp name="IfController.condition">${__javaScript(&quot;${RETRY}&quot;==&quot;true&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+            </IfController>
+            <hashTree>
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
+                <boolProp name="TLS">true</boolProp>
+                <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
+                <stringProp name="port">443</stringProp>
+                <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
+                <stringProp name="connectTimeout">600000</stringProp>
+                <stringProp name="readTimeout">900000</stringProp>
+              </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; * AI wss isRoot" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">40{&quot;isRoot&quot;:true}</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 执行任务" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">421[&quot;uStartTask&quot;]</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+            </hashTree>
             <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听执行任务" enabled="true">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
@@ -1831,7 +1881,7 @@ if (code != null &amp;&amp; code.contains(&quot;Sampler error&quot;)) {
               <stringProp name="dataType">Text</stringProp>
               <boolProp name="createNewConnection">false</boolProp>
               <stringProp name="readTimeout">900000</stringProp>
-              <boolProp name="optional">false</boolProp>
+              <boolProp name="optional">true</boolProp>
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
             <hashTree>
               <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析任务执行结果" enabled="true">
@@ -1894,6 +1944,25 @@ try {
     log.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">String code = prev.getResponseCode()
+
+if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;)) {
+	 log.info(&quot;====================重连&quot;)
+        vars.put(&quot;RETRY&quot;, &quot;true&quot;)
+   
+} else {
+    // 连接成功，不再重试
+    vars.put(&quot;RETRY&quot;, &quot;false&quot;)
+    log.info(&quot;连接成功&quot;)
+}
+</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223PostProcessor>
               <hashTree/>
             </hashTree>
           </hashTree>
@@ -1958,6 +2027,473 @@ try {
               <boolProp name="optional">false</boolProp>
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
             <hashTree/>
+          </hashTree>
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 发送新需求消息" enabled="true">
+            <boolProp name="TLS">false</boolProp>
+            <stringProp name="server"></stringProp>
+            <stringProp name="port">80</stringProp>
+            <stringProp name="path"></stringProp>
+            <stringProp name="connectTimeout">20000</stringProp>
+            <stringProp name="payloadType">Text</stringProp>
+            <stringProp name="requestData">420[&quot;message&quot;,&quot;实现冒泡算法&quot;,false,false]</stringProp>
+            <boolProp name="createNewConnection">false</boolProp>
+            <boolProp name="loadDataFromFile">false</boolProp>
+            <stringProp name="dataFile"></stringProp>
+          </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+          <hashTree/>
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息处理情况" enabled="true">
+            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount4&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount4&quot;)) &lt; 50 &amp;&amp; vars.get(&quot;addTaskStepConfirmation&quot;) == null),)}</stringProp>
+          </WhileController>
+          <hashTree>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end">1001</stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">loopCount4</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="websocket 重连" enabled="true">
+              <stringProp name="IfController.condition">${__javaScript(&quot;${RETRY}&quot;==&quot;true&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+            </IfController>
+            <hashTree>
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
+                <boolProp name="TLS">true</boolProp>
+                <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
+                <stringProp name="port">443</stringProp>
+                <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
+                <stringProp name="connectTimeout">600000</stringProp>
+                <stringProp name="readTimeout">900000</stringProp>
+              </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; * AI wss isRoot" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">40{&quot;isRoot&quot;:true}</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 发送新需求消息" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">420[&quot;message&quot;,&quot;实现冒泡算法&quot;,false,false]</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+            </hashTree>
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听新需求消息处理" enabled="true">
+              <boolProp name="TLS">false</boolProp>
+              <stringProp name="server"></stringProp>
+              <stringProp name="port">80</stringProp>
+              <stringProp name="path"></stringProp>
+              <stringProp name="connectTimeout">20000</stringProp>
+              <stringProp name="dataType">Text</stringProp>
+              <boolProp name="createNewConnection">false</boolProp>
+              <stringProp name="readTimeout">900000</stringProp>
+              <boolProp name="optional">true</boolProp>
+            </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+            <hashTree>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析任务执行结果" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.json.JSONArray;
+
+try {
+    // 获取原始响应字符串
+    String responseData = prev.getResponseDataAsString();
+
+    // 检查响应是否为空或无效
+    if (responseData == null || responseData.isEmpty()) {
+        log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
+    } else {
+        log.info(&quot;原始响应: &quot; + responseData);
+
+        // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
+        int bracketIndex = responseData.indexOf(&quot;[&quot;);
+        if (bracketIndex == -1) {
+            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            return;
+        }
+
+        String statusCode = responseData.substring(0, bracketIndex);
+        String jsonArrayStr = responseData.substring(bracketIndex);
+
+        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+
+        // 仅当状态码为42时处理
+        if (&quot;42&quot;.equals(statusCode)) {
+            try {
+                // 解析JSON数组
+                JSONArray jsonArray = new JSONArray(jsonArrayStr);
+
+                // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
+                if (jsonArray.length() &gt; 0 &amp;&amp; &quot;addTaskStepConfirmation&quot;.equals(jsonArray.getString(0))) {
+                    log.info(&quot;✅ 检测到 addTaskStepConfirmation 消息&quot;);
+
+                  
+                   // 设置变量供后续使用
+                   vars.put(&quot;addTaskStepConfirmation&quot;, &quot;true&quot;);
+                   log.info(&quot;✅✅ ✅ ✅ ✅  检测到 addTaskStepConfirmation 消息&quot;);
+                    
+                } else {
+                    log.warn(&quot;⏩ 消息类型不是 addTaskStepConfirmation&quot;);
+                }
+            } catch (Exception e) {
+                log.error(&quot;❌ JSON解析失败&quot;, e);
+            }
+        } else {
+            log.warn(&quot;⏩ 状态码不是42&quot;);
+        }
+    }
+} catch (Exception e) {
+    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+}</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">String code = prev.getResponseCode()
+
+if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) {
+	 log.info(&quot;====================重连&quot;)
+        vars.put(&quot;RETRY&quot;, &quot;true&quot;)
+   
+} else {
+    // 连接成功，不再重试
+    vars.put(&quot;RETRY&quot;, &quot;false&quot;)
+    log.info(&quot;连接成功&quot;)
+}
+</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 追加步骤" enabled="true">
+            <boolProp name="TLS">false</boolProp>
+            <stringProp name="server"></stringProp>
+            <stringProp name="port">80</stringProp>
+            <stringProp name="path"></stringProp>
+            <stringProp name="connectTimeout">20000</stringProp>
+            <stringProp name="payloadType">Text</stringProp>
+            <stringProp name="requestData">421[&quot;uAddStep&quot;,{&quot;title&quot;:&quot;Implement Bubble Sort Algorithm in main.go&quot;,&quot;task_actions&quot;:[{&quot;action&quot;:&quot;modify_file&quot;,&quot;action_object&quot;:{&quot;path&quot;:&quot;main.go&quot;,&quot;target&quot;:&quot;&quot;,&quot;detailed_requirement&quot;:&quot;- Modify the main.go file to add bubbleSort function that implements the bubble sort algorithm\n- Update the main function to create a sample integer array\n- Print the array before sorting\n- Call bubbleSort function to sort the array\n- Print the array after sorting\n- The bubbleSort function should:\n  - Accept an integer slice as input\n  - Implement the classic bubble sort algorithm by comparing adjacent elements\n  - Swap elements if they are in the wrong order\n  - Continue until the array is fully sorted&quot;,&quot;references&quot;:[]},&quot;id&quot;:&quot;0&quot;}],&quot;merged&quot;:&quot;inited&quot;}]</stringProp>
+            <boolProp name="createNewConnection">false</boolProp>
+            <boolProp name="loadDataFromFile">false</boolProp>
+            <stringProp name="dataFile"></stringProp>
+          </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+          <hashTree/>
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听追加步骤情况" enabled="true">
+            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount5&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount5&quot;)) &lt; 50 &amp;&amp; vars.get(&quot;addTaskStepStatus&quot;) == null),)}</stringProp>
+          </WhileController>
+          <hashTree>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end">1001</stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">loopCount5</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="websocket 重连" enabled="true">
+              <stringProp name="IfController.condition">${__javaScript(&quot;${RETRY}&quot;==&quot;true&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+            </IfController>
+            <hashTree>
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
+                <boolProp name="TLS">true</boolProp>
+                <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
+                <stringProp name="port">443</stringProp>
+                <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
+                <stringProp name="connectTimeout">600000</stringProp>
+                <stringProp name="readTimeout">900000</stringProp>
+              </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; * AI wss isRoot" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">40{&quot;isRoot&quot;:true}</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 追加步骤" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">421[&quot;uAddStep&quot;,{&quot;title&quot;:&quot;Implement Bubble Sort Algorithm in main.go&quot;,&quot;task_actions&quot;:[{&quot;action&quot;:&quot;modify_file&quot;,&quot;action_object&quot;:{&quot;path&quot;:&quot;main.go&quot;,&quot;target&quot;:&quot;&quot;,&quot;detailed_requirement&quot;:&quot;- Modify the main.go file to add bubbleSort function that implements the bubble sort algorithm\n- Update the main function to create a sample integer array\n- Print the array before sorting\n- Call bubbleSort function to sort the array\n- Print the array after sorting\n- The bubbleSort function should:\n  - Accept an integer slice as input\n  - Implement the classic bubble sort algorithm by comparing adjacent elements\n  - Swap elements if they are in the wrong order\n  - Continue until the array is fully sorted&quot;,&quot;references&quot;:[]},&quot;id&quot;:&quot;0&quot;}],&quot;merged&quot;:&quot;inited&quot;}]</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+            </hashTree>
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听追加步骤" enabled="true">
+              <boolProp name="TLS">false</boolProp>
+              <stringProp name="server"></stringProp>
+              <stringProp name="port">80</stringProp>
+              <stringProp name="path"></stringProp>
+              <stringProp name="connectTimeout">20000</stringProp>
+              <stringProp name="dataType">Text</stringProp>
+              <boolProp name="createNewConnection">false</boolProp>
+              <stringProp name="readTimeout">900000</stringProp>
+              <boolProp name="optional">true</boolProp>
+            </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+            <hashTree>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析任务执行结果" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.json.JSONArray;
+
+try {
+    // 获取原始响应字符串
+    String responseData = prev.getResponseDataAsString();
+
+    // 检查响应是否为空或无效
+    if (responseData == null || responseData.isEmpty()) {
+        log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
+    } else {
+        log.info(&quot;原始响应: &quot; + responseData);
+
+        // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
+        int bracketIndex = responseData.indexOf(&quot;[&quot;);
+        if (bracketIndex == -1) {
+            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            return;
+        }
+
+        String statusCode = responseData.substring(0, bracketIndex);
+        String jsonArrayStr = responseData.substring(bracketIndex);
+
+        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+
+        // 仅当状态码为42时处理
+        if (&quot;431&quot;.equals(statusCode)) {
+           
+                  
+                        // 设置变量供后续使用
+                        vars.put(&quot;addTaskStepStatus&quot;, &quot;true&quot;);
+                    
+              
+        } else {
+            log.warn(&quot;⏩ 状态码不是431&quot;);
+        }
+    }
+} catch (Exception e) {
+    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+}</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">String code = prev.getResponseCode()
+
+if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) {
+	 log.info(&quot;====================重连&quot;)
+        vars.put(&quot;RETRY&quot;, &quot;true&quot;)
+   
+} else {
+    // 连接成功，不再重试
+    vars.put(&quot;RETRY&quot;, &quot;false&quot;)
+    log.info(&quot;连接成功&quot;)
+}
+</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 执行追加步骤任务" enabled="true">
+            <boolProp name="TLS">false</boolProp>
+            <stringProp name="server"></stringProp>
+            <stringProp name="port">80</stringProp>
+            <stringProp name="path"></stringProp>
+            <stringProp name="connectTimeout">20000</stringProp>
+            <stringProp name="payloadType">Text</stringProp>
+            <stringProp name="requestData">422[&quot;uStartTask&quot;]</stringProp>
+            <boolProp name="createNewConnection">false</boolProp>
+            <boolProp name="loadDataFromFile">false</boolProp>
+            <stringProp name="dataFile"></stringProp>
+          </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+          <hashTree/>
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听追加步骤执行任务" enabled="true">
+            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount6&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount6&quot;)) &lt; 100 &amp;&amp; vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;),)}</stringProp>
+          </WhileController>
+          <hashTree>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end">101</stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">loopCount6</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="websocket 重连" enabled="true">
+              <stringProp name="IfController.condition">${__javaScript(&quot;${RETRY}&quot;==&quot;true&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+            </IfController>
+            <hashTree>
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
+                <boolProp name="TLS">true</boolProp>
+                <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
+                <stringProp name="port">443</stringProp>
+                <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
+                <stringProp name="connectTimeout">600000</stringProp>
+                <stringProp name="readTimeout">900000</stringProp>
+              </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; * AI wss isRoot" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">40{&quot;isRoot&quot;:true}</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 执行追加步骤任务" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="connectTimeout">20000</stringProp>
+                <stringProp name="payloadType">Text</stringProp>
+                <stringProp name="requestData">422[&quot;uStartTask&quot;]</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <boolProp name="loadDataFromFile">false</boolProp>
+                <stringProp name="dataFile"></stringProp>
+              </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+              <hashTree/>
+            </hashTree>
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听追加步骤执行任务" enabled="true">
+              <boolProp name="TLS">false</boolProp>
+              <stringProp name="server"></stringProp>
+              <stringProp name="port">80</stringProp>
+              <stringProp name="path"></stringProp>
+              <stringProp name="connectTimeout">20000</stringProp>
+              <stringProp name="dataType">Text</stringProp>
+              <boolProp name="createNewConnection">false</boolProp>
+              <stringProp name="readTimeout">900000</stringProp>
+              <boolProp name="optional">true</boolProp>
+            </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+            <hashTree>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析任务执行结果" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.json.JSONArray;
+
+try {
+    // 获取原始响应字符串
+    String responseData = prev.getResponseDataAsString();
+
+    // 检查响应是否为空或无效
+    if (responseData == null || responseData.isEmpty()) {
+        log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
+    } else {
+        log.info(&quot;原始响应: &quot; + responseData);
+
+        // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
+        int bracketIndex = responseData.indexOf(&quot;[&quot;);
+        if (bracketIndex == -1) {
+            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            return;
+        }
+
+        String statusCode = responseData.substring(0, bracketIndex);
+        String jsonArrayStr = responseData.substring(bracketIndex);
+
+        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+
+        // 仅当状态码为42时处理
+        if (&quot;42&quot;.equals(statusCode)) {
+            try {
+                // 解析JSON数组
+                JSONArray jsonArray = new JSONArray(jsonArrayStr);
+
+                // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
+                if (jsonArray.length() &gt; 0 &amp;&amp; &quot;taskStateUpdated&quot;.equals(jsonArray.getString(0))) {
+                    log.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
+
+                    // 第二个元素是任务状态
+                    if (jsonArray.length() &gt; 1) {
+                        String taskStatus = jsonArray.getString(1);
+                        log.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
+
+                        // 设置变量供后续使用
+                        vars.put(&quot;taskStatus&quot;, taskStatus);
+                    }
+                } else {
+                    log.warn(&quot;⏩ 消息类型不是 taskStateUpdated&quot;);
+                }
+            } catch (Exception e) {
+                log.error(&quot;❌ JSON解析失败&quot;, e);
+            }
+        } else {
+            log.warn(&quot;⏩ 状态码不是42&quot;);
+        }
+    }
+} catch (Exception e) {
+    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+}</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">String code = prev.getResponseCode()
+
+if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) {
+	 log.info(&quot;====================重连&quot;)
+        vars.put(&quot;RETRY&quot;, &quot;true&quot;)
+   
+} else {
+    // 连接成功，不再重试
+    vars.put(&quot;RETRY&quot;, &quot;false&quot;)
+    log.info(&quot;连接成功&quot;)
+}
+</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
           </hashTree>
           <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="-&gt; AI wss close" enabled="true">
             <stringProp name="statusCode">1000</stringProp>
