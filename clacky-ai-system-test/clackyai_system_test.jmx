@@ -18,7 +18,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
@@ -529,7 +529,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="-&gt; * 连接 AiAgent 分析项目代码" enabled="true"/>
         <hashTree>
           <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
-            <boolProp name="TLS">true</boolProp>
+            <boolProp name="TLS">false</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
             <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
@@ -1354,7 +1354,7 @@ log.info(&quot;agentUserId:&quot;+uuid)
             <hashTree/>
           </hashTree>
           <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * paas wss connect ide" enabled="true">
-            <boolProp name="TLS">true</boolProp>
+            <boolProp name="TLS">false</boolProp>
             <stringProp name="server">${PAAS_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
             <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
@@ -1525,7 +1525,7 @@ try {
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="-&gt; * AI 规划和实现初始化需求" enabled="true"/>
         <hashTree>
           <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
-            <boolProp name="TLS">true</boolProp>
+            <boolProp name="TLS">false</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
             <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
@@ -1672,7 +1672,7 @@ if (statusCode.equals(&quot;430&quot;)) {
             </IfController>
             <hashTree>
               <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
-                <boolProp name="TLS">true</boolProp>
+                <boolProp name="TLS">false</boolProp>
                 <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
                 <stringProp name="port">443</stringProp>
                 <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
@@ -1789,7 +1789,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="script">String code = prev.getResponseCode()
 
-if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) {
+if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;) ) {
 	 log.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
@@ -1837,7 +1837,7 @@ if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.con
             </IfController>
             <hashTree>
               <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
-                <boolProp name="TLS">true</boolProp>
+                <boolProp name="TLS">false</boolProp>
                 <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
                 <stringProp name="port">443</stringProp>
                 <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
@@ -2172,7 +2172,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="script">String code = prev.getResponseCode()
 
-if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) {
+if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;) ) {
 	 log.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
@@ -2220,7 +2220,7 @@ if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.con
             </IfController>
             <hashTree>
               <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
-                <boolProp name="TLS">true</boolProp>
+                <boolProp name="TLS">false</boolProp>
                 <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
                 <stringProp name="port">443</stringProp>
                 <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
@@ -2318,7 +2318,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="script">String code = prev.getResponseCode()
 
-if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) {
+if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;)) {
 	 log.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
@@ -2366,7 +2366,7 @@ if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.con
             </IfController>
             <hashTree>
               <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
-                <boolProp name="TLS">true</boolProp>
+                <boolProp name="TLS">false</boolProp>
                 <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
                 <stringProp name="port">443</stringProp>
                 <stringProp name="path">/socket.io/?playgroundId=${rootPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
@@ -2480,7 +2480,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="script">String code = prev.getResponseCode()
 
-if (code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) {
+if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;)) {
 	 log.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
