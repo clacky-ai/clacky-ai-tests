@@ -18,7 +18,7 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器">
-          <stringProp name="LoopController.loops">3</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
           <boolProp name="LoopController.continue_forever">false</boolProp>
         </elementProp>
       </ThreadGroup>
@@ -132,7 +132,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [Backend] 获取用户信息 /auth/account" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [Backend] 获取用户信息 /auth/account" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/auth/account</stringProp>
@@ -157,7 +157,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [Backend]  获取别名列表 /thread/urlAlias/list" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [Backend]  获取别名列表 /thread/urlAlias/list" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/urlAlias/list</stringProp>
@@ -170,7 +170,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 创建 workspacke /workspace" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 创建 workspacke /workspace" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/workspace</stringProp>
@@ -191,7 +191,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -201,7 +201,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 邀请成员 /invite/link/create" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 邀请成员 /invite/link/create" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/invite/link/create</stringProp>
@@ -226,7 +226,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -236,7 +236,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [Backend]   [Backend] 查看密钥 /ssh/key/list" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [Backend]   [Backend] 查看密钥 /ssh/key/list" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/ssh/key/list</stringProp>
@@ -249,7 +249,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -259,7 +259,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 计算积分 /credit/calculate" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 计算积分 /credit/calculate" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/credit/calculate</stringProp>
@@ -287,7 +287,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 消费积分 /credit/consume" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 消费积分 /credit/consume" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/credit/consume</stringProp>
@@ -315,7 +315,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -325,7 +325,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 通知列表 /notification/list" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 通知列表 /notification/list" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/notification/list</stringProp>
@@ -338,7 +338,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增][Backend] 站内信已读 /notification/read-all" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增][Backend] 站内信已读 /notification/read-all" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/notification/read-all</stringProp>
@@ -351,7 +351,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] wokspace 列表 /workspace/list">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] wokspace 列表 /workspace/list" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/workspace/list</stringProp>
@@ -364,7 +364,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 项目列表 /project/list" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 项目列表 /project/list" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/project/list</stringProp>
@@ -384,7 +384,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 仓库列表 /integration/repository/list" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 仓库列表 /integration/repository/list" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/integration/repository/list</stringProp>
@@ -397,7 +397,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 创建项目 /project">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 创建项目 /project" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/project</stringProp>
@@ -421,7 +421,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -431,7 +431,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 获取最近项目 /project/recent">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 获取最近项目 /project/recent" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/project/recent</stringProp>
@@ -444,7 +444,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 项目详情 /project/detail">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 项目详情 /project/detail" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/project/detail</stringProp>
@@ -457,7 +457,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 创建人列表 /thread/creator-list">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 创建人列表 /thread/creator-list" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/creator-list</stringProp>
@@ -470,7 +470,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] thread 列表 /thread/list">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] thread 列表 /thread/list" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/list</stringProp>
@@ -483,7 +483,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 创建 root thread /thread">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 创建 root thread /thread" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread</stringProp>
@@ -506,7 +506,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -516,53 +516,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 分支列表 /integration/repository/branch/list" enabled="false">
-          <stringProp name="TestPlan.comments">会消耗 github api 次数</stringProp>
-          <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/integration/repository/branch/list</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="repository_id" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${repositoryId}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">repository_id</stringProp>
-                <stringProp name="HTTPArgument.content_type">text/plain</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] issue 列表 /integration/repository/issue/list" enabled="false">
-          <stringProp name="TestPlan.comments">会消耗 github api 次数</stringProp>
-          <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/integration/repository/issue/list</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="repository_id" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${repositoryId}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">repository_id</stringProp>
-                <stringProp name="HTTPArgument.content_type">text/plain</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [变更][Backend] 克隆 /thread/asyncClone">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [变更][Backend] 克隆 /thread/asyncClone" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/asyncClone</stringProp>
@@ -583,7 +537,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -592,14 +546,14 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取clone_task_id">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取clone_task_id" enabled="false">
             <stringProp name="JSONPostProcessor.referenceNames">clone_task_id</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.clone_task_id</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 克隆进度（依赖克隆）/thread/import/check">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 克隆进度（依赖克隆）/thread/import/check" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/import/check?task_id=${clone_task_id}</stringProp>
@@ -619,7 +573,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Project-ID</stringProp>
@@ -632,7 +586,7 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor">
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -640,7 +594,7 @@
 log.info(&quot;pre process clone_task_id 的值: &quot; + clone_task_id);</stringProp>
           </BeanShellPreProcessor>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析异步克隆结果">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析异步克隆结果" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -703,7 +657,7 @@ vars.put(&quot;clone_check_msg&quot;, clone_check_msg);</stringProp>
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -712,14 +666,14 @@ vars.put(&quot;clone_check_msg&quot;, clone_check_msg);</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取cmd_id">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取cmd_id" enabled="false">
             <stringProp name="JSONPostProcessor.referenceNames">cmd_id</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] commit结果（依赖commit）/thread/git-check">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] commit结果（依赖commit）/thread/git-check" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/git-check?cmd_id=${cmd_id}</stringProp>
@@ -740,37 +694,7 @@ vars.put(&quot;clone_check_msg&quot;, clone_check_msg);</stringProp>
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [变更][Backend] issue 列表 push/integration/repository/issue/list" enabled="false">
-          <stringProp name="TestPlan.comments">要求容器激活</stringProp>
-          <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/integration/repository/issue/list</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">content-type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取cmd_id" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">cmd_id</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.cmd_id</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
-          </JSONPostProcessor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] /thread/push/async">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] /thread/push/async" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/push/async</stringProp>
@@ -783,7 +707,7 @@ vars.put(&quot;clone_check_msg&quot;, clone_check_msg);</stringProp>
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Project-ID</stringProp>
@@ -800,7 +724,7 @@ vars.put(&quot;clone_check_msg&quot;, clone_check_msg);</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析 push_cmd_id">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析 push_cmd_id" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -827,7 +751,7 @@ vars.put(&quot;push_cmd_id&quot;, push_cmd_id);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Backend] push /thread/git-check [复用接口]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Backend] push /thread/git-check [复用接口]" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/git-check?cmd_id=${push_cmd_id}</stringProp>
@@ -840,7 +764,7 @@ vars.put(&quot;push_cmd_id&quot;, push_cmd_id);</stringProp>
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Project-ID</stringProp>
@@ -857,7 +781,7 @@ vars.put(&quot;push_cmd_id&quot;, push_cmd_id);</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析异步push status" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析异步push status" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -898,7 +822,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 创建 issue thread /thread/create-another" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] 创建 issue thread /thread/create-another" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/create-another</stringProp>
@@ -921,7 +845,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -931,7 +855,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] fetch /thread/fetch [需要关闭rootThread]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] fetch /thread/fetch [需要关闭rootThread]" enabled="false">
           <stringProp name="TestPlan.comments">要求容器激活</stringProp>
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -945,7 +869,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取playground绑定信息 " enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取playground绑定信息 " enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/playgrounds/${globalPlaygroundId}/bindInfo</stringProp>
@@ -958,7 +882,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -968,7 +892,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取中间件配置列表" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取中间件配置列表" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${globalCodezoneId}/middlewareDefines/config</stringProp>
@@ -981,7 +905,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取环境版本列表" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取环境版本列表" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/environments</stringProp>
@@ -994,7 +918,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [PaaS] fork codezone" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [PaaS] fork codezone" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/fork</stringProp>
@@ -1018,7 +942,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -1027,14 +951,14 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="解析 codezoneId" enabled="true">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="解析 codezoneId" enabled="false">
             <stringProp name="JSONPostProcessor.referenceNames">forkCodezoneId</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [PaaS]  upgrade codezone [依赖 fork codezone]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [PaaS]  upgrade codezone [依赖 fork codezone]" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${forkCodezoneId}/upgrade</stringProp>
@@ -1057,7 +981,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -1067,7 +991,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 创建 playground [依赖 fork codezone]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 创建 playground [依赖 fork codezone]" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${forkCodezoneId}/playground</stringProp>
@@ -1080,7 +1004,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -1089,7 +1013,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -1113,7 +1037,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 获取ticket [使用 globalPlaygroundId]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 获取ticket [使用 globalPlaygroundId]" enabled="false">
           <stringProp name="TestPlan.comments">${ticket_1}</stringProp>
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1133,7 +1057,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -1142,7 +1066,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="-&gt; ticket" enabled="true">
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="-&gt; ticket" enabled="false">
             <stringProp name="TestPlan.comments">${ticket_1}</stringProp>
             <stringProp name="VAR">ticket</stringProp>
             <stringProp name="JSONPATH">$..ticket</stringProp>
@@ -1153,7 +1077,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
           </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 获取 js ticket [依赖获取ticket]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 获取 js ticket [依赖获取ticket]" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/jssdk/ticket</stringProp>
@@ -1172,7 +1096,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -1181,7 +1105,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -1210,7 +1134,7 @@ try {
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 异步创建分支  [依赖 fork codezone]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 异步创建分支  [依赖 fork codezone]" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${forkCodezoneId}/git/asyncCreateAndCheckBranch</stringProp>
@@ -1233,7 +1157,7 @@ try {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -1243,7 +1167,7 @@ try {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 异步创建分支查询  [依赖异步创建分支]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] 异步创建分支查询  [依赖异步创建分支]" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${forkCodezoneId}/git/asyncCreateAndCheckBranch/${forkCodezoneId}</stringProp>
