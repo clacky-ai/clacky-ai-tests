@@ -70,36 +70,6 @@
               <stringProp name="Argument.value">0196c34f-c1ce-7421-9fb4-7c64d5c77c81</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
-            <elementProp name="threadId" elementType="Argument">
-              <stringProp name="Argument.name">threadId</stringProp>
-              <stringProp name="Argument.value">0196edb8-7a7a-7688-8d32-dd7812dca660</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="projectId" elementType="Argument">
-              <stringProp name="Argument.name">projectId</stringProp>
-              <stringProp name="Argument.value">0196edb8-7974-7cd3-87b7-705ac52c4ead</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="globalPlaygroundId" elementType="Argument">
-              <stringProp name="Argument.name">globalPlaygroundId</stringProp>
-              <stringProp name="Argument.value">796579553765138432</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="globalCodezoneId" elementType="Argument">
-              <stringProp name="Argument.name">globalCodezoneId</stringProp>
-              <stringProp name="Argument.value">796579536426115072</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="blankCodezoneId" elementType="Argument">
-              <stringProp name="Argument.name">blankCodezoneId</stringProp>
-              <stringProp name="Argument.value">797153336175763456</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="goEnvironmentVersionId" elementType="Argument">
-              <stringProp name="Argument.name">goEnvironmentVersionId</stringProp>
-              <stringProp name="Argument.value">403710021818515462</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
           </collectionProp>
         </Arguments>
         <hashTree/>
@@ -334,15 +304,15 @@ vars.put(&quot;rootThreadCodezoneId&quot;, rootThreadCodezoneId);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; * backend 循环每 3 秒检查克隆状态">
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; * backend 循环每 3 秒检查克隆状态" enabled="true">
           <stringProp name="WhileController.condition">${__javaScript(&quot;${clone_check_msg}&quot; != &quot;Succeed&quot; || &quot;${clone_check_progress}&quot; != &quot;COMPLETED&quot;)}</stringProp>
         </WhileController>
         <hashTree>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="wait one second timer" enabled="true">
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="wait one second timer">
             <stringProp name="ConstantTimer.delay">3000</stringProp>
           </ConstantTimer>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend check clone status" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend check clone status">
             <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.path">/thread/import/check?task_id=${clone_task_id}</stringProp>
@@ -420,7 +390,7 @@ vars.put(&quot;clone_check_msg&quot;, clone_check_msg);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建 rootPlayground">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建 rootPlayground" enabled="true">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${rootThreadCodezoneId}/playground</stringProp>
@@ -517,7 +487,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
             <stringProp name="readTimeout">60000</stringProp>
           </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
           <hashTree/>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; * AI wss isRoot">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; * AI wss isRoot" enabled="true">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -530,7 +500,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; * AI wss 循环接收 agent 消息">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; * AI wss 循环接收 agent 消息" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">3</stringProp>
           </LoopController>
@@ -574,7 +544,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
               <boolProp name="CounterConfig.per_user">false</boolProp>
             </CounterConfig>
             <hashTree/>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; * AI wss 监听分析项目代码响应事件">
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; * AI wss 监听分析项目代码响应事件" enabled="true">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
               <stringProp name="port">80</stringProp>
@@ -1471,12 +1441,12 @@ try {
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; * AI wss 同步 playground 状态" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; * AI wss 同步 playground 状态">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">3</stringProp>
           </LoopController>
           <hashTree>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; * AI wss 获取 playground 状态" enabled="true">
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; * AI wss 获取 playground 状态">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
               <stringProp name="port">80</stringProp>
@@ -1904,7 +1874,7 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听查看 commit 文件列表" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听查看 commit 文件列表">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -1935,7 +1905,7 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听获取 commit 信息">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听获取 commit 信息" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -2129,7 +2099,7 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
             <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount5&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount5&quot;)) &lt; 50 &amp;&amp; vars.get(&quot;addTaskStepStatus&quot;) == null),)}</stringProp>
           </WhileController>
           <hashTree>
-            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器">
               <stringProp name="CounterConfig.start">1</stringProp>
               <stringProp name="CounterConfig.end">1001</stringProp>
               <stringProp name="CounterConfig.incr">1</stringProp>
@@ -2664,7 +2634,7 @@ vars.put(&quot;push_cmd_id&quot;, push_cmd_id);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="check push task">
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="check push task" enabled="true">
           <stringProp name="WhileController.condition">${__javaScript(&quot;${checkPushStatus}&quot; != &quot;2&quot; &amp;&amp; &quot;${checkPushStatus}&quot; != &quot;3&quot;)}</stringProp>
         </WhileController>
         <hashTree>
