@@ -12,15 +12,26 @@ TEST_NAME=$2
 THREADS=$3
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 TEST_FILE="${PROJECT_NAME}/tests/${TEST_NAME}.jmx"
-RESULT_FILE="${PROJECT_NAME}/results/${TEST_NAME}_${TIMESTAMP}_${THREADS}.csv"
-REPORT_DIR="${PROJECT_NAME}/reports/${TEST_NAME}_${TIMESTAMP}_${THREADS}"
+RESULT_FILE="${PROJECT_NAME}/results/${TEST_NAME}_report_${TIMESTAMP}_${THREADS}.csv"
+REPORT_DIR="${PROJECT_NAME}/reports/${TEST_NAME}_report_${TIMESTAMP}_${THREADS}"
 TAR_FILE="${PROJECT_NAME}/reports/${TEST_NAME}_report_${TIMESTAMP}_${THREADS}.tar"
 
+# 记录开始时间
+START_TIME=$(date +%s)
+echo "Test started at: $(date +"%Y-%m-%d %H:%M:%S")"
 # 运行 JMeter 测试
 jmeter -n -t "${TEST_FILE}" \
        -l "${RESULT_FILE}" \
        -e -o "${REPORT_DIR}" \
        -Jthreads=${THREADS}
+
+# 记录结束时间
+END_TIME=$(date +%s)
+echo "Test finished at: $(date +"%Y-%m-%d %H:%M:%S")"
+
+# 计算用时
+DURATION=$((END_TIME - START_TIME))
+echo "Test duration: ${DURATION} seconds"
 
 # 检查报告目录是否存在
 if [ -d "${REPORT_DIR}" ]; then
