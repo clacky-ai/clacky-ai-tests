@@ -94,7 +94,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend workspace list" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend workspace list">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/workspace/list</stringProp>
@@ -308,11 +308,11 @@ vars.put(&quot;rootThreadCodezoneId&quot;, rootThreadCodezoneId);</stringProp>
           <stringProp name="WhileController.condition">${__javaScript(&quot;${clone_check_msg}&quot; != &quot;Succeed&quot; || &quot;${clone_check_progress}&quot; != &quot;COMPLETED&quot;)}</stringProp>
         </WhileController>
         <hashTree>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="wait one second timer">
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="wait one second timer" enabled="true">
             <stringProp name="ConstantTimer.delay">3000</stringProp>
           </ConstantTimer>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend check clone status">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend check clone status" enabled="true">
             <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.path">/thread/import/check?task_id=${clone_task_id}</stringProp>
@@ -478,7 +478,7 @@ log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="-&gt; * 连接 AiAgent 分析项目代码" enabled="true"/>
         <hashTree>
-          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent">
+          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
@@ -1248,7 +1248,7 @@ log.info(&quot;agentUserId:&quot;+uuid)
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * paas wss connect ide">
+          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * paas wss connect ide" enabled="true">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${PAAS_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
@@ -1419,7 +1419,7 @@ try {
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="-&gt; * AI 规划和实现初始化需求" enabled="true"/>
         <hashTree>
-          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent">
+          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
@@ -1441,12 +1441,12 @@ try {
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; * AI wss 同步 playground 状态">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; * AI wss 同步 playground 状态" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">3</stringProp>
           </LoopController>
           <hashTree>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; * AI wss 获取 playground 状态">
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; * AI wss 获取 playground 状态" enabled="true">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
               <stringProp name="port">80</stringProp>
@@ -1566,7 +1566,7 @@ if (statusCode.equals(&quot;430&quot;)) {
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
             <hashTree>
-              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent">
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
                 <boolProp name="TLS">true</boolProp>
                 <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
                 <stringProp name="port">443</stringProp>
@@ -1731,7 +1731,7 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
             <hashTree>
-              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent">
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
                 <boolProp name="TLS">true</boolProp>
                 <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
                 <stringProp name="port">443</stringProp>
@@ -1874,7 +1874,7 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听查看 commit 文件列表">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听查看 commit 文件列表" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -1955,7 +1955,7 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
             <hashTree>
-              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent">
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
                 <boolProp name="TLS">true</boolProp>
                 <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
                 <stringProp name="port">443</stringProp>
@@ -2099,7 +2099,7 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
             <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;loopCount5&quot;) == null ||  ( parseInt(vars.get(&quot;loopCount5&quot;)) &lt; 50 &amp;&amp; vars.get(&quot;addTaskStepStatus&quot;) == null),)}</stringProp>
           </WhileController>
           <hashTree>
-            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器">
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
               <stringProp name="CounterConfig.start">1</stringProp>
               <stringProp name="CounterConfig.end">1001</stringProp>
               <stringProp name="CounterConfig.incr">1</stringProp>
@@ -2114,7 +2114,7 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
             <hashTree>
-              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent">
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
                 <boolProp name="TLS">true</boolProp>
                 <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
                 <stringProp name="port">443</stringProp>
@@ -2260,7 +2260,7 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
             <hashTree>
-              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent">
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="-&gt; * AI wss 连接 agent" enabled="true">
                 <boolProp name="TLS">true</boolProp>
                 <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
                 <stringProp name="port">443</stringProp>
@@ -2779,7 +2779,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
         <stringProp name="ProxyControlGui.content_type_exclude"></stringProp>
       </ProxyControl>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
