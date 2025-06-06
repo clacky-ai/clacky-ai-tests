@@ -12,7 +12,7 @@
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ClackyAi-Issue-Thread-Test">
         <stringProp name="ThreadGroup.num_threads">${__P(threads, 5)}</stringProp>
-        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">0</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -679,7 +679,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="anaylize  parentCodezoneId" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="anaylize  parentCodezoneId">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -1390,7 +1390,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uMakePlan（implement bubble sort）(500 steps)">
-            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;uMakePlanLoopCount&quot;) == null ||  ( parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;planId&quot;) == null ),)}</stringProp>
+            <stringProp name="WhileController.condition">${__javaScript(    parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;planId&quot;) == null ,)}</stringProp>
           </WhileController>
           <hashTree>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="uMakePlanLoopCounter">
@@ -1560,7 +1560,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss execute issuePlan_uStartTask" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss execute issuePlan_uStartTask">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -1582,7 +1582,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor issuePlan_uStartTask">
-            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;issuePlan_uStartTaskLoopCount&quot;) == null ||  ( parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;),)}</stringProp>
+            <stringProp name="WhileController.condition">${__javaScript(   parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;,)}</stringProp>
           </WhileController>
           <hashTree>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="issuePlan_uStartTaskLoopCounter">
@@ -1749,7 +1749,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发消息追加需求（实现二分排序）" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发消息追加需求（实现二分排序）">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -1771,7 +1771,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息处理情况">
-            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;requirementMessageLoopCount&quot;) == null ||  ( parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;addTaskStepConfirmation&quot;) == null),)}</stringProp>
+            <stringProp name="WhileController.condition">${__javaScript(     parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;addTaskStepConfirmation&quot;) == null,)}</stringProp>
           </WhileController>
           <hashTree>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器">
@@ -1957,7 +1957,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uAddStep">
-            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;uAddStepLoopCount&quot;) == null ||  ( parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;addTaskStepStatus&quot;) == null),)}</stringProp>
+            <stringProp name="WhileController.condition">${__javaScript(    parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;addTaskStepStatus&quot;) == null,)}</stringProp>
           </WhileController>
           <hashTree>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="uAddStepLoopCounter">
@@ -2130,7 +2130,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uStartTask">
-            <stringProp name="WhileController.condition">${__javaScript(  vars.get(&quot;uStartTaskLoopCount&quot;) == null ||  ( parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;),)}</stringProp>
+            <stringProp name="WhileController.condition">${__javaScript(     parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;,)}</stringProp>
           </WhileController>
           <hashTree>
             <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="uStartTaskLoopCounter">
@@ -2396,7 +2396,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[变更] [Backend] commit /thread/add-commit/async" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[变更] [Backend] commit /thread/add-commit/async">
           <stringProp name="TestPlan.comments">要求容器激活，包括add</stringProp>
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2423,7 +2423,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -2439,7 +2439,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; backend git check commit" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; backend git check commit">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/git-check?cmd_id=${commit_cmd_id}</stringProp>
@@ -2510,7 +2510,7 @@ if(&quot;Succeed&quot;.equals(checkCommitMsg)){
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] /thread/push/async" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] /thread/push/async">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/push/async</stringProp>
