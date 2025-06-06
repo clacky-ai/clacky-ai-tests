@@ -390,7 +390,7 @@ vars.put(&quot;clone_check_msg&quot;, clone_check_msg);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建 rootPlayground" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建 rootPlayground">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${rootThreadCodezoneId}/playground</stringProp>
