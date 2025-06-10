@@ -21,7 +21,7 @@ TAR_FILE="${PROJECT_NAME}/reports/${TEST_NAME}_report_${TIMESTAMP}_${THREADS}.ta
 START_TIME=$(date +%s)
 echo "Test started at: $(date +"%Y-%m-%d %H:%M:%S")"
 # 运行 JMeter 测试
-jmeter -n -t "${TEST_FILE}" \
+JVM_ARGS="-Xms12g -Xmx16g"  jmeter -n -t "${TEST_FILE}" \
        -l "${RESULT_FILE}" \
        -e -o "${REPORT_DIR}" \
        -Jthreads=${THREADS} \
