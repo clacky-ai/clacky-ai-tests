@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # 检查参数
-if [ $# -ne 3 ]; then
-  echo "Usage: $0 <project_name> <test_name> <threads>"
+if [ $# -ne 4 ]; then
+  echo "Usage: $0 <project_name> <test_name> <threads> <rampup>"
   exit 1
 fi
 
@@ -26,7 +26,7 @@ jmeter -n -t "${TEST_FILE}" \
        -e -o "${REPORT_DIR}" \
        -Jthreads=${THREADS} \
        -Jrampup=${RAMPUP} 
-       
+
 
 # 记录结束时间
 END_TIME=$(date +%s)
