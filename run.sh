@@ -26,7 +26,7 @@ jmeter -n -t "${TEST_FILE}" \
        -e -o "${REPORT_DIR}" \
        -Jthreads=${THREADS} \
        -Jrampup=${RAMPUP}  \
-       -Xms4g -Xmx8g
+       -Xms8g -Xmx16g
 
 
 # 记录结束时间
