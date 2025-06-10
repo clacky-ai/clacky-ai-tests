@@ -25,8 +25,7 @@ JVM_ARGS="-Xms12g -Xmx16g"  jmeter -n -t "${TEST_FILE}" \
        -l "${RESULT_FILE}" \
        -e -o "${REPORT_DIR}" \
        -Jthreads=${THREADS} \
-       -Jrampup=${RAMPUP}  \
-       -Xms8g -Xmx16g
+       -Jrampup=${RAMPUP}
 
 
 # 记录结束时间
