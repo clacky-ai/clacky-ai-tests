@@ -10,6 +10,7 @@ fi
 PROJECT_NAME=$1
 TEST_NAME=$2
 THREADS=$3
+RAMPUP=$4
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 TEST_FILE="${PROJECT_NAME}/tests/${TEST_NAME}.jmx"
 RESULT_FILE="${PROJECT_NAME}/results/${TEST_NAME}_report_${TIMESTAMP}_${THREADS}.csv"
@@ -23,7 +24,9 @@ echo "Test started at: $(date +"%Y-%m-%d %H:%M:%S")"
 jmeter -n -t "${TEST_FILE}" \
        -l "${RESULT_FILE}" \
        -e -o "${REPORT_DIR}" \
-       -Jthreads=${THREADS}
+       -Jthreads=${THREADS} \
+       -Jrampup=${RAMPUP} 
+       
 
 # 记录结束时间
 END_TIME=$(date +%s)
