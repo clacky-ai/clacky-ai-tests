@@ -101,7 +101,7 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="* HTTP Header Manager" enabled="true">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="* HTTP Header Manager">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="userId" elementType="Header">
               <stringProp name="Header.name">userId</stringProp>
@@ -138,7 +138,7 @@
 import java.util.Date;
 
 // 直接定义一个简单的logInfo方法（避免类和静态方法的复杂性）
-Object traceLog(customMessage) {
+Object traceInfo(customMessage,type) {
     // 创建时间格式化器
     SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;);
     String timestamp = sdf.format(new Date());
@@ -165,7 +165,7 @@ Object traceLog(customMessage) {
     String threadName = Thread.currentThread().getName();
     
     // 构建完整的日志消息
-    String logMessage = &quot;[&quot; + timestamp + &quot;] TraceLog Task: &quot; + threadName + &quot; | Sampler: &quot; + sampler + 
+    String logMessage = &quot;[&quot; + timestamp + &quot;] TraceLog &quot;+ type +&quot; Task: &quot; + threadName + &quot; | Sampler: &quot; + sampler + 
                        &quot; | issueThreadCodezoneId: &quot; + issueThreadCodezoneId + &quot;,PlaygroundId: &quot; + playgroundId + 
                        &quot; | Status: &quot; + success + &quot; | Code: &quot; + statusCode;
     
@@ -175,8 +175,29 @@ Object traceLog(customMessage) {
     }
     
     // 输出日志
-    log.info(logMessage);
+    if(type == &quot;error&quot;){
+	  log.error(logMessage);
+    	}else{
+    	  log.info(logMessage);
+    	}
+    
     return logMessage;
+}
+
+// 直接定义一个简单的logInfo方法（避免类和静态方法的复杂性）
+Object info(customMessage) {
+    traceInfo(customMessage,&quot;info&quot;);
+    return customMessage;
+}
+
+Object error(customMessage) {
+    traceInfo(customMessage,&quot;error&quot;);
+    return customMessage;
+}
+
+Object debug(customMessage) {
+    traceInfo(customMessage,&quot;info&quot;);
+    return customMessage;
 }
 
 if (bsh.shared.util == void) {
@@ -829,7 +850,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -845,17 +866,17 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
             <stringProp name="script">import org.json.JSONObject;
 
 String jsonResult = prev.getResponseDataAsString();
-log.info(&quot;原始响应数据: &quot; + jsonResult);
+bsh.shared.util.info(&quot;原始响应数据: &quot; + jsonResult);
 
 // 记录处理过程
-bsh.shared.util.logInfo(&quot;成功获取响应数据，准备解析 JSON&quot;);
+bsh.shared.util.info(&quot;成功获取响应数据，准备解析 JSON&quot;);
 
 // 创建 JSONObject 解析响应
 JSONObject jsonObject = new JSONObject(jsonResult);
 
 // 检查 status
 String status = jsonObject.getString(&quot;status&quot;);
-log.info(&quot;status: &quot; + status);
+bsh.shared.util.info(&quot;status: &quot; + status);
 
 // 如果响应成功 ( status=&quot;success&quot;)
 if ( &quot;success&quot;.equals(status)) {
@@ -866,16 +887,16 @@ if ( &quot;success&quot;.equals(status)) {
     // 将 id 存入 JMeter 变量中
     vars.put(&quot;issueThreadCodezoneId&quot;, extracteIssueThreadCodezoneId);
         // 使用 logInfo 函数记录成功信息
-    bsh.shared.util.logInfo(&quot;成功解析到 issueThreadCodezoneId: &quot; + extracteIssueThreadCodezoneId);
+    bsh.shared.util.info(&quot;成功解析到 issueThreadCodezoneId: &quot; + extracteIssueThreadCodezoneId);
 } else {
     // 使用 logInfo 函数记录错误信息
-    bsh.shared.util.logInfo(&quot;响应未成功，无法提取 issueThreadCodezoneId，状态: &quot; + status);
+    bsh.shared.util.error(&quot;响应未成功，无法提取 issueThreadCodezoneId，状态: &quot; + status);
     prev.setStopTest(true);
 }</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update issueThread 状态和 codezoneId">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update issueThread 状态和 codezoneId" enabled="true">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread</stringProp>
@@ -917,7 +938,7 @@ if ( &quot;success&quot;.equals(status)) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas checkout branch">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas checkout branch" enabled="true">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${issueThreadCodezoneId}/git/createAndCheckBranch</stringProp>
@@ -950,7 +971,7 @@ if ( &quot;success&quot;.equals(status)) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建playground">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建playground" enabled="true">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${issueThreadCodezoneId}/playground</stringProp>
