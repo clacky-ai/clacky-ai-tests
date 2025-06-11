@@ -130,7 +130,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function" enabled="true">
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function">
           <boolProp name="resetInterpreter">false</boolProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -145,7 +145,7 @@ Object traceInfo(customMessage,type) {
     
     // 获取任务名称和相关上下文变量
     String taskName = vars.get(&quot;taskName&quot;) != null ? vars.get(&quot;taskName&quot;) : &quot;UNKNOWN_TASK&quot;;
-    String playgroundId = vars.get(&quot;playgroundId&quot;) != null ? vars.get(&quot;playgroundId&quot;) : &quot;N/A&quot;;
+    String playgroundId = vars.get(&quot;issueThreadPlaygroundId&quot;) != null ? vars.get(&quot;issueThreadPlaygroundId&quot;) : &quot;N/A&quot;;
     String issueThreadCodezoneId = vars.get(&quot;issueThreadCodezoneId&quot;) != null ? vars.get(&quot;issueThreadCodezoneId&quot;) : &quot;N/A&quot;;
     
     // 获取采样器信息
