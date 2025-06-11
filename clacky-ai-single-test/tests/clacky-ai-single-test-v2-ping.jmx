@@ -800,7 +800,7 @@
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 
-log.info(&quot;async push 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;async push 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 // 创建 JSONObject
 JSONObject jsonObject = new JSONObject(jsonResult);
@@ -811,7 +811,7 @@ JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
 // 获取 id 值 (cmd_id)
 String push_cmd_id = data.getString(&quot;id&quot;);
 
-log.info(&quot;post process push_cmd_id 的值: &quot; + push_cmd_id);
+bsh.shared.util.info(&quot;post process push_cmd_id 的值: &quot; + push_cmd_id);
 
 // 将 id 值设置为 JMeter 变量
 vars.put(&quot;push_cmd_id&quot;, push_cmd_id);</stringProp>
@@ -1094,7 +1094,7 @@ vars.put(&quot;push_cmd_id&quot;, push_cmd_id);</stringProp>
 String jsonResult = prev.getResponseDataAsString();
 
 
-log.info(&quot;rootPlayground create 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;rootPlayground create 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 JSONObject jsonObject = new JSONObject(jsonResult); 
  
@@ -1104,7 +1104,7 @@ String da1 = data.getString(&quot;id&quot;);
 
 vars.put(&quot;rootPlaygroundId&quot;, da1);
 
-log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
+bsh.shared.util.info(&quot;rootPlaygroundId 的值: &quot; + da1);
 </stringProp>
           </BeanShellPostProcessor>
           <hashTree/>

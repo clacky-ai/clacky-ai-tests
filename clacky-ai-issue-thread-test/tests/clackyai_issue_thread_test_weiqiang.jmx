@@ -175,7 +175,7 @@ Object traceLog(customMessage) {
     }
     
     // 输出日志
-    log.info(logMessage);
+    bsh.shared.util.info(logMessage);
     return logMessage;
 }
 
@@ -505,7 +505,7 @@ bsh.shared.logInfo(&quot;完成业务流程: 创建playground&quot;);
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;is_ping 的值: &quot; + is_ping);</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
               <eu.luminis.jmeter.wssampler.PingFrameFilter guiclass="eu.luminis.jmeter.wssampler.PingFrameFilterGui" testclass="eu.luminis.jmeter.wssampler.PingFrameFilter" testname="filter websocket ping frame and auto response" enabled="true">
@@ -527,19 +527,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;42&quot;.equals(statusCode)) {
@@ -549,20 +549,20 @@ try {
 
                 // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
                 if (jsonArray.length() &gt; 0 &amp;&amp; &quot;specUpdated&quot;.equals(jsonArray.getString(0))) {
-                    log.info(&quot;✅ 检测到 specUpdated 消息&quot;);
+                    bsh.shared.util.info(&quot;✅ 检测到 specUpdated 消息&quot;);
 				 vars.put(&quot;monitorFlagSpecUpdated&quot;, &quot;specUpdated&quot;);
                 } else {
                     log.warn(&quot;⏩ 消息类型不是 taskStateUpdated&quot;);
                 }
             } catch (Exception e) {
-                log.error(&quot;❌ JSON解析失败&quot;, e);
+                bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
             }
         } else {
             log.warn(&quot;⏩ 状态码不是42&quot;);
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -578,7 +578,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
               <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="response to socketio text ping" enabled="true">
@@ -697,7 +697,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
 
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
-log.info(&quot;原始响应数据: &quot; + jsonResult);
+bsh.shared.util.info(&quot;原始响应数据: &quot; + jsonResult);
 
 // 创建 JSONObject 解析响应
 JSONObject jsonObject = new JSONObject(jsonResult);
@@ -705,8 +705,8 @@ JSONObject jsonObject = new JSONObject(jsonResult);
 // 检查 code 和 msg
 int code = jsonObject.getInt(&quot;code&quot;);
 String msg = jsonObject.getString(&quot;msg&quot;);
-log.info(&quot;code: &quot; + code);
-log.info(&quot;msg: &quot; + msg);
+bsh.shared.util.info(&quot;code: &quot; + code);
+bsh.shared.util.info(&quot;msg: &quot; + msg);
 
 // 如果响应成功 (code=200 且 msg=&quot;Succeed&quot;)
 if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
@@ -715,12 +715,12 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
     String issueThreadId = data.getString(&quot;id&quot;);
     String issueThreadBranch = data.getString(&quot;branch&quot;);
     
-    log.info(&quot;解析到的 issueThreadId: &quot; + issueThreadId);
+    bsh.shared.util.info(&quot;解析到的 issueThreadId: &quot; + issueThreadId);
     // 将 id 存入 JMeter 变量中
     vars.put(&quot;issueThreadId&quot;, issueThreadId);
     vars.put(&quot;issueThreadBranch&quot;, issueThreadBranch);
 } else {
-    log.error(&quot;响应未成功，无法提取 issueThreadId&quot;);
+    bsh.shared.util.error(&quot;响应未成功，无法提取 issueThreadId&quot;);
 }</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
@@ -779,7 +779,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
 
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
-log.info(&quot;原始响应数据: &quot; + jsonResult);
+bsh.shared.util.info(&quot;原始响应数据: &quot; + jsonResult);
 
 // 创建 JSONObject 解析响应
 JSONObject jsonObject = new JSONObject(jsonResult);
@@ -787,8 +787,8 @@ JSONObject jsonObject = new JSONObject(jsonResult);
 // 检查 code 和 msg
 int code = jsonObject.getInt(&quot;code&quot;);
 String msg = jsonObject.getString(&quot;msg&quot;);
-log.info(&quot;code: &quot; + code);
-log.info(&quot;msg: &quot; + msg);
+bsh.shared.util.info(&quot;code: &quot; + code);
+bsh.shared.util.info(&quot;msg: &quot; + msg);
 
 // 如果响应成功 (code=200 且 msg=&quot;Succeed&quot;)
 if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
@@ -796,11 +796,11 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
     JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
     String parentCodezoneId = data.getString(&quot;parent_codezone_id&quot;);
     
-    log.info(&quot;解析到的 parentCodezoneId: &quot; + parentCodezoneId);
+    bsh.shared.util.info(&quot;解析到的 parentCodezoneId: &quot; + parentCodezoneId);
     // 将 id 存入 JMeter 变量中
     vars.put(&quot;parentCodezoneId&quot;, parentCodezoneId);
 } else {
-    log.error(&quot;响应未成功，无法提取 parent_codezone_id&quot;);
+    bsh.shared.util.error(&quot;响应未成功，无法提取 parent_codezone_id&quot;);
 }</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
@@ -845,7 +845,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
             <stringProp name="script">import org.json.JSONObject;
 
 String jsonResult = prev.getResponseDataAsString();
-log.info(&quot;原始响应数据: &quot; + jsonResult);
+bsh.shared.util.info(&quot;原始响应数据: &quot; + jsonResult);
 
 // 记录处理过程
 bsh.shared.util.logInfo(&quot;成功获取响应数据，准备解析 JSON&quot;);
@@ -855,7 +855,7 @@ JSONObject jsonObject = new JSONObject(jsonResult);
 
 // 检查 status
 String status = jsonObject.getString(&quot;status&quot;);
-log.info(&quot;status: &quot; + status);
+bsh.shared.util.info(&quot;status: &quot; + status);
 
 // 如果响应成功 ( status=&quot;success&quot;)
 if ( &quot;success&quot;.equals(status)) {
@@ -983,14 +983,14 @@ bsh.shared.logInfo(&quot;开始处理 issueThreadPlaygroundId 解析&quot;);
 
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
-log.info(&quot;原始响应数据: &quot; + jsonResult);
+bsh.shared.util.info(&quot;原始响应数据: &quot; + jsonResult);
 
 // 创建 JSONObject 解析响应
 JSONObject jsonObject = new JSONObject(jsonResult);
 
 // 检查 status
 String status = jsonObject.getString(&quot;status&quot;);
-log.info(&quot;status: &quot; + status);
+bsh.shared.util.info(&quot;status: &quot; + status);
 
 // 如果响应成功 ( status=&quot;success&quot;)
 if ( &quot;success&quot;.equals(status)) {
@@ -1174,9 +1174,9 @@ try {
     
     vars.put(&quot;path&quot;, pathWithQuery);
 
-    log.info(&quot;path :&quot;+ pathWithQuery);
+    bsh.shared.util.info(&quot;path :&quot;+ pathWithQuery);
 } catch (Exception e) {
-    log.error(&quot;Error processing response: &quot; + e.getMessage());
+    bsh.shared.util.error(&quot;Error processing response: &quot; + e.getMessage());
     SampleResult.setSuccessful(false);
     SampleResult.setResponseMessage(&quot;Script error: &quot; + e.toString());
 }</stringProp>
@@ -1282,7 +1282,7 @@ try {
 String message = prev.getResponseDataAsString();
 String dockerId = &quot;&quot;; // 初始化 dockerId
 
-log.info(&quot;原始 WSS 消息: &quot; + message);
+bsh.shared.util.info(&quot;原始 WSS 消息: &quot; + message);
 
 try {
     if (message.contains(&quot;syncPlaygroundInfo&quot;)) {
@@ -1292,16 +1292,16 @@ try {
         if (eventType.equals(&quot;syncPlaygroundInfo&quot;)) {
             JSONObject data = jsonArray.getJSONObject(1);
             dockerId = data.getString(&quot;dockerId&quot;); // 获取 dockerId
-            log.info(&quot;dockerId: &quot; + dockerId);
+            bsh.shared.util.info(&quot;dockerId: &quot; + dockerId);
             vars.put(&quot;dockerId&quot;, dockerId); // 将 dockerId 存储到 JMeter 变量中
         } else {
             log.warn(&quot;接收到的不是 syncPlaygroundInfo 事件&quot;);
         }
     } else {
-        log.info(&quot;消息中不包含 syncPlaygroundInfo&quot;);
+        bsh.shared.util.info(&quot;消息中不包含 syncPlaygroundInfo&quot;);
     }
 } catch (JSONException e) {
-    log.error(&quot;JSON 解析错误: &quot; + e.getMessage(), e);
+    bsh.shared.util.error(&quot;JSON 解析错误: &quot; + e.getMessage(), e);
 }
 
 // 可以在这里添加其他逻辑，例如根据 dockerId 的值执行不同的操作</stringProp>
@@ -1335,7 +1335,7 @@ try {
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// BeanShell Sampler
 String dockerId = vars.get(&quot;dockerId&quot;);
-log.info(&quot;dockerId 的值: &quot; + dockerId);</stringProp>
+bsh.shared.util.info(&quot;dockerId 的值: &quot; + dockerId);</stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
             <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="-&gt; 解析并打印返回值" enabled="true">
@@ -1346,39 +1346,39 @@ log.info(&quot;dockerId 的值: &quot; + dockerId);</stringProp>
 
 String message = prev.getResponseDataAsString();
 
-log.info(&quot;原始 WSS 消息: &quot; + message);
+bsh.shared.util.info(&quot;原始 WSS 消息: &quot; + message);
 
 try {
     JSONArray jsonArray = new JSONArray(message.substring(2));
     String eventType = jsonArray.getString(0);
     JSONObject data = jsonArray.getJSONObject(1);
 
-    log.info(&quot;事件类型: &quot; + eventType);
+    bsh.shared.util.info(&quot;事件类型: &quot; + eventType);
 
     JSONArray names = data.names(); // 获取键名数组
     for (int i = 0; i &lt; names.length(); i++) {
         String key = names.getString(i);
         String value = data.get(key).toString();
 
-        log.info(key + &quot;: &quot; + value);
+        bsh.shared.util.info(key + &quot;: &quot; + value);
         vars.put(key, value);
     }
 
     boolean success = data.getBoolean(&quot;success&quot;);
     String reason = data.getString(&quot;reason&quot;);
-    log.info(&quot;success: &quot; + success);
-    log.info(&quot;reason: &quot; + reason);
+    bsh.shared.util.info(&quot;success: &quot; + success);
+    bsh.shared.util.info(&quot;reason: &quot; + reason);
 
     if (data.has(&quot;error&quot;)) {
         String error = data.getString(&quot;error&quot;);
-        log.info(&quot;error: &quot; + error);
+        bsh.shared.util.info(&quot;error: &quot; + error);
         vars.put(&quot;error&quot;, error);
     }
 
     vars.put(&quot;eventType&quot;, eventType);
 
 } catch (JSONException e) {
-    log.error(&quot;JSON 解析错误: &quot; + e.getMessage(), e); // 打印完整的错误信息，包括堆栈跟踪
+    bsh.shared.util.error(&quot;JSON 解析错误: &quot; + e.getMessage(), e); // 打印完整的错误信息，包括堆栈跟踪
 }</stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
@@ -1591,7 +1591,7 @@ int isPing = 0;
 try {
     isPing = Integer.parseInt(isPingStr); // 转换为整数
 } catch (NumberFormatException e) {
-    log.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
+    bsh.shared.util.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
     isPing = 0; // 默认设为 0（非 2）
 }
 
@@ -1641,7 +1641,7 @@ try {
     statusCode = responseData.substring(0, responseData.indexOf(&quot;[&quot;));
     jsonStr = responseData.substring(responseData.indexOf(&quot;[&quot;));
     
-    log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+    bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
     // 仅当状态码为42且包含planUpdated时才处理
     if (statusCode.equals(&quot;42&quot;)) {
@@ -1651,7 +1651,7 @@ try {
             
             // 检查第一个元素是否是&quot;planUpdated&quot;
             if (jsonArray.length() &gt; 0 &amp;&amp; &quot;taskPlanned&quot;.equals(jsonArray.getString(0))) {
-                log.info(&quot;✅ 检测到planUpdated消息&quot;);
+                bsh.shared.util.info(&quot;✅ 检测到planUpdated消息&quot;);
                 
                 if (jsonArray.length() &gt; 1) {
                     // 获取任务数据对象
@@ -1670,7 +1670,7 @@ try {
                 log.warn(&quot;⏩ 消息类型不是planUpdated&quot;);
             }
         } catch (Exception e) {
-            log.error(&quot;❌ JSON解析失败&quot;, e);
+            bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
         }
     } else {
         log.warn(&quot;⏩ 状态码不是42&quot;);
@@ -1681,7 +1681,7 @@ try {
     
     
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -1697,7 +1697,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
               <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="response to socketio text ping" enabled="true">
@@ -1783,7 +1783,7 @@ int isPing = 0;
 try {
     isPing = Integer.parseInt(isPingStr); // 转换为整数
 } catch (NumberFormatException e) {
-    log.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
+    bsh.shared.util.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
     isPing = 0; // 默认设为 0（非 2）
 }
 
@@ -1827,19 +1827,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;42&quot;.equals(statusCode)) {
@@ -1849,12 +1849,12 @@ try {
 
                 // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
                 if (jsonArray.length() &gt; 0 &amp;&amp; &quot;taskStateUpdated&quot;.equals(jsonArray.getString(0))) {
-                    log.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
+                    bsh.shared.util.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
 
                     // 第二个元素是任务状态
                     if (jsonArray.length() &gt; 1) {
                         String taskStatus = jsonArray.getString(1);
-                        log.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
+                        bsh.shared.util.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
 
                         // 设置变量供后续使用
                         vars.put(&quot;taskStatus&quot;, taskStatus);
@@ -1863,14 +1863,14 @@ try {
                     log.warn(&quot;⏩ 消息类型不是 taskStateUpdated&quot;);
                 }
             } catch (Exception e) {
-                log.error(&quot;❌ JSON解析失败&quot;, e);
+                bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
             }
         } else {
             log.warn(&quot;⏩ 状态码不是42&quot;);
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -1886,7 +1886,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
               <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="response to socketio text ping" enabled="true">
@@ -1972,7 +1972,7 @@ int isPing = 0;
 try {
     isPing = Integer.parseInt(isPingStr); // 转换为整数
 } catch (NumberFormatException e) {
-    log.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
+    bsh.shared.util.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
     isPing = 0; // 默认设为 0（非 2）
 }
 
@@ -1987,10 +1987,10 @@ try {
 // 判断 isPing 是否等于 2
 if (isPing == 2) {
     pingCount++; // 如果是 2，pingCount +1
-    log.info(&quot;isPing == 2，pingCount 更新为: &quot; + pingCount);
+    bsh.shared.util.info(&quot;isPing == 2，pingCount 更新为: &quot; + pingCount);
 } else {
     pingCount = 0; // 如果不是 2，重置为 0
-    log.info(&quot;isPing != 2，pingCount 重置为 0&quot;);
+    bsh.shared.util.info(&quot;isPing != 2，pingCount 重置为 0&quot;);
 }
 
 // 更新 pingCount 变量
@@ -2016,19 +2016,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;42&quot;.equals(statusCode)) {
@@ -2038,25 +2038,25 @@ try {
 
                 // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
                 if (jsonArray.length() &gt; 0 &amp;&amp; &quot;addTaskStepConfirmation&quot;.equals(jsonArray.getString(0))) {
-                    log.info(&quot;✅ 检测到 addTaskStepConfirmation 消息&quot;);
+                    bsh.shared.util.info(&quot;✅ 检测到 addTaskStepConfirmation 消息&quot;);
 
                   
                    // 设置变量供后续使用
                    vars.put(&quot;addTaskStepConfirmation&quot;, &quot;true&quot;);
-                   log.info(&quot;✅✅ ✅ ✅ ✅  检测到 addTaskStepConfirmation 消息&quot;);
+                   bsh.shared.util.info(&quot;✅✅ ✅ ✅ ✅  检测到 addTaskStepConfirmation 消息&quot;);
                     
                 } else {
                     log.warn(&quot;⏩ 消息类型不是 addTaskStepConfirmation&quot;);
                 }
             } catch (Exception e) {
-                log.error(&quot;❌ JSON解析失败&quot;, e);
+                bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
             }
         } else {
             log.warn(&quot;⏩ 状态码不是42&quot;);
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -2072,7 +2072,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
               <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="response to socketio text ping" enabled="true">
@@ -2158,7 +2158,7 @@ int isPing = 0;
 try {
     isPing = Integer.parseInt(isPingStr); // 转换为整数
 } catch (NumberFormatException e) {
-    log.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
+    bsh.shared.util.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
     isPing = 0; // 默认设为 0（非 2）
 }
 
@@ -2173,10 +2173,10 @@ try {
 // 判断 isPing 是否等于 2
 if (isPing == 2) {
     pingCount++; // 如果是 2，pingCount +1
-    log.info(&quot;isPing == 2，pingCount 更新为: &quot; + pingCount);
+    bsh.shared.util.info(&quot;isPing == 2，pingCount 更新为: &quot; + pingCount);
 } else {
     pingCount = 0; // 如果不是 2，重置为 0
-    log.info(&quot;isPing != 2，pingCount 重置为 0&quot;);
+    bsh.shared.util.info(&quot;isPing != 2，pingCount 重置为 0&quot;);
 }
 
 // 更新 pingCount 变量
@@ -2202,19 +2202,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;431&quot;.equals(statusCode)) {
@@ -2229,7 +2229,7 @@ try {
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -2245,7 +2245,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
               <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="response to socketio text ping" enabled="true">
@@ -2331,7 +2331,7 @@ int isPing = 0;
 try {
     isPing = Integer.parseInt(isPingStr); // 转换为整数
 } catch (NumberFormatException e) {
-    log.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
+    bsh.shared.util.error(&quot;isPing 不是有效的数字: &quot; + isPingStr);
     isPing = 0; // 默认设为 0（非 2）
 }
 
@@ -2346,10 +2346,10 @@ try {
 // 判断 isPing 是否等于 2
 if (isPing == 2) {
     pingCount++; // 如果是 2，pingCount +1
-    log.info(&quot;isPing == 2，pingCount 更新为: &quot; + pingCount);
+    bsh.shared.util.info(&quot;isPing == 2，pingCount 更新为: &quot; + pingCount);
 } else {
     pingCount = 0; // 如果不是 2，重置为 0
-    log.info(&quot;isPing != 2，pingCount 重置为 0&quot;);
+    bsh.shared.util.info(&quot;isPing != 2，pingCount 重置为 0&quot;);
 }
 
 // 更新 pingCount 变量
@@ -2375,19 +2375,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;42&quot;.equals(statusCode)) {
@@ -2397,12 +2397,12 @@ try {
 
                 // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
                 if (jsonArray.length() &gt; 0 &amp;&amp; &quot;taskStateUpdated&quot;.equals(jsonArray.getString(0))) {
-                    log.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
+                    bsh.shared.util.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
 
                     // 第二个元素是任务状态
                     if (jsonArray.length() &gt; 1) {
                         String taskStatus = jsonArray.getString(1);
-                        log.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
+                        bsh.shared.util.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
 
                         // 设置变量供后续使用
                         vars.put(&quot;taskStatus&quot;, taskStatus);
@@ -2411,14 +2411,14 @@ try {
                     log.warn(&quot;⏩ 消息类型不是 taskStateUpdated&quot;);
                 }
             } catch (Exception e) {
-                log.error(&quot;❌ JSON解析失败&quot;, e);
+                bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
             }
         } else {
             log.warn(&quot;⏩ 状态码不是42&quot;);
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -2434,7 +2434,7 @@ try {
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
               <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="response to socketio text ping" enabled="true">
@@ -2647,14 +2647,14 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 
-log.info(&quot;check commit 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;check commit 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 // 创建 JSONObject
 JSONObject jsonObject = new JSONObject(jsonResult);
 
 String checkCommitMsg = jsonObject.getString(&quot;msg&quot;);
-log.info(&quot;post process checkCommitMsg 的值: &quot; + checkCommitMsg);
-log.info(&quot;post process code 的值: &quot; + jsonObject.getInt(&quot;code&quot;));
+bsh.shared.util.info(&quot;post process checkCommitMsg 的值: &quot; + checkCommitMsg);
+bsh.shared.util.info(&quot;post process code 的值: &quot; + jsonObject.getInt(&quot;code&quot;));
 
 // 如果 msg = Succeed，则获取 data 对象里面的 status 值添加到 vars 中
 if(&quot;Succeed&quot;.equals(checkCommitMsg)){
@@ -2664,7 +2664,7 @@ if(&quot;Succeed&quot;.equals(checkCommitMsg)){
 	int checkCommitStatus = data.getInt(&quot;status&quot;);
 	String checkCommitStatusString = String.valueOf(checkCommitStatus);
 	
-	log.info(&quot;post process checkCommitStatus 的值: &quot; + checkCommitStatusString);
+	bsh.shared.util.info(&quot;post process checkCommitStatus 的值: &quot; + checkCommitStatusString);
 	// 将 id 值设置为 JMeter 变量
 	vars.put(&quot;checkCommitStatus&quot;, checkCommitStatusString);
 }
@@ -2718,7 +2718,7 @@ if(&quot;Succeed&quot;.equals(checkCommitMsg)){
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 
-log.info(&quot;async push 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;async push 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 // 创建 JSONObject
 JSONObject jsonObject = new JSONObject(jsonResult);
@@ -2729,7 +2729,7 @@ JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
 // 获取 id 值 (cmd_id)
 String push_cmd_id = data.getString(&quot;id&quot;);
 
-log.info(&quot;post process push_cmd_id 的值: &quot; + push_cmd_id);
+bsh.shared.util.info(&quot;post process push_cmd_id 的值: &quot; + push_cmd_id);
 
 // 将 id 值设置为 JMeter 变量
 vars.put(&quot;push_cmd_id&quot;, push_cmd_id);</stringProp>
@@ -2807,7 +2807,7 @@ vars.put(&quot;push_cmd_id&quot;, push_cmd_id);</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;is_ping 的值: &quot; + is_ping);</stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
             <eu.luminis.jmeter.wssampler.PingFrameFilter guiclass="eu.luminis.jmeter.wssampler.PingFrameFilterGui" testclass="eu.luminis.jmeter.wssampler.PingFrameFilter" testname="filter websocket ping frame and auto response" enabled="true">
@@ -2829,19 +2829,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;42&quot;.equals(statusCode)) {
@@ -2851,20 +2851,20 @@ try {
 
                 // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
                 if (jsonArray.length() &gt; 0 &amp;&amp; &quot;specUpdated&quot;.equals(jsonArray.getString(0))) {
-                    log.info(&quot;✅ 检测到 specUpdated 消息&quot;);
+                    bsh.shared.util.info(&quot;✅ 检测到 specUpdated 消息&quot;);
 				 vars.put(&quot;monitorFlagSpecUpdated&quot;, &quot;specUpdated&quot;);
                 } else {
                     log.warn(&quot;⏩ 消息类型不是 taskStateUpdated&quot;);
                 }
             } catch (Exception e) {
-                log.error(&quot;❌ JSON解析失败&quot;, e);
+                bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
             }
         } else {
             log.warn(&quot;⏩ 状态码不是42&quot;);
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
@@ -2880,7 +2880,7 @@ try {
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
             <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="response to socketio text ping" enabled="true">
@@ -2984,7 +2984,7 @@ responseData = prev.getResponseDataAsString();
 statusCode = responseData.substring(0, responseData.indexOf(&quot;[&quot;));
 jsonStr = responseData.substring(responseData.indexOf(&quot;[&quot;));
 
-log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
 // 仅当状态码为 430 时处理
 if (statusCode.equals(&quot;430&quot;)) {
@@ -3003,10 +3003,10 @@ if (statusCode.equals(&quot;430&quot;)) {
                              .getString(&quot;id&quot;);
             
             vars.put(&quot;firstEnvironmentFirstId&quot;, firstId);
-            log.info(&quot;✅ 提取成功: &quot; + firstId);
+            bsh.shared.util.info(&quot;✅ 提取成功: &quot; + firstId);
         }
     } catch (Exception e) {
-        log.error(&quot;❌ JSON解析失败&quot;, e);
+        bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
     }
 } else {
     log.warn(&quot;⏩ 状态码不是430&quot;);
@@ -3115,7 +3115,7 @@ try {
     statusCode = responseData.substring(0, responseData.indexOf(&quot;[&quot;));
     jsonStr = responseData.substring(responseData.indexOf(&quot;[&quot;));
     
-    log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+    bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
     // 仅当状态码为42且包含planUpdated时才处理
     if (statusCode.equals(&quot;42&quot;)) {
@@ -3125,7 +3125,7 @@ try {
             
             // 检查第一个元素是否是&quot;planUpdated&quot;
             if (jsonArray.length() &gt; 0 &amp;&amp; &quot;taskPlanned&quot;.equals(jsonArray.getString(0))) {
-                log.info(&quot;✅ 检测到planUpdated消息&quot;);
+                bsh.shared.util.info(&quot;✅ 检测到planUpdated消息&quot;);
                 
                 if (jsonArray.length() &gt; 1) {
                     // 获取任务数据对象
@@ -3144,7 +3144,7 @@ try {
                 log.warn(&quot;⏩ 消息类型不是planUpdated&quot;);
             }
         } catch (Exception e) {
-            log.error(&quot;❌ JSON解析失败&quot;, e);
+            bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
         }
     } else {
         log.warn(&quot;⏩ 状态码不是42&quot;);
@@ -3155,7 +3155,7 @@ try {
     
     
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -3166,13 +3166,13 @@ try {
                 <stringProp name="script">String code = prev.getResponseCode()
 
 if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;) ) {
-	 log.info(&quot;====================重连&quot;)
+	 bsh.shared.util.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
 } else {
     // 连接成功，不再重试
     vars.put(&quot;RETRY&quot;, &quot;false&quot;)
-    log.info(&quot;连接成功&quot;)
+    bsh.shared.util.info(&quot;连接成功&quot;)
 }
 </stringProp>
                 <stringProp name="scriptLanguage">groovy</stringProp>
@@ -3274,19 +3274,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;42&quot;.equals(statusCode)) {
@@ -3296,12 +3296,12 @@ try {
 
                 // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
                 if (jsonArray.length() &gt; 0 &amp;&amp; &quot;taskStateUpdated&quot;.equals(jsonArray.getString(0))) {
-                    log.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
+                    bsh.shared.util.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
 
                     // 第二个元素是任务状态
                     if (jsonArray.length() &gt; 1) {
                         String taskStatus = jsonArray.getString(1);
-                        log.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
+                        bsh.shared.util.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
 
                         // 设置变量供后续使用
                         vars.put(&quot;taskStatus&quot;, taskStatus);
@@ -3310,14 +3310,14 @@ try {
                     log.warn(&quot;⏩ 消息类型不是 taskStateUpdated&quot;);
                 }
             } catch (Exception e) {
-                log.error(&quot;❌ JSON解析失败&quot;, e);
+                bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
             }
         } else {
             log.warn(&quot;⏩ 状态码不是42&quot;);
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -3328,13 +3328,13 @@ try {
                 <stringProp name="script">String code = prev.getResponseCode()
 
 if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;)) {
-	 log.info(&quot;====================重连&quot;)
+	 bsh.shared.util.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
 } else {
     // 连接成功，不再重试
     vars.put(&quot;RETRY&quot;, &quot;false&quot;)
-    log.info(&quot;连接成功&quot;)
+    bsh.shared.util.info(&quot;连接成功&quot;)
 }
 </stringProp>
                 <stringProp name="scriptLanguage">groovy</stringProp>
@@ -3498,19 +3498,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;42&quot;.equals(statusCode)) {
@@ -3520,25 +3520,25 @@ try {
 
                 // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
                 if (jsonArray.length() &gt; 0 &amp;&amp; &quot;addTaskStepConfirmation&quot;.equals(jsonArray.getString(0))) {
-                    log.info(&quot;✅ 检测到 addTaskStepConfirmation 消息&quot;);
+                    bsh.shared.util.info(&quot;✅ 检测到 addTaskStepConfirmation 消息&quot;);
 
                   
                    // 设置变量供后续使用
                    vars.put(&quot;addTaskStepConfirmation&quot;, &quot;true&quot;);
-                   log.info(&quot;✅✅ ✅ ✅ ✅  检测到 addTaskStepConfirmation 消息&quot;);
+                   bsh.shared.util.info(&quot;✅✅ ✅ ✅ ✅  检测到 addTaskStepConfirmation 消息&quot;);
                     
                 } else {
                     log.warn(&quot;⏩ 消息类型不是 addTaskStepConfirmation&quot;);
                 }
             } catch (Exception e) {
-                log.error(&quot;❌ JSON解析失败&quot;, e);
+                bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
             }
         } else {
             log.warn(&quot;⏩ 状态码不是42&quot;);
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -3549,13 +3549,13 @@ try {
                 <stringProp name="script">String code = prev.getResponseCode()
 
 if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;) ) {
-	 log.info(&quot;====================重连&quot;)
+	 bsh.shared.util.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
 } else {
     // 连接成功，不再重试
     vars.put(&quot;RETRY&quot;, &quot;false&quot;)
-    log.info(&quot;连接成功&quot;)
+    bsh.shared.util.info(&quot;连接成功&quot;)
 }
 </stringProp>
                 <stringProp name="scriptLanguage">groovy</stringProp>
@@ -3657,19 +3657,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;431&quot;.equals(statusCode)) {
@@ -3684,7 +3684,7 @@ try {
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -3695,13 +3695,13 @@ try {
                 <stringProp name="script">String code = prev.getResponseCode()
 
 if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;)) {
-	 log.info(&quot;====================重连&quot;)
+	 bsh.shared.util.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
 } else {
     // 连接成功，不再重试
     vars.put(&quot;RETRY&quot;, &quot;false&quot;)
-    log.info(&quot;连接成功&quot;)
+    bsh.shared.util.info(&quot;连接成功&quot;)
 }
 </stringProp>
                 <stringProp name="scriptLanguage">groovy</stringProp>
@@ -3803,19 +3803,19 @@ try {
     if (responseData == null || responseData.isEmpty()) {
         log.warn(&quot;⚠️ 响应数据为空，跳过处理&quot;);
     } else {
-        log.info(&quot;原始响应: &quot; + responseData);
+        bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
         // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
-            log.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
+            bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
             return;
         }
 
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
         // 仅当状态码为42时处理
         if (&quot;42&quot;.equals(statusCode)) {
@@ -3825,12 +3825,12 @@ try {
 
                 // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
                 if (jsonArray.length() &gt; 0 &amp;&amp; &quot;taskStateUpdated&quot;.equals(jsonArray.getString(0))) {
-                    log.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
+                    bsh.shared.util.info(&quot;✅ 检测到 taskStateUpdated 消息&quot;);
 
                     // 第二个元素是任务状态
                     if (jsonArray.length() &gt; 1) {
                         String taskStatus = jsonArray.getString(1);
-                        log.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
+                        bsh.shared.util.info(&quot;🛠️ 任务状态: &quot; + taskStatus);
 
                         // 设置变量供后续使用
                         vars.put(&quot;taskStatus&quot;, taskStatus);
@@ -3839,14 +3839,14 @@ try {
                     log.warn(&quot;⏩ 消息类型不是 taskStateUpdated&quot;);
                 }
             } catch (Exception e) {
-                log.error(&quot;❌ JSON解析失败&quot;, e);
+                bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
             }
         } else {
             log.warn(&quot;⏩ 状态码不是42&quot;);
         }
     }
 } catch (Exception e) {
-    log.error(&quot;❌ 处理响应数据时出错&quot;, e);
+    bsh.shared.util.error(&quot;❌ 处理响应数据时出错&quot;, e);
 }</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
@@ -3857,13 +3857,13 @@ try {
                 <stringProp name="script">String code = prev.getResponseCode()
 
 if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.contains(&quot;close&quot;) ) || code.contains(&quot;no connection&quot;)) {
-	 log.info(&quot;====================重连&quot;)
+	 bsh.shared.util.info(&quot;====================重连&quot;)
         vars.put(&quot;RETRY&quot;, &quot;true&quot;)
    
 } else {
     // 连接成功，不再重试
     vars.put(&quot;RETRY&quot;, &quot;false&quot;)
-    log.info(&quot;连接成功&quot;)
+    bsh.shared.util.info(&quot;连接成功&quot;)
 }
 </stringProp>
                 <stringProp name="scriptLanguage">groovy</stringProp>
@@ -3924,14 +3924,14 @@ if ((code != null &amp;&amp; code.contains(&quot;error&quot;) &amp;&amp; code.co
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 
-log.info(&quot;check commit 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;check commit 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 // 创建 JSONObject
 JSONObject jsonObject = new JSONObject(jsonResult);
 
 String checkCommitMsg = jsonObject.getString(&quot;msg&quot;);
-log.info(&quot;post process checkCommitMsg 的值: &quot; + checkCommitMsg);
-log.info(&quot;post process code 的值: &quot; + jsonObject.getInt(&quot;code&quot;));
+bsh.shared.util.info(&quot;post process checkCommitMsg 的值: &quot; + checkCommitMsg);
+bsh.shared.util.info(&quot;post process code 的值: &quot; + jsonObject.getInt(&quot;code&quot;));
 
 // 如果 msg = Succeed，则获取 data 对象里面的 status 值添加到 vars 中
 if(&quot;Succeed&quot;.equals(checkCommitMsg)){
@@ -3941,7 +3941,7 @@ if(&quot;Succeed&quot;.equals(checkCommitMsg)){
 	int checkCommitStatus = data.getInt(&quot;status&quot;);
 	String checkCommitStatusString = String.valueOf(checkCommitStatus);
 	
-	log.info(&quot;post process checkCommitStatus 的值: &quot; + checkCommitStatusString);
+	bsh.shared.util.info(&quot;post process checkCommitStatus 的值: &quot; + checkCommitStatusString);
 	// 将 id 值设置为 JMeter 变量
 	vars.put(&quot;checkCommitStatus&quot;, checkCommitStatusString);
 }
@@ -4004,14 +4004,14 @@ if(&quot;Succeed&quot;.equals(checkCommitMsg)){
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 
-log.info(&quot;check commit 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;check commit 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 // 创建 JSONObject
 JSONObject jsonObject = new JSONObject(jsonResult);
 
 String checkPushMsg = jsonObject.getString(&quot;msg&quot;);
-log.info(&quot;post process checkPushMsg 的值: &quot; + checkPushMsg);
-log.info(&quot;post process code 的值: &quot; + jsonObject.getInt(&quot;code&quot;));
+bsh.shared.util.info(&quot;post process checkPushMsg 的值: &quot; + checkPushMsg);
+bsh.shared.util.info(&quot;post process code 的值: &quot; + jsonObject.getInt(&quot;code&quot;));
 
 // 如果 msg = Succeed，则获取 data 对象里面的 status 值添加到 vars 中
 if(&quot;Succeed&quot;.equals(checkPushMsg)){
@@ -4021,7 +4021,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
 	int checkPushStatus = data.getInt(&quot;status&quot;);
 	String checkPushStatusString = String.valueOf(checkPushStatus);
 	
-	log.info(&quot;post process checkPushStatus 的值: &quot; + checkPushStatusString);
+	bsh.shared.util.info(&quot;post process checkPushStatus 的值: &quot; + checkPushStatusString);
 	// 将 id 值设置为 JMeter 变量
 	vars.put(&quot;checkPushStatus&quot;, checkPushStatusString);
 }
@@ -4081,7 +4081,7 @@ if(&quot;Succeed&quot;.equals(checkPushMsg)){
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 
-log.info(&quot;接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 // 创建 JSONObject
 JSONObject jsonObject = new JSONObject(jsonResult);
@@ -4092,7 +4092,7 @@ JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
 // 获取 id 值 (projectId)
 String projectId = data.getString(&quot;id&quot;);
 
-log.info(&quot;post process id 的值: &quot; + projectId);
+bsh.shared.util.info(&quot;post process id 的值: &quot; + projectId);
 
 // 将 id 值设置为 JMeter 变量
 vars.put(&quot;projectId&quot;, projectId);</stringProp>
@@ -4144,7 +4144,7 @@ vars.put(&quot;projectId&quot;, projectId);</stringProp>
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 
-log.info(&quot;create rootThread 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;create rootThread 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 // 创建 JSONObject
 JSONObject jsonObject = new JSONObject(jsonResult);
@@ -4158,9 +4158,9 @@ String threadId = data.getString(&quot;id&quot;);
 String rootBranch = data.getString(&quot;branch&quot;);
 
 
-log.info(&quot;post process threadId 的值: &quot; + threadId);
+bsh.shared.util.info(&quot;post process threadId 的值: &quot; + threadId);
 
-log.info(&quot;post process rootBranch 的值: &quot; + rootBranch);
+bsh.shared.util.info(&quot;post process rootBranch 的值: &quot; + rootBranch);
 
 // 将 id 值设置为 JMeter 变量
 vars.put(&quot;threadId&quot;, threadId);
@@ -4215,7 +4215,7 @@ vars.put(&quot;rootBranch&quot;, rootBranch);</stringProp>
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 
-log.info(&quot;async clone 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;async clone 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 // 创建 JSONObject
 JSONObject jsonObject = new JSONObject(jsonResult);
@@ -4227,8 +4227,8 @@ JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
 String clone_task_id = data.getString(&quot;clone_task_id&quot;);
 String rootThreadCodezoneId = data.getString(&quot;codezone_id&quot;);
 
-log.info(&quot;post process clone_task_id 的值: &quot; + clone_task_id);
-log.info(&quot;post process rootThreadCodezoneId 的值: &quot; + rootThreadCodezoneId);
+bsh.shared.util.info(&quot;post process clone_task_id 的值: &quot; + clone_task_id);
+bsh.shared.util.info(&quot;post process rootThreadCodezoneId 的值: &quot; + rootThreadCodezoneId);
 
 // 将 id 值设置为 JMeter 变量
 vars.put(&quot;clone_task_id&quot;, clone_task_id);
@@ -4282,7 +4282,7 @@ vars.put(&quot;rootThreadCodezoneId&quot;, rootThreadCodezoneId);</stringProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="script">String clone_task_id = vars.get(&quot;clone_task_id&quot;);
-log.info(&quot;pre process clone_task_id 的值: &quot; + clone_task_id);</stringProp>
+bsh.shared.util.info(&quot;pre process clone_task_id 的值: &quot; + clone_task_id);</stringProp>
               </BeanShellPreProcessor>
               <hashTree/>
               <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="解析异步克隆结果" enabled="true">
@@ -4294,7 +4294,7 @@ log.info(&quot;pre process clone_task_id 的值: &quot; + clone_task_id);</strin
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 
-log.info(&quot;check clone 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;check clone 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 // 创建 JSONObject
 JSONObject jsonObject = new JSONObject(jsonResult);
@@ -4307,14 +4307,14 @@ JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
 // 获取 data 对象中的 progress 字段
     String progress = data.getString(&quot;progress&quot;);
 
-    log.info(&quot;clone_check_progress 的值: &quot; + progress);
+    bsh.shared.util.info(&quot;clone_check_progress 的值: &quot; + progress);
 
     // 将 code 和 msg 值设置为 JMeter 变量
     vars.put(&quot;clone_check_progress&quot;, progress);
 
 
 
-log.info(&quot;post process clone_check_msg 的值: &quot; + clone_check_msg);
+bsh.shared.util.info(&quot;post process clone_check_msg 的值: &quot; + clone_check_msg);
 
 // 将 id 值设置为 JMeter 变量
 vars.put(&quot;clone_check_msg&quot;, clone_check_msg);</stringProp>
@@ -4353,7 +4353,7 @@ vars.put(&quot;clone_check_msg&quot;, clone_check_msg);</stringProp>
 String jsonResult = prev.getResponseDataAsString();
 
 
-log.info(&quot;rootPlayground create 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
+bsh.shared.util.info(&quot;rootPlayground create 接口返回===============&gt;&gt;&gt;&gt;&quot;+jsonResult);
 
 JSONObject jsonObject = new JSONObject(jsonResult); 
  
@@ -4363,7 +4363,7 @@ String da1 = data.getString(&quot;id&quot;);
 
 vars.put(&quot;rootPlaygroundId&quot;, da1);
 
-log.info(&quot;rootPlaygroundId 的值: &quot; + da1);
+bsh.shared.util.info(&quot;rootPlaygroundId 的值: &quot; + da1);
 </stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
@@ -4471,13 +4471,13 @@ import org.json.JSONObject;
 try {
     int loopCountVar = Integer.parseInt(vars.get(&quot;loopCount&quot;));
     if (loopCountVar &gt; 20 ) {
-        log.info(&quot;Variable value is greater than 20. Stopping thread.&quot;);
+        bsh.shared.util.info(&quot;Variable value is greater than 20. Stopping thread.&quot;);
         sampler.getThreadContext().getThread().stop();
     }
 } catch (NumberFormatException e) {
-    log.error(&quot;Error parsing variable value: &quot; + e.getMessage());
+    bsh.shared.util.error(&quot;Error parsing variable value: &quot; + e.getMessage());
 } catch (NullPointerException e) {
-    log.error(&quot;Variable not found: &quot; + e.getMessage());
+    bsh.shared.util.error(&quot;Variable not found: &quot; + e.getMessage());
 }
 
 // 获取原始响应字符串
@@ -4487,7 +4487,7 @@ responseData = prev.getResponseDataAsString();
 statusCode = responseData.substring(0, responseData.indexOf(&quot;[&quot;));
 jsonStr = responseData.substring(responseData.indexOf(&quot;[&quot;));
 
-log.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
 
 // 仅当状态码为 430 时处理
 if (statusCode.equals(&quot;430&quot;)) {
@@ -4516,11 +4516,11 @@ if (statusCode.equals(&quot;430&quot;)) {
             
             vars.put(&quot;firstEnvironmentFirstId&quot;, firstId);
             vars.put(&quot;firstEnvironmentFirstName&quot;, firstName);
-            log.info(&quot;✅ 提取成功: &quot; + firstId);
-            log.info(&quot;✅ 提取成功: &quot; + firstName);
+            bsh.shared.util.info(&quot;✅ 提取成功: &quot; + firstId);
+            bsh.shared.util.info(&quot;✅ 提取成功: &quot; + firstName);
         }
     } catch (Exception e) {
-        log.error(&quot;❌ JSON解析失败&quot;, e);
+        bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
     }
 } else {
     log.warn(&quot;⏩ 状态码不是430&quot;);
@@ -4609,7 +4609,7 @@ if (statusCode.equals(&quot;430&quot;)) {
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="-&gt; 日志检查codezoneId 的值" enabled="true">
             <stringProp name="BeanShellSampler.query">// BeanShell Sampler
 String codezoneId = vars.get(&quot;codezoneId&quot;);
-log.info(&quot;codezoneId 的值: &quot; + codezoneId);</stringProp>
+bsh.shared.util.info(&quot;codezoneId 的值: &quot; + codezoneId);</stringProp>
           </BeanShellSampler>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; backend close rootThread" enabled="true">
@@ -4684,7 +4684,7 @@ log.info(&quot;codezoneId 的值: &quot; + codezoneId);</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;is_ping 的值: &quot; + is_ping);</stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
             <eu.luminis.jmeter.wssampler.PingFrameFilter guiclass="eu.luminis.jmeter.wssampler.PingFrameFilterGui" testclass="eu.luminis.jmeter.wssampler.PingFrameFilter" testname="WebSocket Ping/Pong Frame Filter" enabled="true">
@@ -4712,7 +4712,7 @@ log.info(&quot;is_ping 的值: &quot; + is_ping);</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">String is_ping = vars.get(&quot;is_ping&quot;);
-log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
+bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
             <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="WebSocket Single Write Sampler" enabled="true">
