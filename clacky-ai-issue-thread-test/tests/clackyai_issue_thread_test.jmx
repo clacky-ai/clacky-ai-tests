@@ -21,7 +21,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="* User Defined Variables">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="* User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments">
             <elementProp name="PAAS_DOMAIN" elementType="Argument">
               <stringProp name="Argument.name">PAAS_DOMAIN</stringProp>
@@ -130,6 +130,98 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function">
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="script">import java.text.SimpleDateFormat;
+import java.util.Date;
+
+// 直接定义一个简单的logInfo方法（避免类和静态方法的复杂性）
+Object traceLog(customMessage) {
+    // 创建时间格式化器
+    SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;);
+    String timestamp = sdf.format(new Date());
+    
+    // 获取任务名称和相关上下文变量
+    String taskName = vars.get(&quot;taskName&quot;) != null ? vars.get(&quot;taskName&quot;) : &quot;UNKNOWN_TASK&quot;;
+    String playgroundId = vars.get(&quot;playgroundId&quot;) != null ? vars.get(&quot;playgroundId&quot;) : &quot;N/A&quot;;
+    String issueThreadCodezoneId = vars.get(&quot;issueThreadCodezoneId&quot;) != null ? vars.get(&quot;issueThreadCodezoneId&quot;) : &quot;N/A&quot;;
+    
+    // 获取采样器信息
+    String sampler = &quot;N/A&quot;;
+    String success = &quot;N/A&quot;;
+    String statusCode = &quot;N/A&quot;;
+    
+    // 安全地获取前一个采样器的信息
+    if (prev != null) {
+        sampler = prev.getSampleLabel() != null ? prev.getSampleLabel() : &quot;N/A&quot;;
+        success = prev.isSuccessful() ? &quot;SUCCESS&quot; : &quot;FAIL&quot;;
+        statusCode = prev.getResponseCode() != null ? prev.getResponseCode() : &quot;N/A&quot;;
+    }
+    
+    // 获取线程信息
+    int threadNum = ctx.getThreadNum();
+    String threadName = Thread.currentThread().getName();
+    
+    // 构建完整的日志消息
+    String logMessage = &quot;[&quot; + timestamp + &quot;] TraceLog Task: &quot; + threadName + &quot; | Sampler: &quot; + sampler + 
+                       &quot; | issueThreadCodezoneId: &quot; + issueThreadCodezoneId + &quot;,PlaygroundId: &quot; + playgroundId + 
+                       &quot; | Status: &quot; + success + &quot; | Code: &quot; + statusCode;
+    
+    // 如果有自定义消息，添加到日志中
+    if (customMessage != null &amp;&amp; !customMessage.trim().isEmpty()) {
+        logMessage += &quot; | Message: &quot; + customMessage;
+    }
+    
+    // 输出日志
+    log.info(logMessage);
+    return logMessage;
+}
+
+if (bsh.shared.util == void) {
+    bsh.shared.util = this;
+}
+</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="* LogInfo 使用示例" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">// ===========================================
+// logInfo函数使用示例 - 复制此代码到任何BeanShell脚本中使用
+// ===========================================
+
+// 基本用法 - 记录简单信息
+bsh.shared.logInfo(&quot;开始执行某个业务逻辑&quot;);
+
+// 记录处理过程
+bsh.shared.logInfo(&quot;正在处理用户ID: &quot; + vars.get(&quot;userId&quot;));
+
+// 记录成功信息
+bsh.shared.logInfo(&quot;数据解析成功，提取到关键字段: someValue&quot;);
+
+// 记录错误信息
+bsh.shared.logInfo(&quot;处理失败，错误原因: 响应状态不正确&quot;);
+
+// 记录调试信息
+bsh.shared.logInfo(&quot;当前变量状态 - playgroundId: &quot; + vars.get(&quot;playgroundId&quot;) + &quot;, codezoneId: &quot; + vars.get(&quot;issueThreadCodezoneId&quot;));
+
+// 记录业务流程节点
+bsh.shared.logInfo(&quot;进入业务流程: 创建playground&quot;);
+bsh.shared.logInfo(&quot;完成业务流程: 创建playground&quot;);
+
+// ===========================================
+// 函数优势：
+// 1. 自动包含时间戳、任务名称、线程信息等上下文
+// 2. 自动获取采样器名称、状态、响应码等信息  
+// 3. 统一的日志格式，便于日志分析和问题排查
+// 4. 只需传入自定义消息即可，其他信息自动填充
+// ===========================================</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="公共业务流程" enabled="false"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [Backend] 获取用户信息 /auth/account" enabled="true">
@@ -713,7 +805,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] fork codezone" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[PaaS] fork codezone">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/fork</stringProp>
@@ -737,7 +829,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -746,15 +838,17 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="[paas template] anaylize  issueThreadId issueThread codezoneId" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="[paas template] anaylize  issueThreadId issueThread codezoneId">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="script">import org.json.JSONObject;
 
-// 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 log.info(&quot;原始响应数据: &quot; + jsonResult);
+
+// 记录处理过程
+bsh.shared.util.logInfo(&quot;成功获取响应数据，准备解析 JSON&quot;);
 
 // 创建 JSONObject 解析响应
 JSONObject jsonObject = new JSONObject(jsonResult);
@@ -767,18 +861,21 @@ log.info(&quot;status: &quot; + status);
 if ( &quot;success&quot;.equals(status)) {
     // 提取 data 对象中的 id
     JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
-    String issueThreadCodezoneId = data.getString(&quot;id&quot;);
+    String extracteIssueThreadCodezoneId = data.getString(&quot;id&quot;);
     
-    log.info(&quot;解析到的 issueThreadCodezoneId: &quot; + issueThreadCodezoneId);
     // 将 id 存入 JMeter 变量中
-    vars.put(&quot;issueThreadCodezoneId&quot;, issueThreadCodezoneId);
+    vars.put(&quot;issueThreadCodezoneId&quot;, extracteIssueThreadCodezoneId);
+        // 使用 logInfo 函数记录成功信息
+    bsh.shared.util.logInfo(&quot;成功解析到 issueThreadCodezoneId: &quot; + extracteIssueThreadCodezoneId);
 } else {
-    log.error(&quot;响应未成功，无法提取 issueThreadCodezoneId&quot;);
+    // 使用 logInfo 函数记录错误信息
+    bsh.shared.util.logInfo(&quot;响应未成功，无法提取 issueThreadCodezoneId，状态: &quot; + status);
+    prev.setStopTest(true);
 }</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update issueThread 状态和 codezoneId" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update issueThread 状态和 codezoneId">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread</stringProp>
@@ -820,7 +917,7 @@ if ( &quot;success&quot;.equals(status)) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas checkout branch" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas checkout branch">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${issueThreadCodezoneId}/git/createAndCheckBranch</stringProp>
@@ -853,7 +950,7 @@ if ( &quot;success&quot;.equals(status)) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建playground" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建playground">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${issueThreadCodezoneId}/playground</stringProp>
@@ -881,6 +978,9 @@ if ( &quot;success&quot;.equals(status)) {
             <stringProp name="filename"></stringProp>
             <stringProp name="script">import org.json.JSONObject;
 
+// 使用logInfo函数记录处理开始
+bsh.shared.logInfo(&quot;开始处理 issueThreadPlaygroundId 解析&quot;);
+
 // 获取响应数据
 String jsonResult = prev.getResponseDataAsString();
 log.info(&quot;原始响应数据: &quot; + jsonResult);
@@ -898,11 +998,14 @@ if ( &quot;success&quot;.equals(status)) {
     JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
     String issueThreadPlaygroundId = data.getString(&quot;id&quot;);
     
-    log.info(&quot;解析到的 issueThreadPlaygroundId: &quot; + issueThreadPlaygroundId);
+    // 使用logInfo函数记录成功信息
+    bsh.shared.logInfo(&quot;成功解析到 issueThreadPlaygroundId: &quot; + issueThreadPlaygroundId);
+    
     // 将 id 存入 JMeter 变量中
     vars.put(&quot;issueThreadPlaygroundId&quot;, issueThreadPlaygroundId);
 } else {
-    log.error(&quot;响应未成功，无法提取 issueThreadPlaygroundId&quot;);
+    // 使用logInfo函数记录错误信息
+    bsh.shared.logInfo(&quot;响应未成功，无法提取 issueThreadPlaygroundId，状态: &quot; + status);
 }</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
@@ -1080,7 +1183,7 @@ try {
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="-&gt; *  IDEServer 事件接口"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="-&gt; *  IDEServer 事件接口" enabled="true"/>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
@@ -1280,13 +1383,27 @@ try {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="-&gt; * paas wss 关闭连接" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; * paas SocketIO Close" enabled="true">
+            <boolProp name="TLS">true</boolProp>
+            <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
+            <stringProp name="port">443</stringProp>
+            <stringProp name="path">/socket.io/?playgroundId=${issueThreadPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
+            <stringProp name="connectTimeout">20000</stringProp>
+            <stringProp name="payloadType">Text</stringProp>
+            <stringProp name="requestData">1</stringProp>
+            <boolProp name="createNewConnection">false</boolProp>
+            <boolProp name="loadDataFromFile">false</boolProp>
+            <stringProp name="dataFile"></stringProp>
+            <stringProp name="TestPlan.comments">https://socket.io/docs/v4/socket-io-protocol/</stringProp>
+          </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+          <hashTree/>
+          <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="-&gt; * paas wss 关闭连接" enabled="false">
             <stringProp name="statusCode">1000</stringProp>
             <stringProp name="readTimeout">6000</stringProp>
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 邀请成员 /invite/link/create">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 邀请成员 /invite/link/create" enabled="true">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/invite/link/create</stringProp>
@@ -1344,7 +1461,7 @@ try {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="连接 issueThread 制定需求"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="连接 issueThread 制定需求" enabled="true"/>
         <hashTree>
           <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="[AI] 连接 issueThread" enabled="true">
             <boolProp name="TLS">true</boolProp>
@@ -1354,7 +1471,45 @@ try {
             <stringProp name="connectTimeout">60000</stringProp>
             <stringProp name="readTimeout">60000</stringProp>
           </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
-          <hashTree/>
+          <hashTree>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>false</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
           <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] isRoot" enabled="true">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
@@ -1369,10 +1524,10 @@ try {
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
           <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] uMakePlan（implement bubble sort）" enabled="true">
-            <boolProp name="TLS">false</boolProp>
-            <stringProp name="server"></stringProp>
-            <stringProp name="port">80</stringProp>
-            <stringProp name="path"></stringProp>
+            <boolProp name="TLS">true</boolProp>
+            <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
+            <stringProp name="port">443</stringProp>
+            <stringProp name="path">/socket.io/?playgroundId=${issueThreadPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
             <stringProp name="connectTimeout">20000</stringProp>
             <stringProp name="payloadType">Text</stringProp>
             <stringProp name="requestData">420[&quot;uMakePlan&quot;,&quot;在Go项目中实现冒泡排序算法&quot;,&quot;用户要求实现冒泡排序算法。当前项目是一个Go语言项目，包含基础的main.go文件。需要：\n\n1. 实现冒泡排序函数 bubbleSort\n2. 在main函数中添加测试示例\n3. 展示排序前后的数组状态\n4. 确保代码结构清晰，包含必要的注释\n\n冒泡排序是一种简单的排序算法，通过重复遍历要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。遍历数列的工作是重复地进行直到没有再需要交换。\n\n实现要求：\n- 使用Go语言语法\n- 函数接收int切片作为参数\n- 原地排序（修改原数组）\n- 添加适当的测试用例展示功能&quot;,[&quot;在main.go文件中实现`bubbleSort`函数，使其接收一个int切片并进行冒泡排序。&quot;,&quot;在`main`函数中，创建一个int类型的切片用于测试。&quot;,&quot;在排序前打印测试切片的状态。&quot;,&quot;调用`bubbleSort`函数对测试切片进行排序。&quot;,&quot;在排序后打印测试切片的状态。&quot;,&quot;添加必要的注释解释代码功能。&quot;]]</stringProp>
@@ -1581,7 +1736,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
 log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor issuePlan_uStartTask">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor issuePlan_uStartTask" enabled="true">
             <stringProp name="WhileController.condition">${__javaScript(  ( parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;taskStatus&quot;) == null ) || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;,)}</stringProp>
           </WhileController>
           <hashTree>
@@ -2129,7 +2284,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
 log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uStartTask">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uStartTask" enabled="true">
             <stringProp name="WhileController.condition">${__javaScript(     parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;,)}</stringProp>
           </WhileController>
           <hashTree>
@@ -2297,7 +2452,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 查看 commit 文件列表">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 查看 commit 文件列表" enabled="true">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -2310,7 +2465,7 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听查看 commit 文件列表">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听查看 commit 文件列表" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -2359,7 +2514,21 @@ log.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</strin
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
             <hashTree/>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="WebSocket Close" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="SocketIO Close" enabled="true">
+            <boolProp name="TLS">true</boolProp>
+            <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
+            <stringProp name="port">443</stringProp>
+            <stringProp name="path">/socket.io/?playgroundId=${issueThreadPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
+            <stringProp name="connectTimeout">20000</stringProp>
+            <stringProp name="payloadType">Text</stringProp>
+            <stringProp name="requestData">1</stringProp>
+            <boolProp name="createNewConnection">false</boolProp>
+            <boolProp name="loadDataFromFile">false</boolProp>
+            <stringProp name="dataFile"></stringProp>
+            <stringProp name="TestPlan.comments">https://socket.io/docs/v4/socket-io-protocol/</stringProp>
+          </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
+          <hashTree/>
+          <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="WebSocket Close" enabled="false">
             <stringProp name="statusCode">1000</stringProp>
             <stringProp name="readTimeout">6000</stringProp>
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
