@@ -106,7 +106,7 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="* HTTP Header Manager" enabled="true">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="* HTTP Header Manager">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="userId" elementType="Header">
               <stringProp name="Header.name">userId</stringProp>
@@ -114,7 +114,7 @@
             </elementProp>
             <elementProp name="Authorization" elementType="Header">
               <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDIyMkFBQSIsImtpZCI6Imluc18yamxoeHcyakdYZGFzYnpYRzVXN3pid2tVSmoiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3N0YWdpbmcuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc0OTc4NjMxOCwiaWF0IjoxNzQ4OTIyMzE4LCJpc3MiOiJodHRwczovL2NsZXJrLmNsYWNreWFpLmNvbSIsImp0aSI6IjgwNTJiYWI0NDliMmY3NWI5YzZmIiwibmJmIjoxNzQ4OTIyMzEzLCJzdWIiOiJ1c2VyXzJsclhMZ3czVDFCS2FwOWdrWW9oRXNGbTZZeiJ9.pl5R4akSVmssH8q2iRUYXOOWwfdQY1JRjiacaJIqgdpPNCNIyUDv8I9D_ID6jor238BSZ_J9899sKWwXzIQeYJqmu4ws9WsjoVQptVMxTkxuyd-BA-Y9abBU9tycT6dUASkGdiYRVNtDseRiyiFB8XAB6plXDjy4nd6iiatq02OH5vY9A4w_YdmM8P8ikM4U2gwJwqfJfr6pg_m9qunPVx3puDOyiUtd_JBveXA6Tyyncdrs-ADXRlvb68P1xAT3SLpzFAhTbL4VwqADWs9U-4Xg8Ib92UzsOzmOb513o7z_-epe0SSUcQOGpEGdhTUGvRpkJmalChrm2oADfJ7vPg</stringProp>
+              <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDIyMkFBQSIsImtpZCI6Imluc18yamxoeHcyakdYZGFzYnpYRzVXN3pid2tVSmoiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3N0YWdpbmcuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc1MDY1MzU1NywiaWF0IjoxNzQ5Nzg5NTU3LCJpc3MiOiJodHRwczovL2NsZXJrLmNsYWNreWFpLmNvbSIsImp0aSI6ImY5YmFiNmJmNmFmNDMxYjFjZDdlIiwibmJmIjoxNzQ5Nzg5NTUyLCJzdWIiOiJ1c2VyXzJsclhMZ3czVDFCS2FwOWdrWW9oRXNGbTZZeiJ9.Y4nZ8hjSt3bcg2u-DaBA2TSaHZmNOwC5uil1_rPKcmx1HRDt2SvrtFuVBqsnvY-B-F3qZMFXnYjdXCoMBXqdM70xbqfJKlg8IHXTTHuTX1YN50G7HkOmkHQ-FF9ygtsr6zzoFOFwV_Da0YBQ2JY0waZFbzCbUikq1IUwNln8SRtb0LZR8PIkmxhIp4ots-9tvXSG5GkDt01rnPJdcxz3To6n5z57Tq4gRXj2kl-HmdhRATjJiB7Gp_Hiuz0ASxeLLkuvM1rQQk5EiAxSYzsaJZyh8s4A657UD5ZG2R0DFTQNPi_WnqNqmYw-UNqNMojgBfH3V7zEpvPWxLPyn8aCWQ</stringProp>
             </elementProp>
             <elementProp name="Workspace-Id" elementType="Header">
               <stringProp name="Header.name">Workspace-Id</stringProp>
@@ -135,7 +135,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function" enabled="true">
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function">
           <boolProp name="resetInterpreter">false</boolProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -668,7 +668,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[New]  [Backend] caculate credit /credit/calculate" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[New]  [Backend] caculate credit /credit/calculate">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/credit/calculate</stringProp>
@@ -6348,7 +6348,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
         </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
         <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -6385,7 +6385,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
