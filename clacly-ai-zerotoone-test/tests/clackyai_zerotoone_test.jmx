@@ -10,9 +10,9 @@
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ClackyAi-Issue-Thread-Test">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ClackyAi-Zerotoone-Test">
         <stringProp name="ThreadGroup.num_threads">${__P(threads, 5)}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${__P(rampup, 0)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(rampup, 10)}</stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -25,12 +25,12 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="PAAS_DOMAIN" elementType="Argument">
               <stringProp name="Argument.name">PAAS_DOMAIN</stringProp>
-              <stringProp name="Argument.value">staging.clackypaas.com</stringProp>
+              <stringProp name="Argument.value">develop.clackypaas.com</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="BACKEND_DOMAIN" elementType="Argument">
               <stringProp name="Argument.name">BACKEND_DOMAIN</stringProp>
-              <stringProp name="Argument.value">staging.api.clackyai.com</stringProp>
+              <stringProp name="Argument.value">develop.api.clackyai.com</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="connectionID" elementType="Argument">
@@ -45,17 +45,17 @@
             </elementProp>
             <elementProp name="repositoryId" elementType="Argument">
               <stringProp name="Argument.name">repositoryId</stringProp>
-              <stringProp name="Argument.value">0196ec6c-26ae-7097-82f6-3d400aa7a24d</stringProp>
+              <stringProp name="Argument.value">0196766e-dd28-78be-92d2-b6cf15c12666</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="workspaceId" elementType="Argument">
               <stringProp name="Argument.name">workspaceId</stringProp>
-              <stringProp name="Argument.value">0191d9fc-ea96-77e8-8f64-fc4dbca52de4</stringProp>
+              <stringProp name="Argument.value">0191e5ad-2b22-7f7a-a905-d9ddb7015d4f</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="WSS_AGENT_DOMAIN" elementType="Argument">
               <stringProp name="Argument.name">WSS_AGENT_DOMAIN</stringProp>
-              <stringProp name="Argument.value">staging.agent.clackyai.com</stringProp>
+              <stringProp name="Argument.value">develop.agent.clackyai.com</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="myProjectId" elementType="Argument">
@@ -70,12 +70,12 @@
             </elementProp>
             <elementProp name="threadId" elementType="Argument">
               <stringProp name="Argument.name">threadId</stringProp>
-              <stringProp name="Argument.value">01973f70-295b-7503-a1a5-5684a708a252</stringProp>
+              <stringProp name="Argument.value">01981764-dbd1-751a-aa67-88af10549fd3</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="projectId" elementType="Argument">
               <stringProp name="Argument.name">projectId</stringProp>
-              <stringProp name="Argument.value">01973f70-2052-7092-aa0c-ddd9a1621cb2</stringProp>
+              <stringProp name="Argument.value">01981764-ca1b-7363-b622-c33503df870f</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="testIssuePlaygroundId" elementType="Argument">
@@ -95,12 +95,12 @@
             </elementProp>
             <elementProp name="pingCountMax" elementType="Argument">
               <stringProp name="Argument.name">pingCountMax</stringProp>
-              <stringProp name="Argument.value">3</stringProp>
+              <stringProp name="Argument.value">10</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="token" elementType="Argument">
               <stringProp name="Argument.name">token</stringProp>
-              <stringProp name="Argument.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkUVNLZ2s2WVl2N1lmVXZQSUhERDN5WGxISnVJbUs5ayIsImV4cCI6MTc1MDEyODc0NiwibmJmIjoxNzUwMDQyMzQ2LCJpYXQiOjE3NTAwNDIzNDYsInN1YiI6IjAxOTFkOWZjLWVhOGUtNzdlOC1iMGI4LTA1YzAyZTE4ZjdiZiJ9.IK7Tsk4scealX8njBXXtdGnKTaEKdqf0tqlv5leYXv0</stringProp>
+              <stringProp name="Argument.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkUVNLZ2s2WVl2N1lmVXZQSUhERDN5WGxISnVJbUs5ayIsImV4cCI6MTc1Mzc3MDgyOSwibmJmIjoxNzUzNjg0NDI5LCJpYXQiOjE3NTM2ODQ0MjksInN1YiI6IjAxOTFlNWFkLTJiMWItN2Y3YS1iMDdjLTA2ZjIwZjYyNTkzYyJ9.TAEjmSbT32GIRm5co0pi55PPJfg9OK8ItWpQUBYt2FY</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -114,7 +114,7 @@
             </elementProp>
             <elementProp name="Authorization" elementType="Header">
               <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDIyMkFBQSIsImtpZCI6Imluc18yamxoeHcyakdYZGFzYnpYRzVXN3pid2tVSmoiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3N0YWdpbmcuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc1MDY1MzU1NywiaWF0IjoxNzQ5Nzg5NTU3LCJpc3MiOiJodHRwczovL2NsZXJrLmNsYWNreWFpLmNvbSIsImp0aSI6ImY5YmFiNmJmNmFmNDMxYjFjZDdlIiwibmJmIjoxNzQ5Nzg5NTUyLCJzdWIiOiJ1c2VyXzJsclhMZ3czVDFCS2FwOWdrWW9oRXNGbTZZeiJ9.Y4nZ8hjSt3bcg2u-DaBA2TSaHZmNOwC5uil1_rPKcmx1HRDt2SvrtFuVBqsnvY-B-F3qZMFXnYjdXCoMBXqdM70xbqfJKlg8IHXTTHuTX1YN50G7HkOmkHQ-FF9ygtsr6zzoFOFwV_Da0YBQ2JY0waZFbzCbUikq1IUwNln8SRtb0LZR8PIkmxhIp4ots-9tvXSG5GkDt01rnPJdcxz3To6n5z57Tq4gRXj2kl-HmdhRATjJiB7Gp_Hiuz0ASxeLLkuvM1rQQk5EiAxSYzsaJZyh8s4A657UD5ZG2R0DFTQNPi_WnqNqmYw-UNqNMojgBfH3V7zEpvPWxLPyn8aCWQ</stringProp>
+              <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDIyMkFBQSIsImtpZCI6Imluc18yamxoTFNvTVBpdWMxeUlCNFdKOHByb3QxbFUiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL2RldmVsb3AuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc1NDAyODgwOCwiaWF0IjoxNzUzNDI0MDA4LCJpc3MiOiJodHRwczovL3NvbGlkLW1hcnRpbi0xNS5jbGVyay5hY2NvdW50cy5kZXYiLCJqdGkiOiI3NjUyMDY3ZGU5NmNiZmU0MTgyNyIsIm5iZiI6MTc1MzQyNDAwMywic3ViIjoidXNlcl8ybHh3cE1qNE92eVVsTTZFYW56NWVDMjAwdjkifQ.ddXTHxQK6UZD5VDQxotzYSNGTexwEBdwfDyf3vhuh-pBG_rxcU4vs3xQOHl14J2H2gxUfC6wOqOPea4PXh6SU2hmT8Zb6aU139YcwAuiFB4I7yzAA8hYPI53chIW0FinpO_B5m6BZw2838u5Db1NCEx97zYtUzdGNfJ68tMfPaikEfbuJ8AwoO_fpIWiprGeurIAMGOrYbmXeMJVWa4u2UwqsYrTI-fpdAneq3okNMdBIghShyLvfPQtwqMtuQuaBQtLhs5US9cJSReJoSA1eUSs3rjHu_LQq32qork8zRsj7pBn-GyeOYuZEi4OI-dHl59zoxvg13i1hPl-y2VSeg</stringProp>
             </elementProp>
             <elementProp name="Workspace-Id" elementType="Header">
               <stringProp name="Header.name">Workspace-Id</stringProp>
@@ -135,7 +135,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function" enabled="true">
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function">
           <boolProp name="resetInterpreter">false</boolProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -668,7 +668,149 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[New]  [Backend] caculate credit /credit/calculate" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * [Backend] preCreate">
+          <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/project/pre-create</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import org.json.JSONObject;
+
+// 获取响应数据
+String jsonResult = prev.getResponseDataAsString();
+bsh.shared.util.info(&quot;原始响应数据: &quot; + jsonResult);
+
+// 创建 JSONObject 解析响应
+JSONObject jsonObject = new JSONObject(jsonResult);
+
+// 检查 code 和 msg
+int code = jsonObject.getInt(&quot;code&quot;);
+String msg = jsonObject.getString(&quot;msg&quot;);
+bsh.shared.util.info(&quot;code: &quot; + code);
+bsh.shared.util.info(&quot;msg: &quot; + msg);
+
+// 如果响应成功 (code=200 且 msg=&quot;Succeed&quot;)
+if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
+    // 提取 data 对象中的 id
+    JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
+    String codezone_id = data.getString(&quot;codezone_id&quot;);
+    String playground_id = data.getString(&quot;playground_id&quot;);
+    
+    bsh.shared.util.info(&quot;解析到的 codezone_id: &quot; + codezone_id);
+    // 将 id 存入 JMeter 变量中
+    vars.put(&quot;codezone_id&quot;, codezone_id);
+    vars.put(&quot;playground_id&quot;, playground_id);
+} else {
+    bsh.shared.util.error(&quot;响应未成功，无法提取 codezone_id&quot;);
+    prev.setStopTest(true);
+}</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * [Backend]  create">
+          <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/project/create</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;project_name&quot;: &quot;todolist-app_${__time(yyyyMMddHHmm,)}_${__threadNum}&quot;,&#xd;
+  &quot;codezone_id&quot;: &quot;${codezone_id}&quot;,&#xd;
+  &quot;playground_id&quot;: &quot;${playground_id}&quot;,&#xd;
+  &quot;environment_ver_id&quot;: &quot;684533895370272787&quot;,&#xd;
+  &quot;branch&quot;: &quot;main&quot;,&#xd;
+  &quot;thread_name&quot;: &quot;Develop todolist application&quot;,&#xd;
+  &quot;issue&quot;: &quot;{\&quot;goal\&quot;:\&quot;Develop a feature-rich todolist application\&quot;,\&quot;goal_detail\&quot;:\&quot;Create a comprehensive single-page todolist application with the following specifications:\\n\\n**Tech Stack:**\\n- Next.js (React framework)\\n- TailwindCSS (for styling)\\n\\n**Core Features:**\\n1. **Task Management Operations:**\\n   - Add new tasks\\n   - Delete existing tasks\\n   - Edit/update tasks\\n   - All operations on a single page interface\\n\\n2. **Task Properties:**\\n   - Task title/name\\n   - Priority levels (e.g., High, Medium, Low)\\n   - Deadline/due date\\n   - Tags for categorization\\n   - Description field for additional details\\n   - Status tracking with three states:\\n     - Todo (pending)\\n     - In Progress (active)\\n     - Completed (finished)\\n\\n3. **Data Persistence:**\\n   - Use browser&apos;s localStorage for data storage\\n   - Ensure tasks persist across browser sessions\\n   - Handle localStorage operations safely\\n\\n4. **User Interface Requirements:**\\n   - Clean, responsive design using TailwindCSS\\n   - Intuitive task management interface\\n   - Visual indicators for different priorities and statuses\\n   - Easy-to-use forms for adding/editing tasks\\n   - Clear task display with all properties visible\\n\\n**Technical Implementation:**\\n- Set up Next.js project structure\\n- Configure TailwindCSS integration\\n- Implement React hooks for state management\\n- Create localStorage utilities for data persistence\\n- Design responsive components for task CRUD operations\\n- Implement filtering and sorting capabilities if needed\\n- Ensure proper error handling and user feedback\&quot;,\&quot;current_list\&quot;:[\&quot;This is an empty project with no existing components\&quot;],\&quot;proposed_list\&quot;:[\&quot;Tech Stack: Next.js, TailwindCSS\&quot;,\&quot;Initialize Next.js project\&quot;,\&quot;Configure TailwindCSS\&quot;,\&quot;Implement task state management using React hooks\&quot;,\&quot;Create models for task properties (title, priority, deadline, tags, description, status)\&quot;,\&quot;Develop localStorage utility functions for task data persistence\&quot;,\&quot;Design and develop responsive UI components for displaying tasks\&quot;,\&quot;Implement forms for adding and editing tasks with all properties\&quot;,\&quot;Implement task creation functionality\&quot;,\&quot;Implement task deletion functionality\&quot;,\&quot;Implement task editing/update functionality\&quot;,\&quot;Add visual indicators for task priority and status\&quot;,\&quot;Implement filtering and sorting for tasks (optional but recommended)\&quot;,\&quot;Add error handling and user feedback mechanisms\&quot;]}&quot;,&#xd;
+  &quot;pay_info&quot;: {&#xd;
+    &quot;scene&quot;: &quot;thread&quot;,&#xd;
+    &quot;demand_scale&quot;: &quot;medium&quot;,&#xd;
+    &quot;demand_id&quot;: &quot;97c6fdd2-cb63-4340-a683-fc9a1a392777&quot;,&#xd;
+    &quot;sign_data&quot;: &quot;RbiS8xuQbsoVk9a1O1YohQQXnT2cdPdycQemCep7N2qmsW0lAjpFeNrXAdg8IFlpSXxn8U+XVNDuNhoM9wBdEjh7gR7dogItiWKfAaXehKMDUkRnH6tWawMnPQNGwV+NtVKPbU0MVA==&quot;,&#xd;
+    &quot;credit&quot;: 400,&#xd;
+    &quot;nonce&quot;: &quot;lwF8M3iF/laY5y/O&quot;,&#xd;
+    &quot;tag&quot;: &quot;9vKmjFsEYc4XnnSYeUWVqw==&quot;,&#xd;
+    &quot;timestamp&quot;: 1750074831794&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import org.json.JSONObject;
+
+// 获取响应数据
+String jsonResult = prev.getResponseDataAsString();
+bsh.shared.util.info(&quot;原始响应数据: &quot; + jsonResult);
+
+// 创建 JSONObject 解析响应
+JSONObject jsonObject = new JSONObject(jsonResult);
+
+// 检查 code 和 msg
+int code = jsonObject.getInt(&quot;code&quot;);
+String msg = jsonObject.getString(&quot;msg&quot;);
+bsh.shared.util.info(&quot;code: &quot; + code);
+bsh.shared.util.info(&quot;msg: &quot; + msg);
+
+// 如果响应成功 (code=200 且 msg=&quot;Succeed&quot;)
+if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
+    // 提取 data 对象中的 id
+    JSONObject data = jsonObject.getJSONObject(&quot;data&quot;);
+    String project_id = data.getString(&quot;project_id&quot;);
+    String thread_id = data.getString(&quot;thread_id&quot;);
+    
+    bsh.shared.util.info(&quot;解析到的 codezone_id: &quot; + codezone_id);
+    // 将 id 存入 JMeter 变量中
+    vars.put(&quot;project_id&quot;, project_id);
+    vars.put(&quot;thread_id&quot;, thread_id);
+} else {
+    bsh.shared.util.error(&quot;响应未成功，无法提取 project_id&quot;);
+    prev.setStopTest(true);
+}</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[New]  [Backend] caculate credit /credit/calculate" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/credit/calculate</stringProp>
@@ -708,7 +850,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] create issue thread /thread/create-another" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] create issue thread /thread/create-another" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/create-another</stringProp>
@@ -792,7 +934,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] fetch /thread/fetch [ need close rootThread]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] fetch /thread/fetch [ need close rootThread]" enabled="false">
           <stringProp name="TestPlan.comments">要求容器激活</stringProp>
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -816,7 +958,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增][Backend] Enter /thread/enter" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增][Backend] Enter /thread/enter" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/enter</stringProp>
@@ -939,7 +1081,7 @@ if ( &quot;success&quot;.equals(status)) {
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update issueThread 状态和 codezoneId" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update issueThread 状态和 codezoneId" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread</stringProp>
@@ -2045,7 +2187,7 @@ log.info(&quot; 注入变量: issueThreadCodezoneId: &quot; + issueThreadCodezon
           </BeanShellPreProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas checkout branch" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas checkout branch" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${issueThreadCodezoneId}/git/createAndCheckBranch</stringProp>
@@ -2078,7 +2220,7 @@ log.info(&quot; 注入变量: issueThreadCodezoneId: &quot; + issueThreadCodezon
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建playground" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 创建playground" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${issueThreadCodezoneId}/playground</stringProp>
@@ -2133,7 +2275,7 @@ if ( &quot;success&quot;.equals(status)) {
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取中间件配置列表" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取中间件配置列表" enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${issueThreadCodezoneId}/middlewareDefines/config</stringProp>
@@ -2146,7 +2288,7 @@ if ( &quot;success&quot;.equals(status)) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取playground绑定信息 " enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [PaaS] 获取playground绑定信息 " enabled="false">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/playgrounds/${issueThreadPlaygroundId}/bindInfo</stringProp>
@@ -2169,7 +2311,7 @@ if ( &quot;success&quot;.equals(status)) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update issueThread playground" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update Thread">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread</stringProp>
@@ -2182,8 +2324,8 @@ if ( &quot;success&quot;.equals(status)) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;playground_id&quot;: &quot;${issueThreadPlaygroundId}&quot;,&#xd;
-    &quot;code_status&quot;:&quot;INITIALIZED&quot;&#xd;
+    &quot;code_status&quot;:&quot;INITIALIZED&quot;,&#xd;
+    &quot;issue&quot;: &quot;{\&quot;goal\&quot;:\&quot;Develop a feature-rich todolist application\&quot;,\&quot;goal_detail\&quot;:\&quot;Create a comprehensive single-page todolist application with the following specifications:\\n\\n**Tech Stack:**\\n- Next.js (React framework)\\n- TailwindCSS (for styling)\\n\\n**Core Features:**\\n1. **Task Management Operations:**\\n   - Add new tasks\\n   - Delete existing tasks\\n   - Edit/update tasks\\n   - All operations on a single page interface\\n\\n2. **Task Properties:**\\n   - Task title/name\\n   - Priority levels (e.g., High, Medium, Low)\\n   - Deadline/due date\\n   - Tags for categorization\\n   - Description field for additional details\\n   - Status tracking with three states:\\n     - Todo (pending)\\n     - In Progress (active)\\n     - Completed (finished)\\n\\n3. **Data Persistence:**\\n   - Use browser&apos;s localStorage for data storage\\n   - Ensure tasks persist across browser sessions\\n   - Handle localStorage operations safely\\n\\n4. **User Interface Requirements:**\\n   - Clean, responsive design using TailwindCSS\\n   - Intuitive task management interface\\n   - Visual indicators for different priorities and statuses\\n   - Easy-to-use forms for adding/editing tasks\\n   - Clear task display with all properties visible\\n\\n**Technical Implementation:**\\n- Set up Next.js project structure\\n- Configure TailwindCSS integration\\n- Implement React hooks for state management\\n- Create localStorage utilities for data persistence\\n- Design responsive components for task CRUD operations\\n- Implement filtering and sorting capabilities if needed\\n- Ensure proper error handling and user feedback\&quot;,\&quot;current_list\&quot;:[\&quot;This is an empty project with no existing components\&quot;],\&quot;proposed_list\&quot;:[\&quot;Tech Stack: Next.js, TailwindCSS\&quot;,\&quot;Initialize Next.js project\&quot;,\&quot;Configure TailwindCSS\&quot;,\&quot;Implement task state management using React hooks\&quot;,\&quot;Create models for task properties (title, priority, deadline, tags, description, status)\&quot;,\&quot;Develop localStorage utility functions for task data persistence\&quot;,\&quot;Design and develop responsive UI components for displaying tasks\&quot;,\&quot;Implement forms for adding and editing tasks with all properties\&quot;,\&quot;Implement task creation functionality\&quot;,\&quot;Implement task deletion functionality\&quot;,\&quot;Implement task editing/update functionality\&quot;,\&quot;Add visual indicators for task priority and status\&quot;,\&quot;Implement filtering and sorting for tasks (optional but recommended)\&quot;,\&quot;Add error handling and user feedback mechanisms\&quot;]}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -2195,11 +2337,11 @@ if ( &quot;success&quot;.equals(status)) {
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Project-ID</stringProp>
-                <stringProp name="Header.value">${projectId}</stringProp>
+                <stringProp name="Header.value">${project_id}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Thread-ID</stringProp>
-                <stringProp name="Header.value">${issueThreadId}</stringProp>
+                <stringProp name="Header.value">${thread_id}</stringProp>
               </elementProp>
               <elementProp name="Content-Type" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -2222,7 +2364,7 @@ if ( &quot;success&quot;.equals(status)) {
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;playgroundId&quot;:&quot;${issueThreadPlaygroundId}&quot;,&quot;tillTime&quot;:0,&quot;userInfo&quot;:{&quot;name&quot;:&quot;stress_tester&quot;,&quot;userId&quot;:&quot;stress_tester&quot;,&quot;temporaryUser&quot;:false}}</stringProp>
+                <stringProp name="Argument.value">{&quot;playgroundId&quot;:&quot;${playground_id}&quot;,&quot;tillTime&quot;:0,&quot;userInfo&quot;:{&quot;name&quot;:&quot;stress_tester&quot;,&quot;userId&quot;:&quot;stress_tester&quot;,&quot;temporaryUser&quot;:false}}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -2355,7 +2497,7 @@ try {
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${PAAS_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
-            <stringProp name="path">/socket.io/?playgroundId=${issueThreadPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
+            <stringProp name="path">/socket.io/?playgroundId=${playground_id}&amp;EIO=4&amp;transport=websocket</stringProp>
             <stringProp name="connectTimeout">60000</stringProp>
             <stringProp name="readTimeout">60000</stringProp>
           </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
@@ -2508,13 +2650,81 @@ try {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
+          <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="-&gt; * paas wss restart" enabled="true">
+            <boolProp name="createNewConnection">false</boolProp>
+            <boolProp name="TLS">false</boolProp>
+            <stringProp name="server"></stringProp>
+            <stringProp name="port">80</stringProp>
+            <stringProp name="path"></stringProp>
+            <stringProp name="connectTimeout">20000</stringProp>
+            <stringProp name="payloadType">Text</stringProp>
+            <stringProp name="requestData">42[&quot;restartServer&quot;,{},{&quot;currentDockerId&quot;:&quot;${dockerId}&quot;}]</stringProp>
+            <stringProp name="readTimeout">6000</stringProp>
+            <boolProp name="loadDataFromFile">false</boolProp>
+            <stringProp name="dataFile"></stringProp>
+          </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="-&gt; 验证 dockerId " enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// BeanShell Sampler
+String dockerId = vars.get(&quot;dockerId&quot;);
+bsh.shared.util.info(&quot;dockerId 的值: &quot; + dockerId);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="-&gt; 解析并打印返回值" enabled="false">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">import org.json.*;
+
+String message = prev.getResponseDataAsString();
+
+bsh.shared.util.info(&quot;原始 WSS 消息: &quot; + message);
+
+try {
+    JSONArray jsonArray = new JSONArray(message.substring(2));
+    String eventType = jsonArray.getString(0);
+    JSONObject data = jsonArray.getJSONObject(1);
+
+    bsh.shared.util.info(&quot;事件类型: &quot; + eventType);
+
+    JSONArray names = data.names(); // 获取键名数组
+    for (int i = 0; i &lt; names.length(); i++) {
+        String key = names.getString(i);
+        String value = data.get(key).toString();
+
+        bsh.shared.util.info(key + &quot;: &quot; + value);
+        vars.put(key, value);
+    }
+
+    boolean success = data.getBoolean(&quot;success&quot;);
+    String reason = data.getString(&quot;reason&quot;);
+    bsh.shared.util.info(&quot;success: &quot; + success);
+    bsh.shared.util.info(&quot;reason: &quot; + reason);
+
+    if (data.has(&quot;error&quot;)) {
+        String error = data.getString(&quot;error&quot;);
+        bsh.shared.util.info(&quot;error: &quot; + error);
+        vars.put(&quot;error&quot;, error);
+    }
+
+    vars.put(&quot;eventType&quot;, eventType);
+
+} catch (JSONException e) {
+    bsh.shared.util.error(&quot;JSON 解析错误: &quot; + e.getMessage(), e); // 打印完整的错误信息，包括堆栈跟踪
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
           <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="-&gt; * paas wss 关闭连接" enabled="true">
             <stringProp name="statusCode">1000</stringProp>
             <stringProp name="readTimeout">6000</stringProp>
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 邀请成员 /invite/link/create" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增]  [Backend] 邀请成员 /invite/link/create" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/invite/link/create</stringProp>
@@ -2549,7 +2759,7 @@ try {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [Backend]  获取别名列表 /thread/urlAlias/list" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增] [Backend]  获取别名列表 /thread/urlAlias/list" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/urlAlias/list</stringProp>
@@ -2572,44 +2782,44 @@ try {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="连接 issueThread 制定需求" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="连接 issueThread 制定需求"/>
         <hashTree>
-          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="[AI] 连接 issueThread" enabled="true">
+          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="[AI] 连接 issueThread">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
-            <stringProp name="path">/socket.io/?playgroundId=${issueThreadPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
+            <stringProp name="path">/socket.io/?playgroundId=${playground_id}&amp;EIO=4&amp;transport=websocket</stringProp>
             <stringProp name="connectTimeout">60000</stringProp>
             <stringProp name="readTimeout">60000</stringProp>
           </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
           <hashTree/>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] isRoot" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] isRoot">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
             <stringProp name="path">/socket.io/?playgroundId=${issueThreadPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
             <stringProp name="connectTimeout">60000</stringProp>
             <stringProp name="payloadType">Text</stringProp>
-            <stringProp name="requestData">40{&quot;playgroundId&quot;:&quot;${issueThreadPlaygroundId}&quot;,&quot;isRoot&quot;:false,&quot;projectId&quot;:&quot;${projectId}&quot;,&quot;token&quot;:&quot;${token}&quot;}</stringProp>
+            <stringProp name="requestData">40{&quot;playgroundId&quot;:&quot;${playground_id}&quot;,&quot;isRoot&quot;:false,&quot;projectId&quot;:&quot;${project_id}&quot;,&quot;token&quot;:&quot;${token}&quot;}</stringProp>
             <boolProp name="createNewConnection">false</boolProp>
             <boolProp name="loadDataFromFile">false</boolProp>
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] uMakePlan（implement bubble sort）" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] uMakePlan（implement bubble sort）" enabled="false">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
             <stringProp name="path">/socket.io/?playgroundId=${issueThreadPlaygroundId}&amp;EIO=4&amp;transport=websocket</stringProp>
             <stringProp name="connectTimeout">60000</stringProp>
             <stringProp name="payloadType">Text</stringProp>
-            <stringProp name="requestData">420[&quot;uMakePlan&quot;,&quot;在Go项目中实现冒泡排序算法&quot;,&quot;用户要求实现冒泡排序算法。当前项目是一个Go语言项目，包含基础的main.go文件。需要：\n\n1. 实现冒泡排序函数 bubbleSort\n2. 在main函数中添加测试示例\n3. 展示排序前后的数组状态\n4. 确保代码结构清晰，包含必要的注释\n\n冒泡排序是一种简单的排序算法，通过重复遍历要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。遍历数列的工作是重复地进行直到没有再需要交换。\n\n实现要求：\n- 使用Go语言语法\n- 函数接收int切片作为参数\n- 原地排序（修改原数组）\n- 添加适当的测试用例展示功能&quot;,[&quot;在main.go文件中实现`bubbleSort`函数，使其接收一个int切片并进行冒泡排序。&quot;,&quot;在`main`函数中，创建一个int类型的切片用于测试。&quot;,&quot;在排序前打印测试切片的状态。&quot;,&quot;调用`bubbleSort`函数对测试切片进行排序。&quot;,&quot;在排序后打印测试切片的状态。&quot;,&quot;添加必要的注释解释代码功能。&quot;]]</stringProp>
+            <stringProp name="requestData">421[&quot;message&quot;,{&quot;content&quot;:&quot;Please make a plan for the following task: Develop a feature-rich todolist application\n\nCreate a comprehensive single-page todolist application with the following specifications:\n\n**Tech Stack:**\n- Next.js (React framework)\n- TailwindCSS (for styling)\n\n**Core Features:**\n1. **Task Management Operations:**\n   - Add new tasks\n   - Delete existing tasks\n   - Edit/update tasks\n   - All operations on a single page interface\n\n2. **Task Properties:**\n   - Task title/name\n   - Priority levels (e.g., High, Medium, Low)\n   - Deadline/due date\n   - Tags for categorization\n   - Description field for additional details\n   - Status tracking with three states:\n     - Todo (pending)\n     - In Progress (active)\n     - Completed (finished)\n\n3. **Data Persistence:**\n   - Use browser&apos;s localStorage for data storage\n   - Ensure tasks persist across browser sessions\n   - Handle localStorage operations safely\n\n4. **User Interface Requirements:**\n   - Clean, responsive design using TailwindCSS\n   - Intuitive task management interface\n   - Visual indicators for different priorities and statuses\n   - Easy-to-use forms for adding/editing tasks\n   - Clear task display with all properties visible\n\n**Technical Implementation:**\n- Set up Next.js project structure\n- Configure TailwindCSS integration\n- Implement React hooks for state management\n- Create localStorage utilities for data persistence\n- Design responsive components for task CRUD operations\n- Implement filtering and sorting capabilities if needed\n- Ensure proper error handling and user feedback&quot;,&quot;references&quot;:[]},false,false]</stringProp>
             <boolProp name="createNewConnection">false</boolProp>
             <boolProp name="loadDataFromFile">false</boolProp>
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 1" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 1" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -2618,11 +2828,11 @@ vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));
 log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uMakePlan（implement bubble sort）(500 steps)" enabled="true">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uMakePlan（implement bubble sort）(500 steps)" enabled="false">
             <stringProp name="WhileController.condition">${__javaScript(    parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;planId&quot;) == null ,)}</stringProp>
           </WhileController>
           <hashTree>
-            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="uMakePlanLoopCounter" enabled="true">
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="uMakePlanLoopCounter">
               <stringProp name="CounterConfig.start">1</stringProp>
               <stringProp name="CounterConfig.end">1001</stringProp>
               <stringProp name="CounterConfig.incr">1</stringProp>
@@ -2631,7 +2841,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
               <boolProp name="CounterConfig.per_user">false</boolProp>
             </CounterConfig>
             <hashTree/>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss monitor uMakePlan（implement bubble sort）" enabled="true">
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss monitor uMakePlan（implement bubble sort）">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
               <stringProp name="port">80</stringProp>
@@ -2643,7 +2853,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
               <boolProp name="optional">false</boolProp>
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
             <hashTree>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="extract ping flag" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="extract ping flag">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">is_ping</stringProp>
                 <stringProp name="RegexExtractor.regex">(\d+)</stringProp>
@@ -2653,7 +2863,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="print ping flag" enabled="true">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="print ping flag">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -2690,12 +2900,12 @@ if (isPing == 2) {
 vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
-              <eu.luminis.jmeter.wssampler.PingFrameFilter guiclass="eu.luminis.jmeter.wssampler.PingFrameFilterGui" testclass="eu.luminis.jmeter.wssampler.PingFrameFilter" testname="filter websocket ping frame and auto response" enabled="true">
+              <eu.luminis.jmeter.wssampler.PingFrameFilter guiclass="eu.luminis.jmeter.wssampler.PingFrameFilterGui" testclass="eu.luminis.jmeter.wssampler.PingFrameFilter" testname="filter websocket ping frame and auto response">
                 <boolProp name="replyToPing">true</boolProp>
                 <stringProp name="filterType">FilterPingOnly</stringProp>
               </eu.luminis.jmeter.wssampler.PingFrameFilter>
               <hashTree/>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="anaylize uMakePlan response( taskPlanned)" enabled="true">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="anaylize uMakePlan response( taskPlanned)">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -2760,13 +2970,13 @@ try {
               </BeanShellPostProcessor>
               <hashTree/>
             </hashTree>
-            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="monitor socketio text ping event" enabled="true">
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="monitor socketio text ping event">
               <stringProp name="IfController.condition">${__jexl3(&quot;${is_ping}&quot; == &quot;2&quot;)}</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
             <hashTree>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="print log" enabled="true">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="print log">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -2789,20 +2999,20 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss execute issuePlan_uStartTask" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss execute issuePlan_uStartTask" enabled="false">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
             <stringProp name="path"></stringProp>
             <stringProp name="connectTimeout">20000</stringProp>
             <stringProp name="payloadType">Text</stringProp>
-            <stringProp name="requestData">421[&quot;uStartTask&quot;]</stringProp>
+            <stringProp name="requestData">422[&quot;uStartTask&quot;]</stringProp>
             <boolProp name="createNewConnection">false</boolProp>
             <boolProp name="loadDataFromFile">false</boolProp>
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 2" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 2" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -2811,7 +3021,7 @@ vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));
 log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor issuePlan_uStartTask" enabled="true">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor issuePlan_uStartTask" enabled="false">
             <stringProp name="WhileController.condition">${__javaScript(   parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; (  vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;),)}</stringProp>
           </WhileController>
           <hashTree>
@@ -2979,7 +3189,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发消息追加需求（实现二分排序）" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发消息追加需求（实现二分排序）" enabled="false">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -2992,7 +3202,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 3" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 3" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -3001,7 +3211,7 @@ vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));
 log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息处理情况" enabled="true">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息处理情况" enabled="false">
             <stringProp name="WhileController.condition">${__javaScript(     parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;addTaskStepConfirmation&quot;) == null,)}</stringProp>
           </WhileController>
           <hashTree>
@@ -3166,7 +3376,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss uAddStep" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss uAddStep" enabled="false">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -3179,7 +3389,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 4" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 4" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -3188,7 +3398,7 @@ vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));
 log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uAddStep" enabled="true">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uAddStep" enabled="false">
             <stringProp name="WhileController.condition">${__javaScript(    parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;addTaskStepStatus&quot;) == null,)}</stringProp>
           </WhileController>
           <hashTree>
@@ -3340,7 +3550,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss execute uStartTask" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss execute uStartTask" enabled="false">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -3353,7 +3563,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 5" enabled="true">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 5" enabled="false">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -3362,7 +3572,7 @@ vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));
 log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uStartTask" enabled="true">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss monitor uStartTask" enabled="false">
             <stringProp name="WhileController.condition">${__javaScript(  parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; ( vars.get(&quot;taskStatus&quot;) == null  || vars.get(&quot;taskStatus&quot;) !=&quot;done&quot;),)}</stringProp>
           </WhileController>
           <hashTree>
@@ -3530,41 +3740,33 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发消息追加需求（实现二分查找，更新日志）" enabled="false">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发消息追加需求（实现 todolist 页面）">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
             <stringProp name="path"></stringProp>
             <stringProp name="connectTimeout">20000</stringProp>
             <stringProp name="payloadType">Text</stringProp>
-            <stringProp name="requestData">422[&quot;message&quot;,&quot;实现现二分查找，方法需要抽取到单独的go文件中；另外在readme文件中更新下日志&quot;,false,false]</stringProp>
+            <stringProp name="requestData">421[&quot;message&quot;,{&quot;content&quot;:&quot;Please make a plan for the following task: Develop a feature-rich todolist application\n\nCreate a comprehensive single-page todolist application with the following specifications:\n\n**Tech Stack:**\n- Next.js (React framework)\n- TailwindCSS (for styling)\n\n**Core Features:**\n1. **Task Management Operations:**\n   - Add new tasks\n   - Delete existing tasks\n   - Edit/update tasks\n   - All operations on a single page interface\n\n2. **Task Properties:**\n   - Task title/name\n   - Priority levels (e.g., High, Medium, Low)\n   - Deadline/due date\n   - Tags for categorization\n   - Description field for additional details\n   - Status tracking with three states:\n     - Todo (pending)\n     - In Progress (active)\n     - Completed (finished)\n\n3. **Data Persistence:**\n   - Use browser&apos;s localStorage for data storage\n   - Ensure tasks persist across browser sessions\n   - Handle localStorage operations safely\n\n4. **User Interface Requirements:**\n   - Clean, responsive design using TailwindCSS\n   - Intuitive task management interface\n   - Visual indicators for different priorities and statuses\n   - Easy-to-use forms for adding/editing tasks\n   - Clear task display with all properties visible\n\n**Technical Implementation:**\n- Set up Next.js project structure\n- Configure TailwindCSS integration\n- Implement React hooks for state management\n- Create localStorage utilities for data persistence\n- Design responsive components for task CRUD operations\n- Implement filtering and sorting capabilities if needed\n- Ensure proper error handling and user feedback&quot;,&quot;references&quot;:[]},false,false]</stringProp>
             <boolProp name="createNewConnection">false</boolProp>
             <boolProp name="loadDataFromFile">false</boolProp>
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 6" enabled="false">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="清零 pingCount 6">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
-            <stringProp name="script">vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));
+            <stringProp name="script">pingCount = Integer.parseInt(vars.get(&quot;pingCount&quot;));
+vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));
 log.info(&quot;====================清零 pingCount &quot;);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息处理情况" enabled="false">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息处理情况">
             <stringProp name="WhileController.condition">${__javaScript(     parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;addTaskStepConfirmation&quot;) == null,)}</stringProp>
           </WhileController>
           <hashTree>
-            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
-              <stringProp name="CounterConfig.start">1</stringProp>
-              <stringProp name="CounterConfig.end">1001</stringProp>
-              <stringProp name="CounterConfig.incr">1</stringProp>
-              <stringProp name="CounterConfig.name">requirementMessageLoopCount</stringProp>
-              <stringProp name="CounterConfig.format"></stringProp>
-              <boolProp name="CounterConfig.per_user">false</boolProp>
-            </CounterConfig>
-            <hashTree/>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听新需求消息处理" enabled="true">
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听新需求消息处理">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
               <stringProp name="port">80</stringProp>
@@ -3576,7 +3778,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
               <boolProp name="optional">true</boolProp>
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
             <hashTree>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="extract ping flag" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="extract ping flag">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">is_ping</stringProp>
                 <stringProp name="RegexExtractor.regex">(\d+)</stringProp>
@@ -3586,7 +3788,7 @@ log.info(&quot;====================清零 pingCount &quot;);</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="print ping flag" enabled="true">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="print ping flag">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -3623,12 +3825,12 @@ if (isPing == 2) {
 vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
-              <eu.luminis.jmeter.wssampler.PingFrameFilter guiclass="eu.luminis.jmeter.wssampler.PingFrameFilterGui" testclass="eu.luminis.jmeter.wssampler.PingFrameFilter" testname="filter websocket ping frame and auto response" enabled="true">
+              <eu.luminis.jmeter.wssampler.PingFrameFilter guiclass="eu.luminis.jmeter.wssampler.PingFrameFilterGui" testclass="eu.luminis.jmeter.wssampler.PingFrameFilter" testname="filter websocket ping frame and auto response">
                 <boolProp name="replyToPing">true</boolProp>
                 <stringProp name="filterType">FilterPingOnly</stringProp>
               </eu.luminis.jmeter.wssampler.PingFrameFilter>
               <hashTree/>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="monitor message response (addTaskStepConfirmation)" enabled="true">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="monitor message response (addTaskStepConfirmation)">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -3687,13 +3889,13 @@ try {
               </BeanShellPostProcessor>
               <hashTree/>
             </hashTree>
-            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="monitor socketio text ping event" enabled="true">
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="monitor socketio text ping event">
               <stringProp name="IfController.condition">${__jexl3(&quot;${is_ping}&quot; == &quot;2&quot;)}</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
             <hashTree>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="print log" enabled="true">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="print log">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -3701,7 +3903,7 @@ try {
 bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_ping);</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
-              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="response to socketio text ping" enabled="true">
+              <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="response to socketio text ping">
                 <boolProp name="TLS">false</boolProp>
                 <stringProp name="server"></stringProp>
                 <stringProp name="port">80</stringProp>
@@ -4078,7 +4280,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 查看 commit 文件列表" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 查看 commit 文件列表" enabled="false">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -4091,7 +4293,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听查看 commit 文件列表" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听查看 commit 文件列表" enabled="false">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -4109,7 +4311,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
             <hashTree/>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 获取 commit 信息" enabled="true">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="-&gt; AI wss 获取 commit 信息" enabled="false">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -4122,7 +4324,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听获取 commit 信息" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; AI wss 监听获取 commit 信息" enabled="false">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -4140,13 +4342,13 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
             </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
             <hashTree/>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="WebSocket Close" enabled="true">
+          <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="WebSocket Close">
             <stringProp name="statusCode">1000</stringProp>
             <stringProp name="readTimeout">6000</stringProp>
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; backend git status" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; backend git status" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/git-status</stringProp>
@@ -4177,7 +4379,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[变更] [Backend] commit /thread/add-commit/async" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[变更] [Backend] commit /thread/add-commit/async" enabled="false">
           <stringProp name="TestPlan.comments">要求容器激活，包括add</stringProp>
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -4220,7 +4422,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; backend git check commit" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; backend git check commit" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/git-check?cmd_id=${commit_cmd_id}</stringProp>
@@ -4291,7 +4493,7 @@ if(&quot;Succeed&quot;.equals(checkCommitMsg)){
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] /thread/push/async" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] /thread/push/async" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/push/async</stringProp>
@@ -4348,7 +4550,7 @@ vars.put(&quot;push_cmd_id&quot;, push_cmd_id);</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Backend] push /thread/git-check [复用接口]" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Backend] push /thread/git-check [复用接口]" enabled="false">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/git-check?cmd_id=${push_cmd_id}</stringProp>
@@ -6385,7 +6587,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
