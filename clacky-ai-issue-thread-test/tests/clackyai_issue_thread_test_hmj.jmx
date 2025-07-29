@@ -11,7 +11,7 @@
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ClackyAi-Issue-Thread-Test-hmj">
-        <stringProp name="ThreadGroup.num_threads">${__P(threads, 1)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads, 10)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${__P(rampup, 0)}</stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -111,7 +111,7 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="* HTTP Header Manager">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="* HTTP Header Manager" enabled="true">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="userId" elementType="Header">
               <stringProp name="Header.name">userId</stringProp>
@@ -140,7 +140,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function">
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function" enabled="true">
           <boolProp name="resetInterpreter">false</boolProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -673,7 +673,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[New]  [Backend] caculate credit /credit/calculate">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[New]  [Backend] caculate credit /credit/calculate" enabled="true">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/credit/calculate</stringProp>
@@ -708,12 +708,12 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers"/>
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] create issue thread /thread/create-another">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] create issue thread /thread/create-another" enabled="true">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/create-another</stringProp>
@@ -751,7 +751,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -760,7 +760,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="anaylize issueThreadId and branch">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="anaylize issueThreadId and branch" enabled="true">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -797,7 +797,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] fetch /thread/fetch [ need close rootThread]">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" [Backend] fetch /thread/fetch [ need close rootThread]" enabled="true">
           <stringProp name="TestPlan.comments">要求容器激活</stringProp>
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -811,7 +811,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Thread-ID</stringProp>
@@ -821,7 +821,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增][Backend] Enter /thread/enter">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[新增][Backend] Enter /thread/enter" enabled="true">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/enter</stringProp>
@@ -902,7 +902,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">content-type</stringProp>
@@ -911,7 +911,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="[paas template] anaylize  issueThreadId issueThread codezoneId">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="[paas template] anaylize  issueThreadId issueThread codezoneId" enabled="true">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -968,7 +968,7 @@ if ( &quot;success&quot;.equals(status)) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Project-ID</stringProp>
@@ -2050,7 +2050,7 @@ log.info(&quot; 注入变量: issueThreadCodezoneId: &quot; + issueThreadCodezon
           </BeanShellPreProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas checkout branch">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas checkout branch" enabled="true">
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/sdk/codeZones/${issueThreadCodezoneId}/git/createAndCheckBranch</stringProp>
@@ -2174,7 +2174,7 @@ if ( &quot;success&quot;.equals(status)) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update issueThread playground">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * backend update issueThread playground" enabled="true">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread</stringProp>
@@ -2365,7 +2365,7 @@ try {
             <stringProp name="readTimeout">60000</stringProp>
           </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
           <hashTree/>
-          <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="-&gt; * paas wss auth">
+          <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="-&gt; * paas wss auth" enabled="true">
             <boolProp name="createNewConnection">false</boolProp>
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${PAAS_DOMAIN}</stringProp>
@@ -2379,12 +2379,12 @@ try {
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
           <hashTree/>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; 循环读取数据，获取 syncPlayground">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="-&gt; 循环读取数据，获取 syncPlayground" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">5</stringProp>
           </LoopController>
           <hashTree>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; wss read msg">
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; wss read msg" enabled="true">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
               <stringProp name="port">80</stringProp>
@@ -2445,7 +2445,7 @@ try {
             </IfController>
             <hashTree/>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="-&gt; * paas wss active">
+          <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="-&gt; * paas wss active" enabled="true">
             <boolProp name="createNewConnection">false</boolProp>
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
@@ -2459,7 +2459,7 @@ try {
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
           <hashTree>
-            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="-&gt; 验证 dockerId ">
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="-&gt; 验证 dockerId " enabled="true">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -2468,7 +2468,7 @@ String dockerId = vars.get(&quot;dockerId&quot;);
 bsh.shared.util.info(&quot;dockerId 的值: &quot; + dockerId);</stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="-&gt; 解析并打印返回值">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="-&gt; 解析并打印返回值" enabled="true">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -2513,7 +2513,7 @@ try {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="-&gt; * paas wss restart">
+          <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="-&gt; * paas wss restart" enabled="true">
             <boolProp name="createNewConnection">false</boolProp>
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
@@ -2527,7 +2527,7 @@ try {
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
           <hashTree>
-            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="-&gt; 验证 dockerId ">
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="-&gt; 验证 dockerId " enabled="true">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -2581,7 +2581,7 @@ try {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="-&gt; * paas wss 关闭连接">
+          <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="-&gt; * paas wss 关闭连接" enabled="true">
             <stringProp name="statusCode">1000</stringProp>
             <stringProp name="readTimeout">6000</stringProp>
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
@@ -4293,7 +4293,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; backend git check commit">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; backend git check commit" enabled="true">
           <stringProp name="HTTPSampler.domain">${BACKEND_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/thread/git-check?cmd_id=${commit_cmd_id}</stringProp>
@@ -6421,7 +6421,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
         </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
         <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
