@@ -18,13 +18,19 @@ cd /home/ubuntu/clacky-ai-tests && ./run.sh clacky-ai-system-test clackyai_syste
 
 ## issueThread test
 
-cd /home/ubuntu/clacky-ai-tests && ./run.sh ./run.sh clacky-ai-issue-thread-test  clackyai_issue_thread_test 50 50
+cd /home/ubuntu/clacky-ai-tests && ./run.sh  clacky-ai-issue-thread-test  clackyai_issue_thread_test 50 50
+
+
+
+## zero to one Thread test
+
+cd /home/ubuntu/clacky-ai-tests && ./run.sh  clacky-ai-zerotoone-test  clackyai_zerotoone_test 10 30
 
 ## 复制报告到 nginx 服务器
+
 cp -RP /home/ubuntu/clacky-ai-tests/clacky-ai-single-test/reports/clacky-ai-single-test_20250523_072118_20 /var/www/html/reports/
 
 ## 复制日志到 nginx 服务器
 
 cp -RP /home/ubuntu/clacky-ai-tests/jmeter /var/www/html/logs/jmeter-clacky-ai-single-test_20250523_072118_20.log
-
 
