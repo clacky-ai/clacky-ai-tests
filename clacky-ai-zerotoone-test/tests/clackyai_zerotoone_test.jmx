@@ -11,7 +11,7 @@
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ClackyAi-Zerotoone-Test">
-        <stringProp name="ThreadGroup.num_threads">${__P(threads, 1)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads, 100)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${__P(rampup, 30)}</stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -150,8 +150,8 @@ Object traceInfo(customMessage,type) {
     
     // 获取任务名称和相关上下文变量
     String taskName = vars.get(&quot;taskName&quot;) != null ? vars.get(&quot;taskName&quot;) : &quot;UNKNOWN_TASK&quot;;
-    String playgroundId = vars.get(&quot;issueThreadPlaygroundId&quot;) != null ? vars.get(&quot;issueThreadPlaygroundId&quot;) : &quot;N/A&quot;;
-    String issueThreadCodezoneId = vars.get(&quot;issueThreadCodezoneId&quot;) != null ? vars.get(&quot;issueThreadCodezoneId&quot;) : &quot;N/A&quot;;
+    String playgroundId = vars.get(&quot;playground_id&quot;) != null ? vars.get(&quot;playground_id&quot;) : &quot;N/A&quot;;
+    String codezoneId = vars.get(&quot;codezone_id&quot;) != null ? vars.get(&quot;codezone_id&quot;) : &quot;N/A&quot;;
     
     // 获取采样器信息
     String sampler = &quot;N/A&quot;;
@@ -171,7 +171,7 @@ Object traceInfo(customMessage,type) {
     
     // 构建完整的日志消息
     String logMessage = &quot;TraceLog &quot;+ type +&quot; Task: &quot; + threadName + &quot; | Sampler: &quot; + sampler + 
-                       &quot; | issueThreadCodezoneId: &quot; + issueThreadCodezoneId + &quot;,PlaygroundId: &quot; + playgroundId ;
+                       &quot; | CodezoneId: &quot; + codezoneId + &quot;,PlaygroundId: &quot; + playgroundId ;
     
     // 如果有自定义消息，添加到日志中
     if (customMessage != null &amp;&amp; !customMessage.trim().isEmpty()) {
@@ -194,8 +194,8 @@ Object traceInfo(customMessage,type, Throwable e) {
     
     // 获取任务名称和相关上下文变量
     String taskName = vars.get(&quot;taskName&quot;) != null ? vars.get(&quot;taskName&quot;) : &quot;UNKNOWN_TASK&quot;;
-    String playgroundId = vars.get(&quot;issueThreadPlaygroundId&quot;) != null ? vars.get(&quot;issueThreadPlaygroundId&quot;) : &quot;N/A&quot;;
-    String issueThreadCodezoneId = vars.get(&quot;issueThreadCodezoneId&quot;) != null ? vars.get(&quot;issueThreadCodezoneId&quot;) : &quot;N/A&quot;;
+    String playgroundId = vars.get(&quot;playground_id&quot;) != null ? vars.get(&quot;playground_id&quot;) : &quot;N/A&quot;;
+    String codezoneId = vars.get(&quot;codezoneId&quot;) != null ? vars.get(&quot;codezoneId&quot;) : &quot;N/A&quot;;
     
     // 获取采样器信息
     String sampler = &quot;N/A&quot;;
@@ -215,7 +215,7 @@ Object traceInfo(customMessage,type, Throwable e) {
     
     // 构建完整的日志消息
     String logMessage = &quot;TraceLog &quot;+ type +&quot; Task: &quot; + threadName + &quot; | Sampler: &quot; + sampler + 
-                       &quot; | issueThreadCodezoneId: &quot; + issueThreadCodezoneId + &quot;,PlaygroundId: &quot; + playgroundId ;
+                       &quot; | CodezoneId: &quot; + codezoneId + &quot;,PlaygroundId: &quot; + playgroundId ;
     
     // 如果有自定义消息，添加到日志中
     if (customMessage != null &amp;&amp; !customMessage.trim().isEmpty()) {
@@ -272,7 +272,7 @@ bsh.shared.logInfo(&quot;数据解析成功，提取到关键字段: someValue&q
 bsh.shared.logInfo(&quot;处理失败，错误原因: 响应状态不正确&quot;);
 
 // 记录调试信息
-bsh.shared.logInfo(&quot;当前变量状态 - playgroundId: &quot; + vars.get(&quot;playgroundId&quot;) + &quot;, codezoneId: &quot; + vars.get(&quot;issueThreadCodezoneId&quot;));
+bsh.shared.logInfo(&quot;当前变量状态 - playgroundId: &quot; + vars.get(&quot;playgroundId&quot;) + &quot;, codezoneId: &quot; + vars.get(&quot;codezone_id&quot;));
 
 // 记录业务流程节点
 bsh.shared.logInfo(&quot;进入业务流程: 创建playground&quot;);
@@ -341,7 +341,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
     vars.put(&quot;codezone_id&quot;, codezone_id);
     vars.put(&quot;playground_id&quot;, playground_id);
 } else {
-    bsh.shared.util.error(&quot;响应未成功，无法提取 codezone_id&quot;);
+    bsh.shared.util.error(&quot;响应未成功，无法提取 codezone_id ,终止线程&quot;);
     prev.setStopTest(true);
 }</stringProp>
           </BeanShellPostProcessor>
@@ -419,12 +419,12 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
     String project_id = data.getString(&quot;project_id&quot;);
     String thread_id = data.getString(&quot;thread_id&quot;);
     
-    bsh.shared.util.info(&quot;解析到的 codezone_id: &quot; + codezone_id);
+    bsh.shared.util.info(&quot;解析到的 project_id: &quot; + project_id);
     // 将 id 存入 JMeter 变量中
     vars.put(&quot;project_id&quot;, project_id);
     vars.put(&quot;thread_id&quot;, thread_id);
 } else {
-    bsh.shared.util.error(&quot;响应未成功，无法提取 project_id&quot;);
+    bsh.shared.util.error(&quot;响应未成功，无法提取 project_id ,终止线程&quot;);
     prev.setStopTest(true);
 }</stringProp>
           </BeanShellPostProcessor>
@@ -560,8 +560,9 @@ try {
 
     bsh.shared.util.info(&quot;path :&quot;+ pathWithQuery);
 } catch (Exception e) {
+   
+    bsh.shared.util.error(&quot;Error processing response: &quot; + e.getMessage() +&quot;，终止线程&quot;);
     prev.setStopTest(true);
-    bsh.shared.util.error(&quot;Error processing response: &quot; + e.getMessage());
     SampleResult.setSuccessful(false);
     SampleResult.setResponseMessage(&quot;Script error: &quot; + e.toString());
 
@@ -640,7 +641,7 @@ try {
             <stringProp name="LoopController.loops">5</stringProp>
           </LoopController>
           <hashTree>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; wss read msg">
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; wss read msg" enabled="true">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
               <stringProp name="port">80</stringProp>
@@ -659,7 +660,7 @@ try {
                 <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND</stringProp>
               </JSONPostProcessor>
               <hashTree/>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -883,7 +884,7 @@ try {
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息处理情况" enabled="true">
-            <stringProp name="WhileController.condition">${__javaScript( parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) ,)}</stringProp>
+            <stringProp name="WhileController.condition">${__javaScript( parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;toolCallEnd&quot;) == null ,)}</stringProp>
           </WhileController>
           <hashTree>
             <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听新需求消息处理" enabled="true">
@@ -955,21 +956,19 @@ vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));</stringProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="script">import org.json.JSONArray;
+import org.json.JSONObject;
 
 try {
-    // 获取原始响应字符串
     String responseData = prev.getResponseDataAsString();
 
-    // 检查响应是否为空或无效
     if (responseData == null || responseData.isEmpty()) {
-        pingCount = Integer.parseInt(vars.get(&quot;pingCount&quot;));
-        pingCount = Integer.parseInt(vars.get(&quot;pingCountMax&quot;)); //如果响应为空则说明断连，直接结束当前线程
+        int pingCount = Integer.parseInt(vars.get(&quot;pingCount&quot;));
+        pingCount = Integer.parseInt(vars.get(&quot;pingCountMax&quot;)); //响应为空 -&gt; 断连
         vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));
-        log.warn(&quot;⚠️ 响应数据为空，跳过处理, pingCount++ 为:&quot;+ pingCount);
+        log.warn(&quot;⚠️ 响应数据为空，跳过处理, pingCount++ 为:&quot; + pingCount);
     } else {
         bsh.shared.util.info(&quot;原始响应: &quot; + responseData);
 
-        // 提取状态码部分（假设格式为 &quot;42[\&quot;taskStateUpdated\&quot;,\&quot;done\&quot;]&quot;）
         int bracketIndex = responseData.indexOf(&quot;[&quot;);
         if (bracketIndex == -1) {
             bsh.shared.util.error(&quot;❌ 未找到 JSON 数组起始符号 [&quot;);
@@ -979,25 +978,35 @@ try {
         String statusCode = responseData.substring(0, bracketIndex);
         String jsonArrayStr = responseData.substring(bracketIndex);
 
-        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);  // 打印调试
+        bsh.shared.util.info(&quot;状态码: &quot; + statusCode);
 
-        // 仅当状态码为42时处理
         if (&quot;42&quot;.equals(statusCode)) {
             try {
-                // 解析JSON数组
                 JSONArray jsonArray = new JSONArray(jsonArrayStr);
 
-                // 检查第一个元素是否是 &quot;taskStateUpdated&quot;
-                if (jsonArray.length() &gt; 0 &amp;&amp; &quot;addTaskStepConfirmation&quot;.equals(jsonArray.getString(0))) {
-                    bsh.shared.util.info(&quot;✅ 检测到 addTaskStepConfirmation 消息&quot;);
+                // 检查第一个元素是否是 &quot;newMessage&quot;
+                if (jsonArray.length() &gt; 0 &amp;&amp; &quot;newMessage&quot;.equals(jsonArray.getString(0))) {
+                    JSONObject messageObj = jsonArray.getJSONObject(1); // 第二个元素是对象
 
-                  
-                   // 设置变量供后续使用
-                   vars.put(&quot;addTaskStepConfirmation&quot;, &quot;true&quot;);
-                   bsh.shared.util.info(&quot;✅✅ ✅ ✅ ✅  检测到 addTaskStepConfirmation 消息&quot;);
-                    
+                    if (messageObj.has(&quot;content&quot;)) {
+                        JSONObject content = messageObj.getJSONObject(&quot;content&quot;);
+
+                        if (&quot;toolCallStatusUpdated&quot;.equals(content.optString(&quot;event&quot;))) {
+                            JSONObject data = content.optJSONObject(&quot;data&quot;);
+                            if (data != null) {
+                                String status = data.optString(&quot;status&quot;, &quot;&quot;);
+                                bsh.shared.util.info(&quot;🔍 检测到 status = &quot; + status);
+
+                                // 如果 status 为 end，设置 JMeter 变量
+                                if (&quot;end&quot;.equalsIgnoreCase(status)) {
+                                    vars.put(&quot;toolCallEnd&quot;, &quot;true&quot;);
+                                    bsh.shared.util.info(&quot;✅ 检测到 toolCallStatusUpdated 且 status=end&quot;);
+                                }
+                            }
+                        }
+                    }
                 } else {
-                    log.warn(&quot;⏩ 消息类型不是 addTaskStepConfirmation&quot;);
+                    log.warn(&quot;⏩ 消息类型不是 newMessage&quot;);
                 }
             } catch (Exception e) {
                 bsh.shared.util.error(&quot;❌ JSON解析失败&quot;, e);
