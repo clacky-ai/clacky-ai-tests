@@ -6,13 +6,11 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <boolProp name="TestPlan.functional_mode">false</boolProp>
-      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ClackyAi-Zerotoone-Test">
-        <stringProp name="ThreadGroup.num_threads">${__P(threads, 200)}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${__P(rampup, 30)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads, 2)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(rampup, 5)}</stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -43,11 +41,6 @@
               <stringProp name="Argument.value">http://localhost:3010</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
-            <elementProp name="repositoryId" elementType="Argument">
-              <stringProp name="Argument.name">repositoryId</stringProp>
-              <stringProp name="Argument.value">0196766e-dd28-78be-92d2-b6cf15c12666</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
             <elementProp name="workspaceId" elementType="Argument">
               <stringProp name="Argument.name">workspaceId</stringProp>
               <stringProp name="Argument.value">0191d9fc-ea96-77e8-8f64-fc4dbca52de4</stringProp>
@@ -56,36 +49,6 @@
             <elementProp name="WSS_AGENT_DOMAIN" elementType="Argument">
               <stringProp name="Argument.name">WSS_AGENT_DOMAIN</stringProp>
               <stringProp name="Argument.value">feat-llm-mock-staging.agent.clackyai.com</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="myProjectId" elementType="Argument">
-              <stringProp name="Argument.name">myProjectId</stringProp>
-              <stringProp name="Argument.value">0196c34f-a95d-7e6a-9d29-54345bea029e</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="myThreadId" elementType="Argument">
-              <stringProp name="Argument.name">myThreadId</stringProp>
-              <stringProp name="Argument.value">0196c34f-c1ce-7421-9fb4-7c64d5c77c81</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="threadId" elementType="Argument">
-              <stringProp name="Argument.name">threadId</stringProp>
-              <stringProp name="Argument.value">01981764-dbd1-751a-aa67-88af10549fd3</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="projectId" elementType="Argument">
-              <stringProp name="Argument.name">projectId</stringProp>
-              <stringProp name="Argument.value">01981764-ca1b-7363-b622-c33503df870f</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="testIssuePlaygroundId" elementType="Argument">
-              <stringProp name="Argument.name">testIssuePlaygroundId</stringProp>
-              <stringProp name="Argument.value">796579553765138432</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="testRootPlaygroundId" elementType="Argument">
-              <stringProp name="Argument.name">testRootPlaygroundId</stringProp>
-              <stringProp name="Argument.value">796579553765138432</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="pingCount" elementType="Argument">
@@ -100,13 +63,13 @@
             </elementProp>
             <elementProp name="token" elementType="Argument">
               <stringProp name="Argument.name">token</stringProp>
-              <stringProp name="Argument.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkUVNLZ2s2WVl2N1lmVXZQSUhERDN5WGxISnVJbUs5ayIsImV4cCI6MTc1NTA4NTkwNSwibmJmIjoxNzU0OTk5NTA1LCJpYXQiOjE3NTQ5OTk1MDUsInN1YiI6IjAxOTFkOWZjLWVhOGUtNzdlOC1iMGI4LTA1YzAyZTE4ZjdiZiJ9.LEQG98JIy-KyDeabsm82AIHoHeDJSl8HgAz_Z6oUeAk</stringProp>
+              <stringProp name="Argument.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkUVNLZ2s2WVl2N1lmVXZQSUhERDN5WGxISnVJbUs5ayIsImV4cCI6MTc1NjUyNTUxNSwibmJmIjoxNzU2NDM5MTE1LCJpYXQiOjE3NTY0MzkxMTUsInN1YiI6IjAxOTFkOWZjLWVhOGUtNzdlOC1iMGI4LTA1YzAyZTE4ZjdiZiJ9.mlgY255dQDs2CDwkeTs83naHACsdgA2hh0Rrq97kzNQ</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="* HTTP Header Manager" enabled="true">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="* HTTP Header Manager">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="userId" elementType="Header">
               <stringProp name="Header.name">userId</stringProp>
@@ -114,7 +77,7 @@
             </elementProp>
             <elementProp name="Authorization" elementType="Header">
               <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value"> Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDIyMkFBQSIsImtpZCI6Imluc18yamxoeHcyakdYZGFzYnpYRzVXN3pid2tVSmoiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3N0YWdpbmcuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc1NTg2MzQxOCwiaWF0IjoxNzU0OTk5NDE4LCJpc3MiOiJodHRwczovL2NsZXJrLmNsYWNreWFpLmNvbSIsImp0aSI6IjE2NTdlMGFjNmNiODkzNzdmZmM5IiwibmJmIjoxNzU0OTk5NDEzLCJzdWIiOiJ1c2VyXzJsclhMZ3czVDFCS2FwOWdrWW9oRXNGbTZZeiJ9.Kq5ooDQaOK-pjMvQsc7krJQRSp_DVB2wmWVypUCDcFQERV6PcxCUq8fK2HOnQyH7JAl5CvxiqGDS4St1LUD2J2EYVhyl1HvC1_UcaOppca0wy8XbCIFB4B8AFP4ABq1TzeCQ24Hd4vILhf6sWMxB5O2J33E4ARLshSYyonW64hTnOh1rFT7zIvt2rdFRxYgeSZHNCItPFd_Yx0wPJAZHoBtRZr6fWeQtnR95gJoNHAhrVLBvcc5f1jf9RTRO9dIe55oy7ry3lutFAO8Fy7LDn2xbOdKX3vS0OXsH4M2pz3rspe4E1VaKK3OwArRasG7EiUFOut_AhJHP1zMOyE3K2w</stringProp>
+              <stringProp name="Header.value"> Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDIyMkFBQSIsImtpZCI6Imluc18yamxoeHcyakdYZGFzYnpYRzVXN3pid2tVSmoiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3N0YWdpbmcuYXBwLmNsYWNreWFpLmNvbSIsImV4cCI6MTc1NzMwMzExMCwiaWF0IjoxNzU2NDM5MTEwLCJpc3MiOiJodHRwczovL2NsZXJrLmNsYWNreWFpLmNvbSIsImp0aSI6IjBhMzEzZWFjYmQ2NTU0N2NiZjEzIiwibmJmIjoxNzU2NDM5MTA1LCJzdWIiOiJ1c2VyXzJsclhMZ3czVDFCS2FwOWdrWW9oRXNGbTZZeiJ9.Z5BZL5gM7xwzxwf_LQF55tVOqdIYMiGy3jnUm3FFH0XDXtlq1JRJgClFW7URbJKW8B1Wh38H4AyBGZoC9cg5HrGwq7g1lMaxS_8YCtX8sCwjMNEdHKlUEx2h3qxgKCTabFvsLEdX17wTyeWO6YWIWSNQpFrqus00CqjL7KXU9Up8xPo9dbkW2ctTNGBfbiNltckR7wtIxe9mhUGjvT1J3HMu7qJMYHsXuDkVNy5Q6cwJvYWYjmVaBfCu-09StVac5HPvuvqVx5oPFeqg6izTlKcmsVcHhNvHm7xwlKZ050SvbAfyGbixFI0SbDaNH2uOuhR4gI9DdGPmSpCnbjzK2A</stringProp>
             </elementProp>
             <elementProp name="Workspace-Id" elementType="Header">
               <stringProp name="Header.name">Workspace-Id</stringProp>
@@ -135,7 +98,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function" enabled="true">
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="* 日志函数定义 - LogInfo Function">
           <boolProp name="resetInterpreter">false</boolProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -296,12 +259,12 @@ bsh.shared.logInfo(&quot;完成业务流程: 创建playground&quot;);
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -385,7 +348,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -394,7 +357,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -472,7 +435,7 @@ if (code == 200 &amp;&amp; &quot;Succeed&quot;.equals(msg)) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 获取ticket" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * paas 获取ticket">
           <stringProp name="TestPlan.comments">${ticket_1}</stringProp>
           <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -846,7 +809,7 @@ try {
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="连接 issueThread 制定需求" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="连接 issueThread 制定需求"/>
         <hashTree>
           <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="[AI] 连接 issueThread" enabled="true">
             <boolProp name="TLS">true</boolProp>
@@ -872,7 +835,7 @@ try {
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发消息追加需求（实现 todolist 页面）">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发消息追加需求（实现 todolist 页面）" enabled="true">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -885,11 +848,11 @@ try {
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息处理情况">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息处理情况" enabled="true">
             <stringProp name="WhileController.condition">${__javaScript( parseInt(vars.get(&quot;pingCount&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;toolCallEnd&quot;) == null ,)}</stringProp>
           </WhileController>
           <hashTree>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听新需求消息处理">
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听新需求消息处理" enabled="true">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
               <stringProp name="port">80</stringProp>
@@ -953,7 +916,7 @@ vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));</stringProp>
                 <stringProp name="filterType">FilterPingOnly</stringProp>
               </eu.luminis.jmeter.wssampler.PingFrameFilter>
               <hashTree/>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="monitor message response (addTaskStepConfirmation)">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="monitor message response (addTaskStepConfirmation)" enabled="true">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -1133,7 +1096,7 @@ bsh.shared.util.info(&quot;if controller 解析到 is_ping 的值: &quot; + is_p
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="true">
+      <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
