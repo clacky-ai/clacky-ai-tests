@@ -34,3 +34,40 @@ cp -RP /home/ubuntu/clacky-ai-tests/clacky-ai-single-test/reports/clacky-ai-sing
 
 cp -RP /home/ubuntu/clacky-ai-tests/jmeter /var/www/html/logs/jmeter-clacky-ai-single-test_20250523_072118_20.log
 
+## nginx配置文件
+```
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        # Add index.php to the list if you are using PHP
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        # 全局 MIME 设置
+            include /etc/nginx/mime.types;
+                default_type text/html;  # 默认设为 HTML（优先级低于 mime.types）
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                autoindex on;               # 启用目录列表
+                autoindex_exact_size off;   # 人性化显示文件大小
+                autoindex_localtime on;     # 显示本地时间
+                try_files $uri $uri/ =404;
+        }
+
+
+        location ~* \.log$ {
+                    add_header Content-Type "text/plain; charset=utf-8";
+                        # 可选：禁用缓存（方便实时查看日志）
+                        add_header Cache-Control "no-store";
+        }
+        # 手动添加 .log 文件的 MIME 类型
+            types {
+                 text/plain log;
+            }
+}
+```
