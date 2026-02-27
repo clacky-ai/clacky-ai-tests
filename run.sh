@@ -17,11 +17,15 @@ RESULT_FILE="${PROJECT_NAME}/results/${TEST_NAME}_report_${TIMESTAMP}_${THREADS}
 REPORT_DIR="${PROJECT_NAME}/reports/${TEST_NAME}_report_${TIMESTAMP}_${THREADS}"
 TAR_FILE="${PROJECT_NAME}/reports/${TEST_NAME}_report_${TIMESTAMP}_${THREADS}.tar"
 
+# 确保 results 和 reports 目录存在
+mkdir -p "${PROJECT_NAME}/results"
+mkdir -p "${PROJECT_NAME}/reports"
+
 # 记录开始时间
 START_TIME=$(date +%s)
 echo "Test started at: $(date +"%Y-%m-%d %H:%M:%S")"
 # 运行 JMeter 测试
-JVM_ARGS="-Xms12g -Xmx16g"  jmeter -n -t "${TEST_FILE}" \
+JVM_ARGS="-Xms12g -Xmx16g"  ./apache-jmeter-5.6.3/bin/jmeter -n -t "${TEST_FILE}" \
        -l "${RESULT_FILE}" \
        -e -o "${REPORT_DIR}" \
        -Jthreads=${THREADS} \
