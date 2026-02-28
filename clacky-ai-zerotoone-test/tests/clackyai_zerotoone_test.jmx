@@ -21,7 +21,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="* User Defined Variables">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="* User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments">
             <elementProp name="PAAS_DOMAIN" elementType="Argument">
               <stringProp name="Argument.name">PAAS_DOMAIN</stringProp>
@@ -65,7 +65,7 @@
             </elementProp>
             <elementProp name="token" elementType="Argument">
               <stringProp name="Argument.name">token</stringProp>
-              <stringProp name="Argument.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkUVNLZ2s2WVl2N1lmVXZQSUhERDN5WGxISnVJbUs5ayIsImV4cCI6MTc3MjI2Njk5NywibmJmIjoxNzcyMTgwNTk3LCJpYXQiOjE3NzIxODA1OTcsInN1YiI6IjAxOWI1NGM5LWFlZTktN2U4NC05NzM0LThiZjU5ODNmMjllYiJ9.JqMNtU5BRHa-HYFf-a20pQMNOAidO8cobQyo-HcqOws</stringProp>
+              <stringProp name="Argument.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkUVNLZ2s2WVl2N1lmVXZQSUhERDN5WGxISnVJbUs5ayIsImV4cCI6MTc3MjM2NTA4OCwibmJmIjoxNzcyMjc4Njg4LCJpYXQiOjE3NzIyNzg2ODgsInN1YiI6IjAxOWI1NGM5LWFlZTktN2U4NC05NzM0LThiZjU5ODNmMjllYiJ9.Yh4iTGqyNNHL7E9FwA_7BryTdLloREvT4ZhfLg9qLdg</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="pingCountInit" elementType="Argument">
@@ -758,7 +758,7 @@ try {
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="-&gt; * ai正式干活-连接 root thread 正式开发（wss）"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="-&gt; * ai正式干活-连接 root thread 正式开发（wss）" enabled="true"/>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
@@ -801,7 +801,7 @@ try {
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="[AI] 连接 rootThread，wss链接初始化">
+          <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="[AI] 连接 rootThread，wss链接初始化" enabled="true">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
@@ -810,7 +810,7 @@ try {
             <stringProp name="readTimeout">60000</stringProp>
           </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
           <hashTree/>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] wss认证">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] wss认证" enabled="true">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
@@ -1039,7 +1039,7 @@ bsh.shared.util.info(&quot;(Ai Agent) if controller 解析到 is_ping 的值: &q
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发起获取sessionid命令">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发起获取sessionid命令" enabled="true">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
@@ -1052,7 +1052,7 @@ bsh.shared.util.info(&quot;(Ai Agent) if controller 解析到 is_ping 的值: &q
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI 获取sessionid">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI 获取sessionid" enabled="true">
             <stringProp name="WhileController.condition">${__javaScript( parseInt(vars.get(&quot;pingCountSessionId&quot;)) &lt; parseInt(vars.get(&quot;pingCountMax&quot;)) &amp;&amp; vars.get(&quot;toolCallEndSessionId&quot;) == null ,)}</stringProp>
           </WhileController>
           <hashTree>
@@ -1263,7 +1263,7 @@ bsh.shared.util.info(&quot;(Ai Agent) if controller 解析到 is_ping 的值: &q
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 切换模型到lite">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 切换模型到lite" enabled="true">
             <boolProp name="TLS">true</boolProp>
             <stringProp name="server">${WSS_AGENT_DOMAIN}</stringProp>
             <stringProp name="port">443</stringProp>
@@ -1492,7 +1492,7 @@ bsh.shared.util.info(&quot;(Ai Agent) if controller 解析到 is_ping 的值: &q
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发起开始干活">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发起开始干活" enabled="true">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -1505,11 +1505,11 @@ bsh.shared.util.info(&quot;(Ai Agent) if controller 解析到 is_ping 的值: &q
             <stringProp name="dataFile"></stringProp>
           </eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler>
           <hashTree/>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息是否完成">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="-&gt; AI wss 监听新需求消息是否完成" enabled="true">
             <stringProp name="WhileController.condition">${__javaScript( parseInt(vars.get(&quot;newMessageCount&quot;)) &lt; parseInt(vars.get(&quot;newMessageCountMax&quot;)),)}</stringProp>
           </WhileController>
           <hashTree>
-            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听新需求消息处理">
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="-&gt; AI wss 监听新需求消息处理" enabled="true">
               <boolProp name="TLS">false</boolProp>
               <stringProp name="server"></stringProp>
               <stringProp name="port">80</stringProp>
@@ -1571,7 +1571,7 @@ vars.put(&quot;pingCount&quot;, String.valueOf(pingCount));</stringProp>
                 <stringProp name="filterType">FilterPingOnly</stringProp>
               </eu.luminis.jmeter.wssampler.PingFrameFilter>
               <hashTree/>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="monitor message response (获取updateAgentState的完成状态)">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="monitor message response (获取updateAgentState的完成状态)" enabled="true">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -1713,7 +1713,7 @@ try {
               <hashTree/>
             </hashTree>
           </hashTree>
-          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发起停止任务命令">
+          <eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleWriteWebSocketSampler" testname="[AI] 发起停止任务命令" enabled="true">
             <boolProp name="TLS">false</boolProp>
             <stringProp name="server"></stringProp>
             <stringProp name="port">80</stringProp>
@@ -1732,6 +1732,25 @@ try {
           </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
           <hashTree/>
         </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-&gt; * 关闭容器">
+          <stringProp name="HTTPSampler.domain">${PAAS_DOMAIN}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/sdk/playgrounds/${new_playground_id}/removeDocker</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
